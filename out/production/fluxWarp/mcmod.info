@@ -1,0 +1,18 @@
+[
+{
+  "modid": "fluxwarp",
+  "name": "Flux Warp",
+  "description": "SPAAAAAACE!!!",
+  "version": "0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["empiricist"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "parent": "",
+  "dependencies": ["ComputerCraft"],
+  "useDependencyInformation": "true"
+}
+]

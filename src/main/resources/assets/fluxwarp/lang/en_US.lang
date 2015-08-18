@@ -1,0 +1,20 @@
+#Comment format, make sure no spaces by the =
+
+#Items
+item.fluxwarp:fan.name=Paper Fan
+item.fluxwarp:staff.name=Glider Staff
+item.fluxwarp:dimensionAddress.name=Dimension Address
+item.fluxwarp:creativeAddress.name=Creative Dimension Address
+
+#Blocks
+tile.fluxwarp:test.name=Test Block
+tile.fluxwarp:warpcore.name=Warp Core
+tile.fluxwarp:dimensionDatabase.name=Dimension Database
+
+#Keybinds
+keys.fluxwarp.category=Flux Warp
+keys.fluxwarp.charge=Charge
+keys.fluxwarp.release=Release
+
+#CreativeTab
+itemGroup.fluxwarp=Flux Warp

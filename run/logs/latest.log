@@ -1,0 +1,27 @@
+[22:56:20] [main/INFO]: Setting user: Player77
+[22:56:21] [Client thread/INFO]: LWJGL Version: 2.9.1
+[22:56:30] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flux Warp
+[22:56:30] [Sound Library Loader/INFO]: Sound engine started
+[22:56:31] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[22:56:31] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[22:56:31] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flux Warp
+[22:56:32] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[22:56:32] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[22:56:33] [Sound Library Loader/INFO]: Sound engine started
+[22:56:40] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[22:56:40] [Server thread/INFO]: Generating keypair
+[22:56:40] [Server thread/INFO]: Preparing start region for level 0
+[22:56:41] [Server thread/INFO]: Changing view distance to 12, from 10
+[22:56:42] [Server thread/INFO]: Player77[local:E:632a72a9] logged in with entity id 228 at (-316.1523086541821, 5.0, -30.715455907846117)
+[22:56:42] [Server thread/INFO]: Player77 joined the game
+[22:56:47] [Server thread/INFO]: Saving and pausing game...
+[22:56:47] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/Overworld
+[22:56:47] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/Nether
+[22:56:47] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/The End
+[22:56:48] [Server thread/INFO]: Stopping server
+[22:56:48] [Server thread/INFO]: Saving players
+[22:56:48] [Server thread/INFO]: Saving worlds
+[22:56:48] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/Overworld
+[22:56:48] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/Nether
+[22:56:48] [Server thread/INFO]: Saving chunks for level 'aaaaaaaaaaaaaaaaaaaaa'/The End
+[22:56:49] [Client thread/INFO]: Stopping!
