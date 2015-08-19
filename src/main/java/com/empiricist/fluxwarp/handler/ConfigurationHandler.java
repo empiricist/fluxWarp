@@ -11,8 +11,9 @@ import java.io.File;
 public class ConfigurationHandler {
 
     public static Configuration configuration;//we will want this in other methods too
-    public static boolean testValue = false;
+    //public static boolean testValue = false;
 
+    public static int coreEnergyStorage = 1000000;
     public static int baseCost = 50;
     public static int blockCost = 10;
     public static int entityCost = 10;
@@ -56,8 +57,9 @@ public class ConfigurationHandler {
     }
 
     private static void loadConfiguration(){
-        testValue = configuration.getBoolean("testValue", Configuration.CATEGORY_GENERAL, false, "Comment");
+        //testValue = configuration.getBoolean("testValue", Configuration.CATEGORY_GENERAL, false, "Comment");
 
+        coreEnergyStorage = configuration.getInt("coreEnergyStorage", Configuration.CATEGORY_GENERAL, 1000000, 0, Integer.MAX_VALUE, "Maximum energy capacity of warp core");
         baseCost = configuration.getInt("baseCost", Configuration.CATEGORY_GENERAL, 50, 0, Integer.MAX_VALUE, "Cost to initiate warp");
         blockCost = configuration.getInt("blockCost", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Cost to warp each block");
         entityCost = configuration.getInt("entityCost", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Cost to warp each entity");
