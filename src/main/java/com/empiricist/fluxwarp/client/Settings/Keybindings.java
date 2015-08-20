@@ -4,6 +4,7 @@ import com.empiricist.fluxwarp.reference.Names;
 import net.minecraft.client.settings.KeyBinding;
 import org.lwjgl.input.Keyboard;
 
+//currently keys are disabled in main class preinit method
 //we will store our keybindings here
 public class Keybindings {
     //needs name, default key int value, and category name

@@ -275,6 +275,7 @@ public class TeleportHelper {
                 originblockstorage.setExtBlockMetadata(x1 & 15, y1 & 15, z1 & 15, 0);
 
                 oChunk.isModified = true;
+                //origin.func_147451_t(x1,y1,z1);//maybe recalculate light? doesn't seem to help
 
                 origin.markBlockForUpdate(x1, y1, z1);//so client actually gets message that block changed
 
@@ -320,8 +321,8 @@ public class TeleportHelper {
                 WorldServer s2 = MinecraftServer.getServer().worldServerForDimension(destDim);
                 manager.transferPlayerToDimension((EntityPlayerMP) player, destDim, new WarpCoreTeleporter(s2));
 
-                //manager.updateTimeAndWeatherForPlayer(player, s2);
-                //dmanager.syncPlayerInventory(player);
+                //manager.updateTimeAndWeatherForPlayer((EntityPlayerMP) player, s2);//does not seem to help weird sky after leaving end
+                //manager.syncPlayerInventory(player);
 
                 //MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(player, destDim, MinecraftServer.getServer().worldServerForDimension(destDim).getDefaultTeleporter());
                 if (origin.provider.dimensionId == 1) {

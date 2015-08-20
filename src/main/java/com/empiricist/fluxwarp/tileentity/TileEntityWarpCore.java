@@ -291,7 +291,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 }
 
                 worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.fizz", 1, 1);
-                world2.playSoundEffect(newXCen, newYCen, newZCen, "random.explode", 1, 1);
+                world2.playSoundEffect(newXCen, newYCen, newZCen, "ambient.weather.thunder", 1, 1);
 
             }
 

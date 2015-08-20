@@ -70,10 +70,10 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
             if (tile != null && tile instanceof TileEntityWarpCore) {
                 TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
                 player.addChatMessage(new ChatComponentText("Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH)));
-                return true;
+
             }
         }
-        return false;
+        return true;
     }
 
 

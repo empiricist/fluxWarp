@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+//currently keys are disabled in main class preinit method
 public class KeyInputEventHandler {
     private static Key getPressedKeyBinding(){//event has little info, we need to check ourselves
         if(Keybindings.charge.isPressed()){
