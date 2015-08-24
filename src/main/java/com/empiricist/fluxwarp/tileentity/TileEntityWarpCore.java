@@ -3,17 +3,11 @@ package com.empiricist.fluxwarp.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
-import cofh.api.energy.IEnergyStorage;
-import com.empiricist.fluxwarp.FluxWarp;
+import com.empiricist.fluxwarp.api.IDimensionPermissionBlock;
 import com.empiricist.fluxwarp.handler.ConfigurationHandler;
-import com.empiricist.fluxwarp.init.ModBlocks;
-import com.empiricist.fluxwarp.item.IDimensionPermissionItem;
-import com.empiricist.fluxwarp.reference.Reference;
-import com.empiricist.fluxwarp.utility.FluxWarpEnergyStorage;
+import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import com.empiricist.fluxwarp.utility.TeleportHelper;
-import com.empiricist.fluxwarp.utility.WarpCoreTeleporter;
-import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
@@ -21,25 +15,16 @@ import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityHopper;
 import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.*;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.List;
@@ -253,6 +238,36 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                         }
                     }
                 }
+
+                //schedule block updates around the outside of the bounding box
+                //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus-1) + " and " + (zCoord+zPlus+1));
+                for(int i = -xMinus; i <= +xPlus; i++){
+                    for(int j = -yMinus; j <= +yPlus; j++){
+                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord-zMinus-1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord-zMinus), 1);
+                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord+zPlus+1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord+zMinus), 1);
+                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen-zMinus-1, world2.getBlock(newXCen+i, newYCen+j, newZCen-zMinus-1), 1);
+                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen+zPlus+1, world2.getBlock(newXCen+i, newYCen+j, newZCen+zPlus+1), 1);
+                    }
+                }
+                //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus-1) + " and " + (yCoord+yPlus+1) + " z " + (zCoord-zMinus) + "to" + (zCoord+zPlus));
+                for(int i = -xMinus; i <= +xPlus; i++){
+                    for(int j = -zMinus; j <= +zPlus; j++){
+                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord-yMinus-1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord-yMinus-1, zCoord+j), 1);
+                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+yPlus+1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord+yPlus+1, zCoord+j), 1);
+                        world2.scheduleBlockUpdate(newXCen+i, newYCen-yMinus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen-yMinus+1, newZCen+i), 1);
+                        world2.scheduleBlockUpdate(newXCen+i, newYCen+yPlus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen+yPlus+1, newZCen+i), 1);
+                    }
+                }
+                //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus-1) + " and " + (xCoord+xPlus+1) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus) + "to" + (zCoord+zPlus));
+                for(int i = -yMinus; i <= +yPlus; i++){
+                    for(int j = -zMinus; j <= +zPlus; j++){
+                        worldObj.scheduleBlockUpdate(xCoord-xMinus-1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord-xMinus-1, yCoord+i, zCoord+j), 1);
+                        worldObj.scheduleBlockUpdate(xCoord+xPlus+1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord+xPlus+1, yCoord+i, zCoord+j), 1);
+                        world2.scheduleBlockUpdate(newXCen-xMinus-1, newYCen+i, newZCen+j, world2.getBlock(newXCen-xMinus-1, newYCen+i, newZCen+j), 1);
+                        world2.scheduleBlockUpdate(newXCen+xPlus+1, newYCen+i, newZCen+j, world2.getBlock(newXCen+xPlus+1, newYCen+i, newZCen+j), 1);
+                    }
+                }
+
                 LogHelper.info("Was warp successful for all blocks: " + isWarpSuccessful);
                 if( !isWarpSuccessful ){
                     worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mob.enderdragon.hit", 1, 1);
@@ -303,19 +318,32 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         if(dimID == worldObj.provider.dimensionId){//don't need permission to move within same dimension
             return true;
         }
-        TileEntity te = worldObj.getTileEntity(xCoord, yCoord-1, zCoord);
-        if (te != null && te instanceof IInventory){
-            IInventory inv = (IInventory) te;
-            ItemStack stack;
-            for (int i = 0; i < inv.getSizeInventory(); i++){
-                stack = inv.getStackInSlot(i);
-                if( stack != null && stack.getItem() instanceof IDimensionPermissionItem){
-                    IDimensionPermissionItem dimPerm = (IDimensionPermissionItem) stack.getItem();
-                    if(dimPerm.canTravelTo(stack, dimID)){
-                        return true;
+        TileEntity te;
+        Block b;
+        for( ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS ){
+
+            b = worldObj.getBlock(xCoord + dir.offsetX, yCoord+dir.offsetY, zCoord+dir.offsetZ);
+            if(b != null && b instanceof IDimensionPermissionBlock){
+                IDimensionPermissionBlock perm = (IDimensionPermissionBlock) b;
+                if( perm.canTravelTo(worldObj, xCoord + dir.offsetX, yCoord+dir.offsetY, zCoord+dir.offsetZ, dimID) ){
+                    return true;
+                }
+            }
+            te = worldObj.getTileEntity(xCoord + dir.offsetX, yCoord+dir.offsetY, zCoord+dir.offsetZ);
+            if (te != null && te instanceof IInventory){
+                IInventory inv = (IInventory) te;
+                ItemStack stack;
+                for (int i = 0; i < inv.getSizeInventory(); i++){
+                    stack = inv.getStackInSlot(i);
+                    if( stack != null && stack.getItem() instanceof IDimensionPermissionItem){
+                        IDimensionPermissionItem dimPerm = (IDimensionPermissionItem) stack.getItem();
+                        if(dimPerm.canTravelTo(stack, dimID)){
+                            return true;
+                        }
                     }
                 }
             }
+
         }
         return false;
     }

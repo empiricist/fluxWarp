@@ -15,7 +15,7 @@ public class ItemDebugger extends ItemBase{
     public ItemDebugger(){
         super();
         this.setUnlocalizedName("debugger");
-        this.setCreativeTab(CreativeTabTestProject.TEST_PROJECT_TAB);
+        //this.setCreativeTab(CreativeTabTestProject.TEST_PROJECT_TAB);
     }
 
     //give data of block right clicked on

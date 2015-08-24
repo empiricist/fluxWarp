@@ -4,6 +4,8 @@
 item.fluxwarp:debugger.name=Debugger
 item.fluxwarp:dimensionAddress.name=Dimension Address
 item.fluxwarp:creativeAddress.name=Creative Dimension Address
+item.fluxwarp:bearingCompass.name=Bearing Compass
+item.fluxwarp:infoDisk.name=Warp Info Disk
 
 #Blocks
 tile.fluxwarp:test.name=Test Block

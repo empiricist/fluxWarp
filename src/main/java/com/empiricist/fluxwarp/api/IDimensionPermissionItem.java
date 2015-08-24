@@ -1,4 +1,4 @@
-package com.empiricist.fluxwarp.item;
+package com.empiricist.fluxwarp.api;
 
 
 import net.minecraft.item.ItemStack;

@@ -1,0 +1,29 @@
+--Sets the bounding box to teleport
+
+--find warp core
+sides = {'bottom', 'top', 'left', 'right', 'front', 'back'}
+for i = 1,#sides do
+  if (peripheral.getType(sides[i]) == 'fluxwarpcore') then
+    w = peripheral.wrap(sides[i])
+    break
+  end
+end 
+
+--input bounds for ship
+print("Distance in +X direction:")
+xp = read()
+print("Distance in -X direction:")
+xn = read()
+print("Distance in +Y direction:")
+yp = read()
+print("Distance in -Y direction:")
+yn = read()
+print("Distance in +Z direction:")
+zp = read()
+print("Distance in -Z direction:")
+zn = read()
+
+w.setBounds(xp, xn, yp, yn, zp, zn)
+print("Bounds have been set")
+
+

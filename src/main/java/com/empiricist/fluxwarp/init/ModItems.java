@@ -10,11 +10,15 @@ public class ModItems {
     public static final ItemBase debugger = new ItemDebugger();
     public static final ItemDimensionAddress dimensionAddress = new ItemDimensionAddress();
     public static final ItemCreativeAddress creativeAddress = new ItemCreativeAddress();
+    public static final ItemBase itemBearingCompass = new ItemBearingCompass();
+    public static final ItemBase itemInfoDisk = new ItemInfoDisk();
 
     //register items from mod
     public static void init(){
         GameRegistry.registerItem(debugger, "debugger");
         GameRegistry.registerItem(dimensionAddress, "dimensionAddress");
         GameRegistry.registerItem(creativeAddress, "creativeAddress");
+        GameRegistry.registerItem(itemBearingCompass, "itemBearingCompass");
+        GameRegistry.registerItem(itemInfoDisk, "itemInfoDisk");
     }
 }

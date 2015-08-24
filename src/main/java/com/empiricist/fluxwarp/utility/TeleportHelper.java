@@ -205,6 +205,7 @@ public class TeleportHelper {
 
                 dest.markBlockForUpdate(x2, y2, z2);//so client actually gets message that block changed
                 //dest.notifyBlockChange(x2, x2, x2, newBlock);//I have no idea what this does (NOT block update dest end)
+                dest.scheduleBlockUpdate(x2, y2, z2, oldBlock, 1);
 
                 /*if(oldBlock.getLightOpacity() != newBlock.getLightOpacity()){
                     oChunk.relightBlock(x2 & 15, y2, z2 & 15);
@@ -276,6 +277,7 @@ public class TeleportHelper {
 
                 oChunk.isModified = true;
                 //origin.func_147451_t(x1,y1,z1);//maybe recalculate light? doesn't seem to help
+                origin.scheduleBlockUpdate(x1, y1, z1, Blocks.air, 1);
 
                 origin.markBlockForUpdate(x1, y1, z1);//so client actually gets message that block changed
 
