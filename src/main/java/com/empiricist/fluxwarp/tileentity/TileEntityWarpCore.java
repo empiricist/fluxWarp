@@ -148,6 +148,17 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                         return;
                     }
                 }
+                //try to use distance energy cost
+                if(ConfigurationHandler.distanceCost != 0){
+                    double distance = Math.sqrt(dx*dx + dy*dy + dz*dz);
+                    LogHelper.info("Distance is " + distance);
+                    if( !tryToUseEnergy(ConfigurationHandler.distanceCost * ((int)distance) ) ){
+                        LogHelper.info("Out of energy for warp!");
+                        worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mob.enderdragon.hit", 1, 1);
+                        return;
+                    }
+                }
+
 
 
                 LogHelper.info("Destination World: " + world2.toString() + ", " + world2.provider.dimensionId);//make sure it worked
@@ -243,28 +254,43 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus-1) + " and " + (zCoord+zPlus+1));
                 for(int i = -xMinus; i <= +xPlus; i++){
                     for(int j = -yMinus; j <= +yPlus; j++){
-                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord-zMinus-1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord-zMinus), 1);
-                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord+zPlus+1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord+zMinus), 1);
-                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen-zMinus-1, world2.getBlock(newXCen+i, newYCen+j, newZCen-zMinus-1), 1);
-                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen+zPlus+1, world2.getBlock(newXCen+i, newYCen+j, newZCen+zPlus+1), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord-zMinus-1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord-zMinus-1), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+j, zCoord+zPlus+1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord+zMinus+1), 1);
+//                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen-zMinus-1, world2.getBlock(newXCen+i, newYCen+j, newZCen-zMinus-1), 1);
+//                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen+zPlus+1, world2.getBlock(newXCen+i, newYCen+j, newZCen+zPlus+1), 1);
+
+                        worldObj.notifyBlockChange(xCoord+i, yCoord+j, zCoord-zMinus-1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord-zMinus-1));
+                        worldObj.notifyBlockChange(xCoord+i, yCoord+j, zCoord+zPlus+1, worldObj.getBlock(xCoord+i, yCoord+j, zCoord+zMinus+1));
+                        world2.notifyBlockChange(newXCen+i, newYCen+j, newZCen-zMinus-1, world2.getBlock(newXCen+i, newYCen+j, newZCen-zMinus-1));
+                        world2.notifyBlockChange(newXCen+i, newYCen+j, newZCen+zPlus+1, world2.getBlock(newXCen+i, newYCen+j, newZCen+zPlus+1));
                     }
                 }
                 //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus-1) + " and " + (yCoord+yPlus+1) + " z " + (zCoord-zMinus) + "to" + (zCoord+zPlus));
                 for(int i = -xMinus; i <= +xPlus; i++){
                     for(int j = -zMinus; j <= +zPlus; j++){
-                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord-yMinus-1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord-yMinus-1, zCoord+j), 1);
-                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+yPlus+1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord+yPlus+1, zCoord+j), 1);
-                        world2.scheduleBlockUpdate(newXCen+i, newYCen-yMinus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen-yMinus+1, newZCen+i), 1);
-                        world2.scheduleBlockUpdate(newXCen+i, newYCen+yPlus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen+yPlus+1, newZCen+i), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord-yMinus-1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord-yMinus-1, zCoord+j), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord+i, yCoord+yPlus+1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord+yPlus+1, zCoord+j), 1);
+//                        world2.scheduleBlockUpdate(newXCen+i, newYCen-yMinus-1, newZCen+i, world2.getBlock(newXCen+i, newYCen-yMinus-1, newZCen+i), 1);
+//                        world2.scheduleBlockUpdate(newXCen+i, newYCen+yPlus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen+yPlus+1, newZCen+i), 1);
+
+                        worldObj.notifyBlockChange(xCoord+i, yCoord-yMinus-1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord-yMinus-1, zCoord+j));
+                        worldObj.notifyBlockChange(xCoord+i, yCoord+yPlus+1, zCoord+j, worldObj.getBlock(xCoord+i, yCoord+yPlus+1, zCoord+j));
+                        world2.notifyBlockChange(newXCen+i, newYCen-yMinus-1, newZCen+i, world2.getBlock(newXCen+i, newYCen-yMinus-1, newZCen+i));
+                        world2.notifyBlockChange(newXCen+i, newYCen+yPlus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen+yPlus+1, newZCen+i));
                     }
                 }
                 //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus-1) + " and " + (xCoord+xPlus+1) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus) + "to" + (zCoord+zPlus));
                 for(int i = -yMinus; i <= +yPlus; i++){
                     for(int j = -zMinus; j <= +zPlus; j++){
-                        worldObj.scheduleBlockUpdate(xCoord-xMinus-1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord-xMinus-1, yCoord+i, zCoord+j), 1);
-                        worldObj.scheduleBlockUpdate(xCoord+xPlus+1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord+xPlus+1, yCoord+i, zCoord+j), 1);
-                        world2.scheduleBlockUpdate(newXCen-xMinus-1, newYCen+i, newZCen+j, world2.getBlock(newXCen-xMinus-1, newYCen+i, newZCen+j), 1);
-                        world2.scheduleBlockUpdate(newXCen+xPlus+1, newYCen+i, newZCen+j, world2.getBlock(newXCen+xPlus+1, newYCen+i, newZCen+j), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord-xMinus-1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord-xMinus-1, yCoord+i, zCoord+j), 1);
+//                        worldObj.scheduleBlockUpdate(xCoord+xPlus+1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord+xPlus+1, yCoord+i, zCoord+j), 1);
+//                        world2.scheduleBlockUpdate(newXCen-xMinus-1, newYCen+i, newZCen+j, world2.getBlock(newXCen-xMinus-1, newYCen+i, newZCen+j), 1);
+//                        world2.scheduleBlockUpdate(newXCen+xPlus+1, newYCen+i, newZCen+j, world2.getBlock(newXCen+xPlus+1, newYCen+i, newZCen+j), 1);
+
+                        worldObj.notifyBlockChange(xCoord-xMinus-1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord-xMinus-1, yCoord+i, zCoord+j));
+                        worldObj.notifyBlockChange(xCoord+xPlus+1, yCoord+i, zCoord+j, worldObj.getBlock(xCoord+xPlus+1, yCoord+i, zCoord+j));
+                        world2.notifyBlockChange(newXCen-xMinus-1, newYCen+i, newZCen+j, world2.getBlock(newXCen-xMinus-1, newYCen+i, newZCen+j));
+                        world2.notifyBlockChange(newXCen+xPlus+1, newYCen+i, newZCen+j, world2.getBlock(newXCen+xPlus+1, newYCen+i, newZCen+j));
                     }
                 }
 

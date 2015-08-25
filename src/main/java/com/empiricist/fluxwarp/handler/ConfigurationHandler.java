@@ -18,6 +18,7 @@ public class ConfigurationHandler {
     public static int blockCost = 10;
     public static int entityCost = 10;
     public static int dimensionCost = 50;
+    public static int distanceCost = 1;
 
     public static boolean vanillaRecipes = false;
     public static boolean thermalRecipes = true;
@@ -64,6 +65,7 @@ public class ConfigurationHandler {
         blockCost = configuration.getInt("blockCost", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Cost to warp each block");
         entityCost = configuration.getInt("entityCost", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Cost to warp each entity");
         dimensionCost = configuration.getInt("dimensionCost", Configuration.CATEGORY_GENERAL, 50, 0, Integer.MAX_VALUE, "Base cost to change dimensions");
+        distanceCost = configuration.getInt("distanceCost", Configuration.CATEGORY_GENERAL, 1, 0, Integer.MAX_VALUE, "Cost per meter travelled");
 
         vanillaRecipes = configuration.getBoolean("vanillaRecipes", Configuration.CATEGORY_GENERAL, false, "Enable recipes using only Minecraft items");
         thermalRecipes = configuration.getBoolean("thermalRecipes", Configuration.CATEGORY_GENERAL, true, "Enable recipes using Thermal Expansion/Foundation/etc items");

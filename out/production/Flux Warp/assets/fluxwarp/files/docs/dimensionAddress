@@ -2,23 +2,25 @@ The Dimension Address allows your warp core to
 teleport to other dimensions.
 
 WARNING: If you want to come back, you will also
-need a dimension address for your original dimension!
+need a dimension address for your original
+dimension!
 
 To use it, go to the dimension you want to save
-the address of, and right click with the blank address
-in your hand.  You should see information about the
-stored dimension in the item's tooltip.
+the address of, and right click with the blank
+address in your hand.  You should see information
+about the stored dimension in the item's tooltip.
 
 If you want to clear the stored data from a
 dimension address, just sneak + right click with
 the address in your hand.
 
 Then, place the dimension address in any standard
-inventory (such as a chest) directly adjacent to the
-warp core on any side.  If you have Extra Utilities
-installed, a filing cabinet works quite well.
+inventory (such as a chest) directly adjacent to
+the warp core on any side.  If you have
+Extra Utilities installed, a filing cabinet
+works quite well.
 
-Now your warp core should be able to teleport to the
-dimension you saved.
+Now your warp core should be able to teleport to
+the dimension you saved.
 
 NOTE: Dimension addresses do NOT get used up

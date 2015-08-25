@@ -11,6 +11,7 @@ import com.empiricist.fluxwarp.tileentity.TileEntityWarpCore;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockContainer;
