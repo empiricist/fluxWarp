@@ -22,6 +22,7 @@ public class ItemInfoDisk extends ItemBase implements IMedia{
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+        //list.add( "N?" + stack.hasDisplayName() + " Name:" + stack.getDisplayName() );
         list.add("Looks like it would fit in a disk drive");
         super.addInformation(stack, player, list, bool);
     }
@@ -38,12 +39,20 @@ public class ItemInfoDisk extends ItemBase implements IMedia{
 
     @Override
     public String getAudioTitle(ItemStack stack) {
-        return null;
+        if (stack.hasDisplayName()){
+            return stack.getDisplayName();
+        }else{
+            return "Random Music";
+        }
     }
 
     @Override
     public String getAudioRecordName(ItemStack stack) {
-        return null;
+        if (stack.hasDisplayName()){
+            return stack.getDisplayName();
+        }else{
+            return "music.game";
+        }
     }
 
     @Override

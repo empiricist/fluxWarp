@@ -78,7 +78,7 @@ public class TeleportHelper {
                 TileEntity tileOrig = origin.getTileEntity(x1, y1, z1);//check for tileentity
                 if (tileOrig != null) {
                     //tileOrig = (TileEntity)tileOrig;//do I need this?
-                    LogHelper.info("Found Tile Entity at x:" + x1 + " y:" + y1 + " z:" + z1);
+                    //LogHelper.info("Found Tile Entity at x:" + x1 + " y:" + y1 + " z:" + z1);
                                         /*--
                                         if (x == xCoord && y == yCoord && z == zCoord) { //treat the active warp core specially until copying nbt works
                                             LogHelper.info("  It is this warp core");
@@ -216,7 +216,7 @@ public class TeleportHelper {
                 TileEntity tileOrig = origin.getTileEntity(x1, y1, z1);//check for tileentity
                 if (tileOrig != null) {
                     //tileOrig = (TileEntity)tileOrig;//do I need this?
-                    LogHelper.info("Found Tile Entity at x:" + x1 + " y:" + y1 + " z:" + z1);
+                    //LogHelper.info("Found Tile Entity at x:" + x1 + " y:" + y1 + " z:" + z1);
                                         /*--
                                         if (x == xCoord && y == yCoord && z == zCoord) { //treat the active warp core specially until copying nbt works
                                             LogHelper.info("  It is this warp core");
@@ -303,7 +303,7 @@ public class TeleportHelper {
 
     public static boolean moveEntity(World origin, World dest, Entity entity, double x, double y, double z){
         int destDim = dest.provider.dimensionId;
-        LogHelper.info("Moving entity to x:" + x + ", y:" + y + ", z:" + z + " and dimension:" + destDim);
+        //LogHelper.info("Moving entity to x:" + x + ", y:" + y + ", z:" + z + " and dimension:" + destDim);
         portalParticles(origin, entity.posX, entity.posY, entity.posZ);
         portalParticles(dest, x, y, z);
 
