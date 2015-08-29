@@ -184,6 +184,7 @@ public class TeleportHelper {
                 portalParticles(dest, x2, y2, z2);
 
 
+                dest.removeTileEntity(x2, y2, z2);
                 //break replaced block
                 if(!dest.isAirBlock(x2,y2,z2)){
                     breakBlock(newBlock, dest, x2, y2, z2);
@@ -200,12 +201,16 @@ public class TeleportHelper {
                 extendedblockstorage.setExtBlockMetadata(x2 & 15, y2 & 15, z2 & 15, origin.getBlockMetadata(x1,y1,z1));
 
                 dChunk.isModified = true;
+                //dest.markAndNotifyBlock(x2, y2, z2, dChunk, oldBlock, newBlock, 2);
                 //dest.setBlockMetadataWithNotify(x2, y2, z2, origin.getBlockMetadata(x1,y1,z1), 2); //what does extra argument mean?
+                dest.markBlocksDirtyVertical(x2, z2, 0, 256);
 
 
                 dest.markBlockForUpdate(x2, y2, z2);//so client actually gets message that block changed
                 //dest.notifyBlockChange(x2, x2, x2, newBlock);//I have no idea what this does (NOT block update dest end)
                 dest.scheduleBlockUpdate(x2, y2, z2, oldBlock, 1);
+//                oldBlock.getCollisionBoundingBoxFromPool(origin, x1, y1, z1);
+//                oldBlock.getCollisionBoundingBoxFromPool(dest, x2, y2, z2);//not the problem, I think?
 
                 /*if(oldBlock.getLightOpacity() != newBlock.getLightOpacity()){
                     oChunk.relightBlock(x2 & 15, y2, z2 & 15);
@@ -216,33 +221,22 @@ public class TeleportHelper {
                 TileEntity tileOrig = origin.getTileEntity(x1, y1, z1);//check for tileentity
                 if (tileOrig != null) {
                     //tileOrig = (TileEntity)tileOrig;//do I need this?
-                    //LogHelper.info("Found Tile Entity at x:" + x1 + " y:" + y1 + " z:" + z1);
-                                        /*--
-                                        if (x == xCoord && y == yCoord && z == zCoord) { //treat the active warp core specially until copying nbt works
-                                            LogHelper.info("  It is this warp core");
-                                            TileEntity tile = worldObj.getTileEntity(x + dx, y + dy, z + dz);
+                    LogHelper.info("Found Tile Entity " + tileOrig.toString() + " at x:" + x1 + " y:" + y1 + " z:" + z1);
 
-                                            if (tile != null && tile instanceof TileEntityWarpCore) {
-                                                TileEntityWarpCore core = (TileEntityWarpCore) tile;
-
-                                                core.setDoWarp(false);//to prevent copy from warping too
-                                            }
-                                        } else {
-                                        --*/
                     NBTTagCompound nbtData = new NBTTagCompound();
                     tileOrig.writeToNBT(nbtData);
 
-//                    LogHelper.info("  reading NBT");
-//                    LogHelper.info("    " + nbtData.toString());
+                    LogHelper.info("  reading NBT");
+                    LogHelper.info("    " + nbtData.toString());
 
-                    //LogHelper.info("  changing NBT");
+
                     nbtData.setInteger("x", x2);
                     nbtData.setInteger("y", y2);
                     nbtData.setInteger("z", z2);
-                    //LogHelper.info("    " + nbtData.toString());
+//                    LogHelper.info("  changing NBT");
+//                    LogHelper.info("    " + nbtData.toString());
 
-
-                    dChunk.addTileEntity(TileEntity.createAndLoadEntity(nbtData));
+                    //if(dest.getTileEntity(x2,y2,z2)!=null){ LogHelper.info( "There is already a " + dest.getTileEntity(x2,y2,z2).toString() + " here!" ); }
 
                     //tileentity is created with blocks
                     TileEntity tileNew = dest.getTileEntity(x2, y2, z2);
@@ -251,17 +245,28 @@ public class TeleportHelper {
 
                         NBTTagCompound nbtNew = new NBTTagCompound();
                         tileNew.writeToNBT(nbtNew);
-//                        LogHelper.info("  new NBT");
-//                        LogHelper.info("    " + nbtNew.toString());
+                        LogHelper.info("  new NBT");
+                        LogHelper.info("    " + nbtNew.toString());
+                        tileNew.readFromNBT(nbtData);
+                    }else{
+                        dChunk.addTileEntity(TileEntity.createAndLoadEntity(nbtData));
+                        tileNew.readFromNBT(nbtData);//load data from old tileentity
+
+                        NBTTagCompound nbtNew = new NBTTagCompound();
+                        tileNew.writeToNBT(nbtNew);
+                        LogHelper.info("  new NBT");
+                        LogHelper.info("    " + nbtNew.toString());
                         tileNew.readFromNBT(nbtData);
                     }
 
+
                     //it really SHOULDN'T be necessary to do this again...
                     extendedblockstorage.setExtBlockMetadata(x2 & 15, y2 & 15, z2 & 15, origin.getBlockMetadata(x1,y1,z1));
+                    tileNew.updateContainingBlockInfo();//do I need this?
 
                     //remove old tileentity
                     origin.removeTileEntity(x1, y1, z1);
-                    //}
+                    tileOrig.updateContainingBlockInfo();//do I need this?
                 }
 
                 //remove original block if it was moved
@@ -274,10 +279,14 @@ public class TeleportHelper {
 
                 originblockstorage.func_150818_a(x1 & 15, y1 & 15, z1 & 15, Blocks.air);
                 originblockstorage.setExtBlockMetadata(x1 & 15, y1 & 15, z1 & 15, 0);
+                origin.removeTileEntity(x1,y1,z1);
 
                 oChunk.isModified = true;
                 //origin.func_147451_t(x1,y1,z1);//maybe recalculate light? doesn't seem to help
                 origin.scheduleBlockUpdate(x1, y1, z1, Blocks.air, 1);
+
+                //Blocks.air.setBlockBoundsBasedOnState(origin, x1, y1, z1);
+                //oldBlock.setBlockBoundsBasedOnState(dest, x2, y2, z2);//doesn't seem to be the problem
 
                 origin.markBlockForUpdate(x1, y1, z1);//so client actually gets message that block changed
 
@@ -353,6 +362,7 @@ public class TeleportHelper {
     private static void breakBlock(Block block, World world, int x, int y, int z){
         block.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x,y,z), 0);
         world.setBlockToAir(x,y,z);
+        world.removeTileEntity(x,y,z);
     }
 
     public static boolean tryToUseEnergy(int energy, IEnergyStorage energyStorage){

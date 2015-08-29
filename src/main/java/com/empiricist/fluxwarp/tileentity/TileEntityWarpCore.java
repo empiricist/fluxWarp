@@ -52,9 +52,8 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
 
     public EnergyStorage energyStorage;
 
-    //public static int costPerBlock = 10;
-
     public TileEntityWarpCore() {
+        super();
         xPlus = 1;
         yPlus = 1;
         zPlus = 1;
@@ -68,7 +67,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         dx = 0;
         dy = 0;
         dz = 0;
-        //destDim = worldObj.provider.dimensionId;
+        //destDim = worldObj.provider.dimensionId; //causes NPE
         energyStorage = new EnergyStorage(ConfigurationHandler.coreEnergyStorage, 1000, ConfigurationHandler.coreEnergyStorage);//capacity, receive, extract
     }
 
@@ -334,9 +333,12 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 worldObj.playSoundEffect(xCoord, yCoord, zCoord, "random.fizz", 1, 1);
                 world2.playSoundEffect(newXCen, newYCen, newZCen, "ambient.weather.thunder", 1, 1);
 
+                LogHelper.info("Finished warp!");
+
             }
 
             signalOn = signal;
+
         }
     }
 
