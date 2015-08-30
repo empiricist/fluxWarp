@@ -81,14 +81,11 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
     @Override
     public void updateEntity() {
 
-
         if (!worldObj.isRemote) {
-
 
             //LogHelper.info("Did it work?: " + (this instanceof IPeripheral));
             if (doWarp || (signal && !signalOn)) {
-                LogHelper.info("doWarp is " + doWarp);
-                LogHelper.info("Signal stuff is " + (signal && !signalOn));
+                LogHelper.info("doWarp is " + doWarp + ", Signal stuff is " + (signal && !signalOn));
 
                 signalOn = signal;
                 doWarp = false;
@@ -133,14 +130,14 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
 
                 //try to use base energy cost
                 if(worldObj == world2){
-                    LogHelper.info("Same dimension");
+                    //LogHelper.info("Same dimension");
                     if( !tryToUseEnergy(ConfigurationHandler.baseCost) ){
                         LogHelper.info("Out of energy for warp!");
                         worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mob.enderdragon.hit", 1, 1);
                         return;
                     }
                 }else{
-                    LogHelper.info("Different dimension");
+                    //LogHelper.info("Different dimension");
                     if( !tryToUseEnergy(ConfigurationHandler.dimensionCost) ){
                         LogHelper.info("Out of energy for warp!");
                         worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mob.enderdragon.hit", 1, 1);
@@ -243,7 +240,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                             int x = i*ix + j*jx + k*kx;
                             int y = i*iy + j*jy + k*ky;
                             int z = i*iz + j*jz + k*kz;
-                            isWarpSuccessful &= TeleportHelper.moveBlock2(worldObj, world2, x, y, z, (x - xCoord) + newXCen, (y - yCoord) + newYCen, (z - zCoord) + newZCen, energyStorage);//supposedly this works for booleans
+                            isWarpSuccessful &= TeleportHelper.moveBlockChunk(worldObj, world2, x, y, z, (x - xCoord) + newXCen, (y - yCoord) + newYCen, (z - zCoord) + newZCen, energyStorage);//supposedly this works for booleans
 
                         }
                     }
@@ -297,23 +294,12 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 if( !isWarpSuccessful ){
                     worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mob.enderdragon.hit", 1, 1);
                 }
-/*
-                //iterate through a volume of blocks to move
-                for(int x = xCoord-xMinus; x <= xCoord+xPlus; x++){
-                    for(int y = yCoord-yMinus; y <= yCoord+yPlus; y++){
-                        for(int z = zCoord-zMinus; z <= zCoord+zPlus; z++){
 
-                            moveBlock(worldObj, world2, x, y, z, x+dx, y+dy, z+dz);
-
-                        }
-                    }
-                }
--*/
                 //move entities within volume too (but only if ship also moved, or does not exist)
                 if(isWarpSuccessful){
                     List<Entity> entitiesInVolume = worldObj.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox(xCoord - xMinus, yCoord - yMinus, zCoord - zMinus, xCoord + xPlus+1, yCoord + yPlus+1, zCoord + zPlus+1));
                     for (Entity entity : entitiesInVolume){
-                        LogHelper.info("Found Entity: " + entity.toString());
+                        //LogHelper.info("Found Entity: " + entity.toString());
 
                         if( tryToUseEnergy(ConfigurationHandler.entityCost) ){
 
@@ -342,8 +328,12 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         }
     }
 
+
+
     public boolean hasPermissionForDimension( int dimID ){
         if(dimID == worldObj.provider.dimensionId){//don't need permission to move within same dimension
+            return true;
+        }else if(ConfigurationHandler.AlwaysAllowedDimensions.contains(dimID + "")){
             return true;
         }
         TileEntity te;
@@ -405,7 +395,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
 
     private int safeReadInt(String string, int defaultVal){
         int res = defaultVal;
-        LogHelper.info("Trying to read string: " + string);
+        //LogHelper.info("Trying to read string: " + string);
         try{
             res = (int)Double.parseDouble(string);//computercraft returns all numbers as decimals, b/c lua
         }catch(NumberFormatException e){
