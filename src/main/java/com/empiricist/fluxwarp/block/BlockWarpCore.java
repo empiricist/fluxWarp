@@ -3,6 +3,7 @@ package com.empiricist.fluxwarp.block;
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
 import com.empiricist.fluxwarp.reference.Reference;
 import com.empiricist.fluxwarp.tileentity.TileEntityWarpCore;
+import com.empiricist.fluxwarp.utility.ChatHelper;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
@@ -69,7 +70,7 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
             TileEntity tile = world.getTileEntity(x, y, z);
             if (tile != null && tile instanceof TileEntityWarpCore) {
                 TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
-                player.addChatMessage(new ChatComponentText("Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH)));
+                ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH));
 
             }
         }

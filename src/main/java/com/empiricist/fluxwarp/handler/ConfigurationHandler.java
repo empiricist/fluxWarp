@@ -17,6 +17,7 @@ public class ConfigurationHandler {
     public static Configuration configuration;//we will want this in other methods too
     //public static boolean testValue = false;
     public static ArrayList<String> AlwaysAllowedDimensions;
+    public static int maxSize;
 
     public static int coreEnergyStorage = 1000000;
     public static int baseCost = 50;
@@ -65,8 +66,9 @@ public class ConfigurationHandler {
     private static void loadConfiguration(){
         //testValue = configuration.getBoolean("testValue", Configuration.CATEGORY_GENERAL, false, "Comment");
 
-        String[] dimIDs = configuration.getStringList("AlwaysAllowedDimensions", Configuration.CATEGORY_GENERAL, new String[]{"0"}, "These dimension IDs will not require an address to teleport to");
+        String[] dimIDs = configuration.getStringList("AlwaysAllowedDimensions", Configuration.CATEGORY_GENERAL, new String[0], "These dimension IDs will not require an address to teleport to");
         AlwaysAllowedDimensions = Lists.newArrayList(Arrays.asList(dimIDs));
+        maxSize = configuration.getInt("maxSize", Configuration.CATEGORY_GENERAL, 600000, 0, Integer.MAX_VALUE, "Maximum volume for warp region");
 
         coreEnergyStorage = configuration.getInt("coreEnergyStorage", Configuration.CATEGORY_GENERAL, 1000000, 0, Integer.MAX_VALUE, "Maximum energy capacity of warp core");
         baseCost = configuration.getInt("baseCost", Configuration.CATEGORY_GENERAL, 50, 0, Integer.MAX_VALUE, "Cost to initiate warp");

@@ -98,6 +98,12 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                     return;
                 }
 
+                if( (xPlus+xMinus+1)*(yPlus+yMinus+1)*(zPlus+zMinus+1) > ConfigurationHandler.maxSize ){
+                    LogHelper.info("Volume is too large!");
+                    worldObj.playSoundEffect(xCoord, yCoord, zCoord, "note.hat", 1, 1);
+                    return;
+                }
+
                 if( !DimensionManager.isDimensionRegistered(destDim) ){
                     LogHelper.info("Dimension " + destDim + " is not registered!");
                     worldObj.playSoundEffect(xCoord, yCoord, zCoord, "note.bassattack", 1, 1);
@@ -105,7 +111,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 }
 
                 if( !hasPermissionForDimension(destDim) ){
-                    LogHelper.info("Dimension " + destDim + " not found in address database");
+                    LogHelper.info("Dimension " + destDim + " address not found!");
                     worldObj.playSoundEffect(xCoord, yCoord, zCoord, "note.harp", 1, 1);
                     return;
                 }

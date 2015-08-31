@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-//currently keys are disabled in main class preinit method
+//currently keys are disabled in main class preinit method, and here with subscribe annotation
 public class KeyInputEventHandler {
     private static Key getPressedKeyBinding(){//event has little info, we need to check ourselves
         if(Keybindings.charge.isPressed()){
@@ -24,7 +24,7 @@ public class KeyInputEventHandler {
         }
     }
 
-    @SubscribeEvent
+    //@SubscribeEvent
     public void handleKeyInputEvent(InputEvent.KeyInputEvent event){
         Key pressed = getPressedKeyBinding();
         //LogHelper.info("Key Pressed: " + pressed);

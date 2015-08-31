@@ -1,6 +1,7 @@
 package com.empiricist.fluxwarp.item;
 
 
+import com.empiricist.fluxwarp.utility.ChatHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
@@ -22,12 +23,12 @@ public class ItemBearingCompass extends ItemBase {
         if( !world.isRemote ){
             //alt 167 (º), or \u0167
 
-            player.addChatMessage(new ChatComponentText("----- Direction -----" ));
+            ChatHelper.sendText(player, "----- Direction -----");
             double yaw = player.rotationYaw;
             double pitch = player.rotationPitch;
             //why am I doing printf stuff when the internet is down :/
-            player.addChatMessage(new ChatComponentText( String.format("%-8s %5.1f\u00B0  %-12s %5.1f\u00B0", "Yaw:", yaw, "Bearing:", (180+yaw)%360)));//"Yaw: " + player.rotationYaw + " Bearing:" + (180+player.rotationYaw)%360));
-            player.addChatMessage(new ChatComponentText( String.format("%-8s %5.1f\u00B0  %-12s %5.1f\u00B0", "Pitch:", pitch, "Inclination:", (-pitch))));//"Pitch: " + player.rotationPitch + " Azimuth: " + (-player.rotationPitch)));
+            ChatHelper.sendText(player, String.format("%-8s %5.1f\u00B0  %-12s %5.1f\u00B0", "Yaw:", yaw, "Bearing:", (180+yaw)%360));
+            ChatHelper.sendText(player, String.format("%-8s %5.1f\u00B0  %-12s %5.1f\u00B0", "Pitch:", pitch, "Inclination:", (-pitch)));
 
             String dir = "", axis = "";
             if(pitch < -50 ){
@@ -54,7 +55,7 @@ public class ItemBearingCompass extends ItemBase {
                         break;
                 }
             }
-            player.addChatMessage(new ChatComponentText( String.format("%-8s %-5s  %-10s %-5s", "Facing:", dir, "Axis:", axis)));
+            ChatHelper.sendText(player, String.format("%-8s %-5s  %-10s %-5s", "Facing:", dir, "Axis:", axis));
         }
         return stack;
     }

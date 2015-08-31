@@ -1,9 +1,11 @@
 package com.empiricist.fluxwarp.item;
 
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
+import com.empiricist.fluxwarp.utility.ChatHelper;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -22,22 +24,39 @@ public class ItemDebugger extends ItemBase{
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ){
         if( !world.isRemote ){
-            player.addChatMessage(new ChatComponentText("X:" + x + ", Y:" + y + ", Z:" + z + "; Name:" + world.getBlock(x, y, z).getLocalizedName() + ", ID:" + world.getBlock(x, y, z).getUnlocalizedName() + ", Meta:" + world.getBlockMetadata(x, y, z)));
+            ChatHelper.sendText(player, "-----Block-----");
+            ChatHelper.sendText(player, "X:" + x + ", Y:" + y + ", Z:" + z + "; Name: " + world.getBlock(x, y, z).getLocalizedName() + ", ID: " + world.getBlock(x, y, z).getUnlocalizedName() + ", Meta: " + world.getBlockMetadata(x, y, z));
             TileEntity te = world.getTileEntity(x,y,z);
             if( te != null ){
                 NBTTagCompound tag = new NBTTagCompound();
                 te.writeToNBT(tag);
-                player.addChatMessage( new ChatComponentText("NBTData:" + tag.toString()) );
+                ChatHelper.sendText(player, "NBTData:" + tag.toString());
             }
         }
         return true;
+    }
+
+    //If right clicked on no block, give data of item in slot 1
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
+        if( !world.isRemote ){
+            ItemStack slot1 = player.inventory.getStackInSlot(0);
+            if (slot1 != null){
+                ChatHelper.sendText(player, "-----Item-----");
+                ChatHelper.sendText(player, "Item in slot 1 has Display Name: " + slot1.getDisplayName() + ", Unlocalized Name: " + slot1.getItem().getUnlocalizedName());
+                if( slot1.hasTagCompound() ){
+                    ChatHelper.sendText(player, "NBT Data is :"  + slot1.getTagCompound().toString());
+                }
+            }
+        }
+        return stack;
     }
 
     //give data of entity left clicked on
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity){
         if( !entity.worldObj.isRemote ){
-            player.addChatMessage(new ChatComponentText("Name:" + entity.getClass()  + ", ID:" + entity.getEntityId() + ", Data:" + entity.toString()));
+            ChatHelper.sendText(player, "-----Entity-----");
+            ChatHelper.sendText(player, "Name: " + entity.getClass()  + ", ID: " + entity.getEntityId() + ", Data: " + entity.toString());
         }
         return true;//do no damage
     }

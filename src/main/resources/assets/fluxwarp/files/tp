@@ -1,6 +1,8 @@
 args = {...}
 
 --teleport within the same dimension
+print("This program lets you teleport within the same dimension")
+print("Arguments are dx, dy, dz")
 
 --find warp core
 sides = {'bottom', 'top', 'left', 'right', 'front', 'back'}
