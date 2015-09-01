@@ -230,9 +230,10 @@ if fs.exists("shipdata.txt") then
  ReadData()
 else
  SData = {
-  Summon = false,
-  Distance = 1,
-  Direction = 0,
+  dx = 0,
+  dy = 0,
+  dz = 0,
+  dim = nil,
   Shipname = ""
  }
 end
