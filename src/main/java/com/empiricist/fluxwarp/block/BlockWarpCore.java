@@ -3,6 +3,7 @@ package com.empiricist.fluxwarp.block;
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
 import com.empiricist.fluxwarp.reference.Reference;
 import com.empiricist.fluxwarp.tileentity.TileEntityWarpCore;
+import com.empiricist.fluxwarp.utility.ChatHelper;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
@@ -69,11 +70,11 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
             TileEntity tile = world.getTileEntity(x, y, z);
             if (tile != null && tile instanceof TileEntityWarpCore) {
                 TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
-                player.addChatMessage(new ChatComponentText("Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH)));
-                return true;
+                ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH));
+
             }
         }
-        return false;
+        return true;
     }
 
 
@@ -96,13 +97,14 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
     @Override
     @Optional.Method(modid="ComputerCraft")
     public IPeripheral getPeripheral(World world, int x, int y, int z, int side) {
+        if( !world.isRemote ){ LogHelper.info("Looking for peripheral at " + x + " " + y + " " + z + " at side " + side); }
         TileEntity tile = world.getTileEntity(x, y, z);
-        System.out.println(tile.toString());
+        if( !world.isRemote ){ LogHelper.info( tile != null  ? tile.toString() : "Tile Entity is null, making peripheral may fail"); }
         if (tile instanceof IPeripheral) {
-            //LogHelper.info("    Found a peripheral");
+            LogHelper.info("    Found a peripheral");
             return (IPeripheral)tile;
         }else{
-            //LogHelper.info("    Not a peripheral");
+            LogHelper.info("    Not a peripheral");
             return null;
         }
     }

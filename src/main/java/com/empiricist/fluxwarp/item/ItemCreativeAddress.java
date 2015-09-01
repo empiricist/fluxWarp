@@ -1,15 +1,12 @@
 package com.empiricist.fluxwarp.item;
 
-import net.minecraft.client.gui.GuiScreen;
+import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.WorldProvider;
-import net.minecraftforge.common.DimensionManager;
 
 import java.util.List;
 
-public class ItemCreativeAddress extends ItemBase implements IDimensionPermissionItem{
+public class ItemCreativeAddress extends ItemBase implements IDimensionPermissionItem {
 
     public ItemCreativeAddress(){
         super();

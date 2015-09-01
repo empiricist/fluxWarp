@@ -1,5 +1,6 @@
 package com.empiricist.fluxwarp.item;
 
+import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -7,17 +8,14 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
 
-import javax.swing.*;
 import java.util.List;
-import java.util.Random;
 
-public class ItemDimensionAddress extends ItemBase implements IDimensionPermissionItem{
+public class ItemDimensionAddress extends ItemBase implements IDimensionPermissionItem {
 
     public IIcon savedAddressIcon;
 

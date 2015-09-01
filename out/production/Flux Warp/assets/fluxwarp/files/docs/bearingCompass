@@ -1,0 +1,21 @@
+The Bearing Compass tells you which direction
+you are facing.
+
+This can help you set the bounds of your ship and
+figure out which direction you want to teleport in.
+
+To use it, hold the Bearing Compass in your hand
+and right click.  It should tell you in the chat:
+
+Yaw
+  Minecraft system - degrees clockwise from south
+Bearing
+  Orienteering system - degrees clockwise from north
+Pitch
+  Minecraft system - degrees down from horizontal
+Inclination
+  Orienteering system - degrees up from horizontal
+Facing
+  Axis direction closest to the way you are facing
+Axis
+  Axis corresponding to your facing direction

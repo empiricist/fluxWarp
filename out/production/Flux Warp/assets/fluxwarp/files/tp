@@ -1,0 +1,19 @@
+args = {...}
+
+--teleport within the same dimension
+
+--find warp core
+sides = {'bottom', 'top', 'left', 'right', 'front', 'back'}
+for i = 1,#sides do
+  if (peripheral.getType(sides[i]) == 'fluxwarpcore') then
+    w = peripheral.wrap(sides[i])
+    break
+  end
+end  
+
+w.setDimension() --make sure dimension is same as current dimension
+w.setWarpVector(args[1], args[2], args[3]) --set relative warp coordinates
+sleep(1)
+
+w.warp() --activate warp drive
+

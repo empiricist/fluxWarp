@@ -24,15 +24,13 @@ public class Recipes {
     //register recipes
     public static void init(){
         //to add vanilla shaped crafting recipe (can also use addShapedRecipe?)
-        //GameRegistry.addRecipe(new ItemStack(ModItems.itemFan), "pp ", "spp", "ssp", 's', new ItemStack(Items.stick), 'p', new ItemStack(Items.paper));
+        GameRegistry.addRecipe(new ItemStack(ModItems.itemBearingCompass), "ggg", "gcg", "ggg", 'g', new ItemStack(Blocks.glass_pane), 'c', new ItemStack(Items.compass));
+        GameRegistry.addRecipe(new ItemStack(ModItems.itemInfoDisk), "r", "p", "e", 'r', new ItemStack(Items.redstone), 'p', new ItemStack(Items.paper), 'e', new ItemStack(Items.ender_pearl));
 
         //to add vanilla shapeless crafting recipe
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.test), new ItemStack(Items.redstone), new ItemStack(Blocks.wool));
 
         //to add forge oredict shaped crafting recipe (can use oredict names or itemStacks)
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.fan), "pp ", "spp", "ssp", 's', "stickWood", 'p', new ItemStack(Items.paper)));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.staff), "fsf", " s ", "psp", 'f', new ItemStack(ModItems.fan), 's', "stickWood", 'p', new ItemStack(Items.paper)));
-
         if(ConfigurationHandler.vanillaRecipes){
             LogHelper.info("Registered vanilla Minecraft recipe for Dimension Address");
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.dimensionAddress), " r ", "ibi", " g ", 'r', "dustRedstone", 'i', "ingotIron", 'b', new ItemStack(Items.glass_bottle), 'g', "ingotGold"));

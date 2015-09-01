@@ -36,7 +36,7 @@ public class FluxWarp {
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
         //register keybindings
-        proxy.registerKeyBindings();
+        //proxy.registerKeyBindings(); //no key bindings needed
 
         //initialize the mod's items and blocks
         ModItems.init();
