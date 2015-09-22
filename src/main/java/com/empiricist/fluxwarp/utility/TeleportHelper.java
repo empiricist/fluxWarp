@@ -128,11 +128,12 @@ public class TeleportHelper {
                     //tileentity is created with blocks
                     TileEntity tileNew = TileEntity.createAndLoadEntity(nbtData); //dest.getTileEntity(x2, y2, z2);
 
-                    NBTTagCompound nbtNew = new NBTTagCompound();
-                    tileNew.writeToNBT(nbtNew);
+                    //does this cause problems for opencomputers?
+//                    NBTTagCompound nbtNew = new NBTTagCompound();
+//                    tileNew.writeToNBT(nbtNew);
 //                    LogHelper.info("  new NBT");
 //                    LogHelper.info("    " + nbtNew.toString());
-                    tileNew.readFromNBT(nbtData);
+//                    tileNew.readFromNBT(nbtData);
 
                     dest.setTileEntity(x2, y2, z2, tileNew);
 

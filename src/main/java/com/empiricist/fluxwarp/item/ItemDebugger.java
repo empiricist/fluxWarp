@@ -3,6 +3,7 @@ package com.empiricist.fluxwarp.item;
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
 import com.empiricist.fluxwarp.utility.ChatHelper;
 import com.empiricist.fluxwarp.utility.LogHelper;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -25,7 +26,9 @@ public class ItemDebugger extends ItemBase{
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ){
         if( !world.isRemote ){
             ChatHelper.sendText(player, "-----Block-----");
-            ChatHelper.sendText(player, "X:" + x + ", Y:" + y + ", Z:" + z + "; Name: " + world.getBlock(x, y, z).getLocalizedName() + ", ID: " + world.getBlock(x, y, z).getUnlocalizedName() + ", Meta: " + world.getBlockMetadata(x, y, z));
+            Block block = world.getBlock(x, y, z);
+            ChatHelper.sendText(player, "X:" + x + ", Y:" + y + ", Z:" + z + "; Name: " + block.getLocalizedName() + ", ID: " + block.getUnlocalizedName() + ", Meta: " + world.getBlockMetadata(x, y, z));
+            ChatHelper.sendText(player, "Hardness: " + block.getBlockHardness(world,x,y,z) + ", Resistance: " + block.getExplosionResistance(player)*5.0f + ", Mining Level: " + block.getHarvestLevel(world.getBlockMetadata(x,y,z)));
             TileEntity te = world.getTileEntity(x,y,z);
             if( te != null ){
                 NBTTagCompound tag = new NBTTagCompound();
