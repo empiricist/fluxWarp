@@ -1,6 +1,7 @@
 package com.empiricist.fluxwarp;
 
 
+import com.empiricist.fluxwarp.client.gui.GuiHandler;
 import com.empiricist.fluxwarp.client.handler.KeyInputEventHandler;
 import com.empiricist.fluxwarp.handler.ConfigurationHandler;
 import com.empiricist.fluxwarp.init.Integration;
@@ -54,6 +55,8 @@ public class FluxWarp {
 
         //register recipes
         Recipes.init();
+
+        new GuiHandler();
 
         ForgeChunkManager.setForcedChunkLoadingCallback(instance, null);
 

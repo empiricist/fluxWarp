@@ -23,7 +23,7 @@ public class ModBlocks {
         GameRegistry.registerBlock( warpcore, "warpcore");
         GameRegistry.registerTileEntity(TileEntityWarpCore.class, "warpcore");
 
-        //GameRegistry.registerBlock( dimensionDatabase, "dimensionDatabase");
+        GameRegistry.registerBlock( dimensionDatabase, "dimensionDatabase");
         GameRegistry.registerTileEntity(TileEntityDimensionDatabase.class, "dimensionDatabase");
     }
 }

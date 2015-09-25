@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TileEntityDimensionDatabase extends TileEntity{//TileEntityDropper{//} implements IInventory{
+public class TileEntityDimensionDatabase extends TileEntity implements IInventory{
     public static int numSlots;
     public ItemStack[] contents;
     public ArrayList<Integer> dimensions;
@@ -48,6 +48,66 @@ public class TileEntityDimensionDatabase extends TileEntity{//TileEntityDropper{
         tag.setIntArray("DimIDs", Ints.toArray(dimensions));
     }
 
+
+    @Override
+    public int getSizeInventory() {
+        return 5;
+    }
+
+    @Override
+    public ItemStack getStackInSlot(int p_70301_1_) {
+        return null;
+    }
+
+    @Override
+    public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
+        return null;
+    }
+
+    @Override
+    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
+        return null;
+    }
+
+    @Override
+    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
+
+    }
+
+    @Override
+    public String getInventoryName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomInventoryName() {
+        return false;
+    }
+
+    @Override
+    public int getInventoryStackLimit() {
+        return 0;
+    }
+
+    @Override
+    public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
+        return false;
+    }
+
+    @Override
+    public void openInventory() {
+
+    }
+
+    @Override
+    public void closeInventory() {
+
+    }
+
+    @Override
+    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
+        return false;
+    }
 
 
     //    @Override

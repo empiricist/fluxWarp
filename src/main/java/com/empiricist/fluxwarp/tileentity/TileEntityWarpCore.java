@@ -7,6 +7,7 @@ import com.empiricist.fluxwarp.api.IDimensionPermissionBlock;
 import com.empiricist.fluxwarp.handler.ConfigurationHandler;
 import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
 import com.empiricist.fluxwarp.utility.LogHelper;
+import com.empiricist.fluxwarp.utility.ParseHelper;
 import com.empiricist.fluxwarp.utility.TeleportHelper;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
@@ -391,24 +392,24 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
             TileEntitySign sign = (TileEntitySign) tile;
 
             String[] text = sign.signText;
-            dx = safeReadInt(text[0], 0);
-            dy = safeReadInt(text[1], 0);
-            dz = safeReadInt(text[2], 0);
-            destDim = safeReadInt(text[3], worldObj.provider.dimensionId);
+            dx = ParseHelper.safeReadInt(text[0], 0);
+            dy = ParseHelper.safeReadInt(text[1], 0);
+            dz = ParseHelper.safeReadInt(text[2], 0);
+            destDim = ParseHelper.safeReadInt(text[3], worldObj.provider.dimensionId);
             LogHelper.info("Found coords dx:" + dx + " dy:" + dy + " dz:" + dz + " dim:" + destDim);
         }
     }
 
-    private int safeReadInt(String string, int defaultVal){
-        int res = defaultVal;
-        //LogHelper.info("Trying to read string: " + string);
-        try{
-            res = (int)Double.parseDouble(string);//computercraft returns all numbers as decimals, b/c lua
-        }catch(NumberFormatException e){
-            res = defaultVal;
-        }
-        return res;
-    }
+//    private int safeReadInt(String string, int defaultVal){
+//        int res = defaultVal;
+//        //LogHelper.info("Trying to read string: " + string);
+//        try{
+//            res = (int)Double.parseDouble(string);//computercraft returns all numbers as decimals, b/c lua
+//        }catch(NumberFormatException e){
+//            res = defaultVal;
+//        }
+//        return res;
+//    }
 
 
     public void setDoWarp(boolean newWarp){
@@ -459,13 +460,13 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         energyStorage.readFromNBT(compound);
     }
 
-    public String safeReadString(Object obj){
-        //if (obj instanceof String){
-            return obj.toString();
-        //}else{
-        //    return "";
-        //}
-    }
+//    public String safeReadString(Object obj){
+//        //if (obj instanceof String){
+//            return obj.toString();
+//        //}else{
+//        //    return "";
+//        //}
+//    }
 
     //computercraft peripheral methods
     @Override
@@ -491,12 +492,12 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         switch( method ) {
             case 0: //setBounds
                 if (arguments.length >= 6) {
-                    xPlus = safeReadInt(safeReadString(arguments[0]), 1);
-                    xMinus = safeReadInt(safeReadString(arguments[1]), 1);
-                    yPlus = safeReadInt(safeReadString(arguments[2]), 1);
-                    yMinus = safeReadInt(safeReadString(arguments[3]), 1);
-                    zPlus = safeReadInt(safeReadString(arguments[4]), 1);
-                    zMinus = safeReadInt(safeReadString(arguments[5]), 1);
+                    xPlus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[0]), 1);
+                    xMinus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[1]), 1);
+                    yPlus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[2]), 1);
+                    yMinus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[3]), 1);
+                    zPlus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[4]), 1);
+                    zMinus = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[5]), 1);
                 } else {
                     //return new Object[]{-1, "Not enough arguments, 6 needed: x+, x-, y+, y-, z+, z-"};
                     throw new LuaException("Not enough arguments, 6 needed: x+, x-, y+, y-, z+, z-");
@@ -507,9 +508,9 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
             //break;
             case 2: //setWarpVector
                 if (arguments.length >= 3) {
-                    dx = safeReadInt(safeReadString(arguments[0]), 0);
-                    dy = safeReadInt(safeReadString(arguments[1]), 0);
-                    dz = safeReadInt(safeReadString(arguments[2]), 0);
+                    dx = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[0]), 0);
+                    dy = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[1]), 0);
+                    dz = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[2]), 0);
                 } else {
                     //return new Object[]{-1, "Not enough arguments, 3 needed: dx, dy, dz"};
                     throw new LuaException("Not enough arguments, 3 needed: dx, dy, dz");
@@ -519,7 +520,7 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
                 return new Object[]{dx, dy, dz};
             case 4: //setDimension
                 if (arguments.length >= 1) {
-                    destDim = safeReadInt(safeReadString(arguments[0]), worldObj.provider.dimensionId);//try to set to given dimension
+                    destDim = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[0]), worldObj.provider.dimensionId);//try to set to given dimension
                 } else {
                     destDim = worldObj.provider.dimensionId; //return new Object[]{-1, "Not enough arguments, 1 needed: dimension"};
                 }

@@ -1,5 +1,6 @@
 package com.empiricist.fluxwarp.block;
 
+import com.empiricist.fluxwarp.FluxWarp;
 import com.empiricist.fluxwarp.api.IDimensionPermissionBlock;
 import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
@@ -70,6 +71,7 @@ public class BlockDimensionDatabase extends BlockContainer implements IDimension
                 if(!world.isRemote){ player.addChatComponentMessage(new ChatComponentText( "Dimensions: " + database.dimensions.toString() ) ) ; }
             }
         }
+        player.openGui(FluxWarp.instance, 0, world, x, y, z);
         return true;
     }
 
