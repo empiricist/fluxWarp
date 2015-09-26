@@ -1,8 +1,9 @@
 package com.empiricist.fluxwarp.client.gui;
 
 import com.empiricist.fluxwarp.FluxWarp;
-import com.empiricist.fluxwarp.tileentity.ContainerDimensionDatabase;
+import com.empiricist.fluxwarp.tileentity.ContainerWarpCore;
 import com.empiricist.fluxwarp.tileentity.TileEntityDimensionDatabase;
+import com.empiricist.fluxwarp.tileentity.TileEntityWarpCore;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,8 +22,8 @@ public class GuiHandler implements IGuiHandler {
         switch(ID){
             case 0:
                 TileEntity te = world.getTileEntity(x, y, z);
-                if(te!=null && te instanceof TileEntityDimensionDatabase){
-                    return new ContainerDimensionDatabase(player.inventory, (TileEntityDimensionDatabase)te);
+                if(te!=null && te instanceof TileEntityWarpCore){
+                    return new ContainerWarpCore(player.inventory, (TileEntityWarpCore)te);
                 }
                 break;
         }
@@ -34,8 +35,8 @@ public class GuiHandler implements IGuiHandler {
         switch(ID){
             case 0://machine
                 TileEntity te = world.getTileEntity(x, y, z);
-                if(te!=null && te instanceof TileEntityDimensionDatabase){
-                    return new GuiDimensionDatabase(player.inventory, (TileEntityDimensionDatabase)te);
+                if(te!=null && te instanceof TileEntityWarpCore){
+                    return new GuiWarpCore(player.inventory, (TileEntityWarpCore)te);
                 }
                 break;
         }

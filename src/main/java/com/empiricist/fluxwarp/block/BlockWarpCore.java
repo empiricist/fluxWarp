@@ -1,5 +1,6 @@
 package com.empiricist.fluxwarp.block;
 
+import com.empiricist.fluxwarp.FluxWarp;
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
 import com.empiricist.fluxwarp.reference.Reference;
 import com.empiricist.fluxwarp.tileentity.TileEntityWarpCore;
@@ -13,8 +14,10 @@ import dan200.computercraft.api.peripheral.IPeripheralProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.Facing;
@@ -66,14 +69,29 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
     }
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
+        //world.markBlockForUpdate(x, y, z); // Makes the server call getDescriptionPacket for a full data sync
+        TileEntity t = world.getTileEntity(x, y, z);
+        if (t != null && t instanceof TileEntityWarpCore) {
+            TileEntityWarpCore warpCore = (TileEntityWarpCore) t;
+
+            NBTTagCompound nbt = new NBTTagCompound();
+            warpCore.writeToNBT(nbt);
+            LogHelper.info((world.isRemote ? "Client " : "Server ") + " Data: " + nbt);
+        }
         if(!world.isRemote){
             TileEntity tile = world.getTileEntity(x, y, z);
             if (tile != null && tile instanceof TileEntityWarpCore) {
                 TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
-                ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH));
+                //Minecraft.getMinecraft().getNetHandler().addToSendQueue(warpCore.getDescriptionPacket());
+                //world.markBlockForUpdate(x, y, z);
+                //ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH));
 
+
+                player.openGui(FluxWarp.instance, 0, world, x, y, z);
             }
         }
+
+
         return true;
     }
 

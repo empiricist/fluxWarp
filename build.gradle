@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 //these 5 things are what you change
-version = "1.7.10-0.2"//mod version (whatever scheme), end of final jar file name
+version = "1.7.10-0.3"//mod version (whatever scheme), end of final jar file name
 group = "com.empiricist.fluxWarp" // prefix.yourname.modid, http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "fluxWarp"//modid, start of jar file name
 

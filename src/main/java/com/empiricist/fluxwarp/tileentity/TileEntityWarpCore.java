@@ -17,8 +17,12 @@ import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.nbt.NBTTagCompound;
@@ -34,7 +38,7 @@ import java.util.List;
         @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheral", modid = "ComputerCraft", striprefs = true),
         @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true)
 })
-public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEnergyReceiver{
+public class TileEntityWarpCore extends TileEntity implements IInventory, IPeripheral, IEnergyReceiver{
 
     private int xPlus;
     private int yPlus;
@@ -400,20 +404,9 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         }
     }
 
-//    private int safeReadInt(String string, int defaultVal){
-//        int res = defaultVal;
-//        //LogHelper.info("Trying to read string: " + string);
-//        try{
-//            res = (int)Double.parseDouble(string);//computercraft returns all numbers as decimals, b/c lua
-//        }catch(NumberFormatException e){
-//            res = defaultVal;
-//        }
-//        return res;
-//    }
-
 
     public void setDoWarp(boolean newWarp){
-        signalOn = newWarp;
+        doWarp = newWarp;
     }
 
     @Override
@@ -460,13 +453,20 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
         energyStorage.readFromNBT(compound);
     }
 
-//    public String safeReadString(Object obj){
-//        //if (obj instanceof String){
-//            return obj.toString();
-//        //}else{
-//        //    return "";
-//        //}
-//    }
+    @Override
+    public Packet getDescriptionPacket()
+    {
+        NBTTagCompound syncData = new NBTTagCompound();
+        this.writeToNBT(syncData);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, syncData);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    {
+        readFromNBT(pkt.func_148857_g());
+    }
+
 
     //computercraft peripheral methods
     @Override
@@ -598,5 +598,88 @@ public class TileEntityWarpCore extends TileEntity implements IPeripheral, IEner
             return (energy == energyStorage.extractEnergy(energy, false));
         }
     }
+
+
+    @Override
+    public int getSizeInventory() {
+        return 5;
+    }
+
+    @Override
+    public ItemStack getStackInSlot(int slot) {
+        return null;
+    }
+
+    @Override
+    public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
+        return null;
+    }
+
+    @Override
+    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
+        return null;
+    }
+
+    @Override
+    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
+
+    }
+
+    @Override
+    public String getInventoryName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomInventoryName() {
+        return false;
+    }
+
+    @Override
+    public int getInventoryStackLimit() {
+        return 0;
+    }
+
+    @Override
+    public boolean isUseableByPlayer(EntityPlayer player) {
+        return true;
+    }
+
+    @Override
+    public void openInventory() {
+
+    }
+
+    @Override
+    public void closeInventory() {
+
+    }
+
+    @Override
+    public boolean isItemValidForSlot(int slot, ItemStack stack) {
+        return false;
+    }
+
+    public int getXPlus(){ return xPlus; }
+    public int getYPlus(){ return yPlus; }
+    public int getZPlus(){ return zPlus; }
+    public int getXMinus(){ return xMinus; }
+    public int getYMinus(){ return yMinus; }
+    public int getZMinus(){ return zMinus; }
+    public int getDx(){ return dx; }
+    public int getDy(){ return dy; }
+    public int getDz(){ return dz; }
+    public int getDestDim(){ return destDim; }
+
+    public void setXPlus(int xp){ xPlus = xp; }
+    public void setYPlus(int yp){ yPlus = yp; }
+    public void setZPlus(int zp){ zPlus = zp; }
+    public void setXMinus(int xm){ xMinus = xm; }
+    public void setYMinus(int ym){ yMinus = ym; }
+    public void setZMinus(int zm){ zMinus = zm; }
+    public void setDx(int Dx){ dx = Dx; }
+    public void setDy(int Dy){ dy = Dy; }
+    public void setDz(int Dz){ dz = Dz; }
+    public void setDestDim(int dest){ destDim = dest; }
 }
 

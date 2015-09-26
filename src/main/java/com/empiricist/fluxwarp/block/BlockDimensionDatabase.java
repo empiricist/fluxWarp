@@ -71,7 +71,7 @@ public class BlockDimensionDatabase extends BlockContainer implements IDimension
                 if(!world.isRemote){ player.addChatComponentMessage(new ChatComponentText( "Dimensions: " + database.dimensions.toString() ) ) ; }
             }
         }
-        player.openGui(FluxWarp.instance, 0, world, x, y, z);
+
         return true;
     }
 
