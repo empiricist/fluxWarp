@@ -46,7 +46,7 @@ public class GuiWarpCore extends GuiContainer{
             //tabs
             drawTexturedModalRect(guiLeft+4, guiTop-28, 195, 30, 28, 32);
             drawTexturedModalRect(guiLeft+32, guiTop-28, 195, 0, 28, 30);
-            //textboxes
+            //text boxes
             drawTexturedModalRect(guiLeft+58, guiTop+23, 0, 136, 89, 11);
             drawTexturedModalRect(guiLeft+58, guiTop+47, 0, 136, 89, 11);
             drawTexturedModalRect(guiLeft+58, guiTop+71, 0, 136, 89, 11);
@@ -90,19 +90,80 @@ public class GuiWarpCore extends GuiContainer{
 
         fontRendererObj.drawSplitString("RF", 176, 6, 100, 0x904040);//dx
         if(tab == 0){
-            fontRendererObj.drawSplitString(entries[0], 60, 25, 100, (entry==0 ? 0x209030 : 0x606060));//dx
-            fontRendererObj.drawSplitString(entries[1], 60, 49, 100, (entry==1 ? 0x209030 : 0x606060));//dy
-            fontRendererObj.drawSplitString(entries[2], 60, 73, 100, (entry==2 ? 0x209030 : 0x606060));//dz
-            fontRendererObj.drawSplitString(entries[3], 60, 97, 100, (entry==3 ? 0x209030 : 0x606060));//dim
+            fontRendererObj.drawSplitString("X:", 30, 25, 100, (entry==0 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("Y:", 30, 49, 100, (entry==1 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("Z:", 30, 73, 100, (entry==2 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("Dim:", 25, 97, 100, (entry==3 ? 0x209030 : 0x606060));
+
+            if(entry==0){
+                fontRendererObj.drawSplitString(entries[0]+"_", 60, 25, 100, 0x209030);//dx
+            }else{
+                fontRendererObj.drawSplitString(entries[0], 60, 25, 100, 0x606060);//dx
+            }
+            if(entry==1){
+                fontRendererObj.drawSplitString(entries[1]+"_", 60, 49, 100, 0x209030);//dy
+            }else{
+                fontRendererObj.drawSplitString(entries[1], 60, 49, 100, 0x606060);
+            }
+            if(entry==2){
+                fontRendererObj.drawSplitString(entries[2]+"_", 60, 73, 100, 0x209030);//dz
+            }else{
+                fontRendererObj.drawSplitString(entries[2], 60, 73, 100, 0x606060);//dz
+            }
+            if(entry==3){
+                fontRendererObj.drawSplitString(entries[3]+"_", 60, 97, 100, 0x209030);//dim
+            }else{
+                fontRendererObj.drawSplitString(entries[3], 60, 97, 100, 0x606060);//dim
+            }
+            //fontRendererObj.drawSplitString(entries[0], 60, 25, 100, (entry==0 ? 0x209030 : 0x606060));//dx
+            //fontRendererObj.drawSplitString(entries[1], 60, 49, 100, (entry==1 ? 0x209030 : 0x606060));//dy
+            //fontRendererObj.drawSplitString(entries[2], 60, 73, 100, (entry==2 ? 0x209030 : 0x606060));//dz
+            //fontRendererObj.drawSplitString(entries[3], 60, 97, 100, (entry==3 ? 0x209030 : 0x606060));//dim
         }else if(tab == 1){
             //fontRendererObj.drawSplitString("HELLO!!!!!", 50, 80, 100, 0x404040);
+            fontRendererObj.drawSplitString("+X:", 30, 25, 100, (entry==5 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("+Y:", 30, 49, 100, (entry==7 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("+Z:", 30, 73, 100, (entry==9 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("-X:", 96, 25, 100, (entry==6 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("-Y:", 96, 49, 100, (entry==8 ? 0x209030 : 0x606060));
+            fontRendererObj.drawSplitString("-Z:", 96, 73, 100, (entry==10 ? 0x209030 : 0x606060));
 
-            fontRendererObj.drawSplitString(entries[5], 60, 25, 100, (entry==5 ? 0x209030 : 0x606060));//+x
-            fontRendererObj.drawSplitString(entries[7], 60, 49, 100, (entry==7 ? 0x209030 : 0x606060));//+y
-            fontRendererObj.drawSplitString(entries[9], 60, 73, 100, (entry==9 ? 0x209030 : 0x606060));//+z
-            fontRendererObj.drawSplitString(entries[6], 126, 25, 100, (entry==6 ? 0x209030 : 0x606060));//-x
-            fontRendererObj.drawSplitString(entries[8], 126, 49, 100, (entry==8 ? 0x209030 : 0x606060));//-y
-            fontRendererObj.drawSplitString(entries[10], 126, 73, 100, (entry==10 ? 0x209030 : 0x606060));//-z
+            if(entry == 5){
+                fontRendererObj.drawSplitString(entries[5]+"_", 60, 25, 100, 0x209030);//+x
+            }else{
+                fontRendererObj.drawSplitString(entries[5], 60, 25, 100, 0x606060);//+x
+            }
+            if(entry == 7){
+                fontRendererObj.drawSplitString(entries[7]+"_", 60, 49, 100, 0x209030);//+y
+            }else{
+                fontRendererObj.drawSplitString(entries[7], 60, 49, 100, 0x606060);//+y
+            }
+            if(entry == 9){
+                fontRendererObj.drawSplitString(entries[9]+"_", 60, 73, 100, 0x209030);//+z
+            }else{
+                fontRendererObj.drawSplitString(entries[9], 60, 73, 100, 0x606060);//+z
+            }
+            if(entry == 6){
+                fontRendererObj.drawSplitString(entries[6]+"_", 126, 25, 100, 0x209030);//-x
+            }else{
+                fontRendererObj.drawSplitString(entries[6], 126, 25, 100, 0x606060);//-x
+            }
+            if(entry == 8){
+                fontRendererObj.drawSplitString(entries[8]+"_", 126, 49, 100, 0x209030);//-y
+            }else{
+                fontRendererObj.drawSplitString(entries[8], 126, 49, 100, 0x606060);//-y
+            }
+            if(entry == 10){
+                fontRendererObj.drawSplitString(entries[10]+"_", 126, 73, 100, 0x209030);//-z
+            }else{
+                fontRendererObj.drawSplitString(entries[10], 126, 73, 100, 0x606060);//-z
+            }
+//            fontRendererObj.drawSplitString(entries[5], 60, 25, 100, (entry==5 ? 0x209030 : 0x606060));//+x
+//            fontRendererObj.drawSplitString(entries[7], 60, 49, 100, (entry==7 ? 0x209030 : 0x606060));//+y
+//            fontRendererObj.drawSplitString(entries[9], 60, 73, 100, (entry==9 ? 0x209030 : 0x606060));//+z
+//            fontRendererObj.drawSplitString(entries[6], 126, 25, 100, (entry==6 ? 0x209030 : 0x606060));//-x
+//            fontRendererObj.drawSplitString(entries[8], 126, 49, 100, (entry==8 ? 0x209030 : 0x606060));//-y
+//            fontRendererObj.drawSplitString(entries[10], 126, 73, 100, (entry==10 ? 0x209030 : 0x606060));//-z
 
             fontRendererObj.drawSplitString("These are the distances from the warp core block to the walls of the volume to teleport", 15, 90, 130, 0x606060);
         }
@@ -149,39 +210,40 @@ public class GuiWarpCore extends GuiContainer{
         buttonList.clear();//just in case some left from prev gui?
 
         //id, screen pos, size, text
-        GuiButton xCoord = new GuiButton(0, guiLeft+24, guiTop+18, 25, 20, "X");
+        GuiButton xCoord = new GuiClearButton(0, guiLeft+58, guiTop+23, 89, 11, "X");
         buttonList.add(xCoord);
         coordTabButtons.add(xCoord);
-        GuiButton yCoord = new GuiButton(1, guiLeft+24, guiTop+42, 25, 20, "Y");
+        GuiButton yCoord = new GuiClearButton(1, guiLeft+58, guiTop+47, 89, 11, "Y");
         buttonList.add(yCoord);
         coordTabButtons.add(yCoord);
-        GuiButton zCoord = new GuiButton(2, guiLeft+24, guiTop+66, 25, 20, "Z");
+        GuiButton zCoord = new GuiClearButton(2, guiLeft+58, guiTop+71, 89, 11, "Z");
         buttonList.add(zCoord);
         coordTabButtons.add(zCoord);
-        GuiButton dCoord = new GuiButton(3, guiLeft+24, guiTop+90, 25, 20, "Dim");
+        GuiButton dCoord = new GuiClearButton(3, guiLeft+58, guiTop+95, 89, 11, "Dim");
         buttonList.add(dCoord);
         coordTabButtons.add(dCoord);
+
         GuiButton doWarp = new GuiButton(4, guiLeft+65, guiTop+111, 30, 20, "Warp");
         buttonList.add(doWarp);
         coordTabButtons.add(doWarp);
         //once added, will be rendered automatically
 
-        GuiButton xPlusButton = new GuiButton(5, guiLeft+24, guiTop+18, 25, 20, "+X");
+        GuiButton xPlusButton = new GuiClearButton(5, guiLeft+58, guiTop+23, 25, 11, "+X");
         buttonList.add(xPlusButton);
         boundsTabButtons.add(xPlusButton);
-        GuiButton yPlusButton = new GuiButton(7, guiLeft+24, guiTop+42, 25, 20, "+Y");
+        GuiButton yPlusButton = new GuiClearButton(7, guiLeft+58, guiTop+47, 25, 11, "+Y");
         buttonList.add(yPlusButton);
         boundsTabButtons.add(yPlusButton);
-        GuiButton zPlusButton = new GuiButton(9, guiLeft+24, guiTop+66, 25, 20, "+Z");
+        GuiButton zPlusButton = new GuiClearButton(9, guiLeft+58, guiTop+71, 25, 11, "+Z");
         buttonList.add(zPlusButton);
         boundsTabButtons.add(zPlusButton);
-        GuiButton xMinusButton = new GuiButton(6, guiLeft+90, guiTop+18, 25, 20, "-X");
+        GuiButton xMinusButton = new GuiClearButton(6, guiLeft+124, guiTop+23, 25, 11, "-X");
         buttonList.add(xMinusButton);
         boundsTabButtons.add(xMinusButton);
-        GuiButton yMinusButton = new GuiButton(8, guiLeft+90, guiTop+42, 25, 20, "-Y");
+        GuiButton yMinusButton = new GuiClearButton(8, guiLeft+124, guiTop+47, 25, 11, "-Y");
         buttonList.add(yMinusButton);
         boundsTabButtons.add(yMinusButton);
-        GuiButton zMinusButton = new GuiButton(10, guiLeft+90, guiTop+66, 25, 20, "-Z");
+        GuiButton zMinusButton = new GuiClearButton(10, guiLeft+124, guiTop+71, 25, 11, "-Z");
         buttonList.add(zMinusButton);
         boundsTabButtons.add(zMinusButton);
 
@@ -214,10 +276,14 @@ public class GuiWarpCore extends GuiContainer{
     }
 
     @Override
-    protected void actionPerformed(GuiButton button){//vanilla type button clicked
+    protected void actionPerformed(GuiButton button){//guibutton clicked
         saveInput();
-        entry = button.id;
-        if(entry == 4){ this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, entry); }
+        if(button.id != 4){ //warp is not a state we need to keep
+            entry=button.id;
+        }else{
+            this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, 4);
+        }
+
 //        if(button.id==0){//update text w/o reopening gui
 //            //not the best way to do this, doesn't deal w/ several players in gui at once
 //            //button.visible = !button.visible; //displayString = button.displayString.equals(DISABLE_TEXT)? ENABLE_TEXT : DISABLE_TEXT;
@@ -256,7 +322,7 @@ public class GuiWarpCore extends GuiContainer{
                 }
             }
         }
-        LogHelper.info("Mouse Clicked at x " + x + ", y " + y + ", with button " + button);
+        //LogHelper.info("Mouse Clicked at x " + x + ", y " + y + ", with button " + button);
         //this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, x);
         //this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, y);
 
@@ -266,7 +332,7 @@ public class GuiWarpCore extends GuiContainer{
     @Override
     protected void keyTyped(char character, int key){
         super.keyTyped(character, key);
-        System.out.println("Key Pressed: " + character + " " + key);
+        //LogHelper.info("Key Pressed: " + character + " " + key);
 
         if(entry < 0 || entry >= entries.length){ entry = -1; return; }
 
@@ -277,8 +343,14 @@ public class GuiWarpCore extends GuiContainer{
 
         }else if (key==28){ //enter
             saveInput();
+        }else if(key == 12 || key == 74){ //minus sign -
+            if( entries[entry].length() >0 && entries[entry].substring(0,1).equals("-") ){
+                entries[entry] = entries[entry].substring(1);//remove leading negative sign
+            }else{
+                entries[entry] = "-" + entries[entry];//add leading negative sign
+            }
         }else{
-            if( (entry < 4 && entries[entry].length() < 14) || (entry > 4 && entries[entry].length() < 4)){
+            if( (entry < 4 && entries[entry].length() < 13) || (entry > 4 && entries[entry].length() < 3)){
                 entries[entry] += character;
             }
         }

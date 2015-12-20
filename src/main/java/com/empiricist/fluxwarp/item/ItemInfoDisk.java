@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-@Optional.Interface(iface = "dan200.computercraft.api.peripheral.IMediaProvider", modid = "ComputerCraft", striprefs = true)
+@Optional.Interface(iface = "dan200.computercraft.api.media.IMedia", modid = "ComputerCraft", striprefs = true)
 public class ItemInfoDisk extends ItemBase implements IMedia{
 
     public ItemInfoDisk(){

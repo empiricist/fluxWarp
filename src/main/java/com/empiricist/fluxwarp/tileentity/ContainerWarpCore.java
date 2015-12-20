@@ -1,16 +1,20 @@
 package com.empiricist.fluxwarp.tileentity;
 
 import com.empiricist.fluxwarp.utility.LogHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class ContainerWarpCore extends Container{
     private TileEntityWarpCore contents;
+    private int lastRF;
 
     public ContainerWarpCore(IInventory playerItems, TileEntityWarpCore te) {
         contents = te;
@@ -98,5 +102,31 @@ public class ContainerWarpCore extends Container{
         //contents.markDirty();
         //contents.onDataPacket(Minecraft.getMinecraft().getNetHandler().getNetworkManager(), (S35PacketUpdateTileEntity)contents.getDescriptionPacket());
         contents.getWorldObj().markBlockForUpdate(contents.xCoord, contents.yCoord, contents.zCoord);
+    }
+
+    @Override
+    public void detectAndSendChanges() {
+        super.detectAndSendChanges();
+
+        int rf = this.contents.getEnergyStored(ForgeDirection.DOWN);
+
+        for (int i = 0; i < this.crafters.size(); ++i)
+        {
+            ICrafting icrafting = (ICrafting)this.crafters.get(i);
+
+            if (this.lastRF != rf){
+                icrafting.sendProgressBarUpdate(this, 0, rf);
+            }
+        }
+
+        this.lastRF = rf;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int id, int value){
+        if (id == 0){
+            this.contents.energyStorage.setEnergyStored(value);
+        }
     }
 }

@@ -3,7 +3,7 @@
   "modid": "fluxWarp",
   "name": "Flux Warp",
   "description": "For when you want to be over there, RIGHT NOW",
-  "version": "0.1",
+  "version": "0.4",
   "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",
@@ -12,7 +12,7 @@
   "logoFile": "",
   "screenshots": [],
   "parent": "",
-  "dependencies": ["ComputerCraft"],
+  "dependencies": ["ComputerCraft","CoFHAPI|energy","CoFHCore"],
   "useDependencyInformation": "true"
 }
 ]
