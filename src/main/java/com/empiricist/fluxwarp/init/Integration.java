@@ -3,8 +3,8 @@ package com.empiricist.fluxwarp.init;
 
 import com.empiricist.fluxwarp.block.BlockWarpCore;
 import com.empiricist.fluxwarp.utility.LogHelper;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Optional;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Optional;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.peripheral.IPeripheralProvider;
 import net.minecraft.block.Block;

@@ -11,6 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityDropper;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
@@ -65,23 +66,13 @@ public class TileEntityDimensionDatabase extends TileEntity implements IInventor
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
+    public ItemStack removeStackFromSlot(int index) {
         return null;
     }
 
     @Override
     public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
 
-    }
-
-    @Override
-    public String getInventoryName() {
-        return null;
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        return false;
     }
 
     @Override
@@ -95,12 +86,12 @@ public class TileEntityDimensionDatabase extends TileEntity implements IInventor
     }
 
     @Override
-    public void openInventory() {
+    public void openInventory(EntityPlayer player) {
 
     }
 
     @Override
-    public void closeInventory() {
+    public void closeInventory(EntityPlayer player) {
 
     }
 
@@ -109,66 +100,39 @@ public class TileEntityDimensionDatabase extends TileEntity implements IInventor
         return false;
     }
 
+    @Override
+    public int getField(int id) {
+        return 0;
+    }
 
-    //    @Override
-//    public int getSizeInventory() {
-//        return numSlots;
-//    }
+    @Override
+    public void setField(int id, int value) {
 
-//    @Override
-//    public ItemStack getStackInSlot(int slot) {
-//        return contents[slot];
-//    }
-//
-//    @Override
-//    public ItemStack decrStackSize(int slot, int amount) {
-//        return null;
-//    }
-//
-//    @Override
-//    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-//
-//    }
+    }
 
-//    @Override
-//    public String getInventoryName() {
-//        return "Dimension Database";
-//    }
-//
-//    @Override
-//    public boolean hasCustomInventoryName() {
-//        return false;
-//    }
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
 
-//    @Override
-//    public int getInventoryStackLimit() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-//        return false;
-//    }
-//
-//    @Override
-//    public void openInventory() {
-//
-//    }
-//
-//    @Override
-//    public void closeInventory() {
-//
-//    }
+    @Override
+    public void clear() {
 
-//    @Override
-//    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-//        return false;
-//    }
-//
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
+        return false;
+    }
+
+    @Override
+    public IChatComponent getDisplayName() {
+        return null;
+    }
 
 }

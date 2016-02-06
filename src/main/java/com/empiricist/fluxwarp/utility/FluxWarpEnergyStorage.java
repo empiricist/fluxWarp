@@ -1,14 +1,12 @@
 package com.empiricist.fluxwarp.utility;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyStorage;
-import cpw.mods.fml.common.Optional;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraft.nbt.NBTTagCompound;
 
 //reimplementation so it can still run without cofhapi being installed necessarily
 
 @Optional.Interface(iface = "cofh.api.energy.IEnergyStorage", modid = "CoFHAPI|energy", striprefs = true)
-public class FluxWarpEnergyStorage implements IEnergyStorage{
+public class FluxWarpEnergyStorage {//implements IEnergyStorage{
     protected int energy;
     protected int capacity;
     protected int maxReceive;
@@ -26,7 +24,7 @@ public class FluxWarpEnergyStorage implements IEnergyStorage{
         this.maxExtract = maxExtract;
     }
 
-    @Override
+    //@Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
         int energyReceived = Math.min(capacity - energy, Math.min(this.maxReceive, maxReceive));
 
@@ -36,7 +34,7 @@ public class FluxWarpEnergyStorage implements IEnergyStorage{
         return energyReceived;
     }
 
-    @Override
+    //@Override
     public int extractEnergy(int maxExtract, boolean simulate) {
         int energyExtracted = Math.min(energy, Math.min(this.maxExtract, maxExtract));
 
@@ -46,12 +44,12 @@ public class FluxWarpEnergyStorage implements IEnergyStorage{
         return energyExtracted;
     }
 
-    @Override
+    //@Override
     public int getEnergyStored() {
         return energy;
     }
 
-    @Override
+    //@Override
     public int getMaxEnergyStored() {
         return capacity;
     }
@@ -108,5 +106,9 @@ public class FluxWarpEnergyStorage implements IEnergyStorage{
     public int getMaxExtract() {
 
         return maxExtract;
+    }
+
+    public void setEnergyStored(int energy){
+        this.energy = energy;
     }
 }

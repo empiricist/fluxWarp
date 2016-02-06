@@ -3,10 +3,11 @@ package com.empiricist.fluxwarp.client.handler;
 import com.empiricist.fluxwarp.client.Settings.Keybindings;
 import com.empiricist.fluxwarp.reference.Key;
 import com.empiricist.fluxwarp.utility.LogHelper;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.util.BlockPos;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -33,13 +34,13 @@ public class KeyInputEventHandler {
             int x = (int)mc.thePlayer.posX;
             int y = (int)mc.thePlayer.posY - 2;
             int z = (int)mc.thePlayer.posZ - 1;
-            LogHelper.info("X:" + x + " Y:" + y + " Z:" + z + " Block:" + mc.theWorld.getBlock(x, y, z) + " Meta:" + mc.theWorld.getBlockMetadata(x, y, z));
+            LogHelper.info("X:" + x + " Y:" + y + " Z:" + z + " Block:" + mc.theWorld.getBlockState(new BlockPos(x,y,z)) );
             //LogHelper.info("Block: " + getPressedKeyBinding());
         }
         if (pressed == Key.RELEASE){
             //LogHelper.info("Release Key");
             Minecraft mc = Minecraft.getMinecraft();
-            EntityClientPlayerMP player = mc.thePlayer;
+            EntityPlayerSP player = mc.thePlayer;
             ItemStack stack = player.getHeldItem();
             LogHelper.info( (stack != null) ? "Display Name: " + stack.getDisplayName() + ", Unlocalized Name:" + stack.getItem().getUnlocalizedName() : "Stack is null");
 

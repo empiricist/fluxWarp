@@ -2,7 +2,7 @@ package com.empiricist.fluxwarp.init;
 
 import com.empiricist.fluxwarp.item.*;
 import com.empiricist.fluxwarp.reference.Reference;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //this annotation tells forge to preserve this as reference w/o modification (unnecessary, good practice)
 @GameRegistry.ObjectHolder(Reference.MOD_ID)

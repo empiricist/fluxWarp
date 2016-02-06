@@ -13,9 +13,9 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GuiWarpCore extends GuiContainer{
@@ -65,7 +65,7 @@ public class GuiWarpCore extends GuiContainer{
         }
         //energy bar
         //LogHelper.info("RF : " + te.getEnergyStored(ForgeDirection.NORTH) +  " / " + te.getMaxEnergyStored(ForgeDirection.NORTH));
-        double energyRatio = (double)te.getEnergyStored(ForgeDirection.NORTH)/(te.getMaxEnergyStored(ForgeDirection.NORTH));
+        double energyRatio = 1;//(double)te.getEnergyStored(ForgeDirection.NORTH)/(te.getMaxEnergyStored(ForgeDirection.NORTH));
         int barHeight = (int)(energyRatio * 112);
         if (barHeight > 0) {
             int srcX = xSize;
@@ -299,7 +299,7 @@ public class GuiWarpCore extends GuiContainer{
     }
 
     @Override
-    protected void mouseClicked(int x, int y, int button) {
+    protected void mouseClicked(int x, int y, int button) throws IOException{
         super.mouseClicked(x, y, button);
         int gy = y - guiTop;
         int gx = x - guiLeft;
@@ -330,7 +330,7 @@ public class GuiWarpCore extends GuiContainer{
     }
 
     @Override
-    protected void keyTyped(char character, int key){
+    protected void keyTyped(char character, int key) throws IOException{
         super.keyTyped(character, key);
         //LogHelper.info("Key Pressed: " + character + " " + key);
 
@@ -358,7 +358,7 @@ public class GuiWarpCore extends GuiContainer{
 
     private void saveInput(){
         if(entry >= 0 && entry < entries.length){
-            int defaultValue = ((entry != 3)? 0 : te.getWorldObj().provider.dimensionId);
+            int defaultValue = ((entry != 3)? 0 : te.getWorld().provider.getDimensionId());
             int number = ParseHelper.safeReadInt(ParseHelper.safeReadString(entries[entry]), defaultValue);
             entries[entry] = "" + number;
             this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, (number<<4) + entry);

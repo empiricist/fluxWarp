@@ -1,14 +1,12 @@
 package com.empiricist.fluxwarp.item;
 
 import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
@@ -17,22 +15,22 @@ import java.util.List;
 
 public class ItemDimensionAddress extends ItemBase implements IDimensionPermissionItem {
 
-    public IIcon savedAddressIcon;
+    //public IIcon savedAddressIcon;
 
     public ItemDimensionAddress(){
         super();
         this.setUnlocalizedName("dimensionAddress");
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister){
-        savedAddressIcon = iconRegister.registerIcon( getUnwrappedUnlocalizedName( this.getUnlocalizedName() )  + "Saved");
-
-
-        //this assumes file name is same as name
-        super.registerIcons(iconRegister);
-    }
+//    @Override
+//    @SideOnly(Side.CLIENT)
+//    public void registerIcons(IIconRegister iconRegister){
+//        savedAddressIcon = iconRegister.registerIcon( getUnwrappedUnlocalizedName( this.getUnlocalizedName() )  + "Saved");
+//
+//
+//        //this assumes file name is same as name
+//        super.registerIcons(iconRegister);
+//    }
 
     @Override
     public boolean canTravelTo( ItemStack stack, int dimensionID ) {
@@ -58,7 +56,7 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
                 tag.removeTag("DimID");
             }
         }else{//clicking with blank address saves ID
-            tag.setInteger("DimID", world.provider.dimensionId);
+            tag.setInteger("DimID", world.provider.getDimensionId());
             //tag.setInteger("DimID", new Random().nextInt());
         }
 
@@ -85,26 +83,26 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
         super.addInformation(stack, player, list, bool);
     }
 
-    @Override
-    public IIcon getIcon(ItemStack stack, int pass) { //icon in players hand
-        if(stack.hasTagCompound()){
-            NBTTagCompound tag = stack.getTagCompound();
-            if( tag.hasKey("DimID")) {
-                return savedAddressIcon;
-            }
-        }
-        return super.getIcon(stack, pass);
-    }
-
-    @Override
-    public IIcon getIconIndex(ItemStack stack) { //icon in inventories
-        if(stack.hasTagCompound()){
-            NBTTagCompound tag = stack.getTagCompound();
-            if( tag.hasKey("DimID")) {
-                return savedAddressIcon;
-            }
-        }
-        return super.getIconIndex(stack);
-    }
+//    @Override
+//    public IIcon getIcon(ItemStack stack, int pass) { //icon in players hand
+//        if(stack.hasTagCompound()){
+//            NBTTagCompound tag = stack.getTagCompound();
+//            if( tag.hasKey("DimID")) {
+//                return savedAddressIcon;
+//            }
+//        }
+//        return super.getIcon(stack, pass);
+//    }
+//
+//    @Override
+//    public IIcon getIconIndex(ItemStack stack) { //icon in inventories
+//        if(stack.hasTagCompound()){
+//            NBTTagCompound tag = stack.getTagCompound();
+//            if( tag.hasKey("DimID")) {
+//                return savedAddressIcon;
+//            }
+//        }
+//        return super.getIconIndex(stack);
+//    }
 
 }

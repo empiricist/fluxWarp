@@ -2,11 +2,12 @@ package com.empiricist.fluxwarp.block;
 
 import com.empiricist.fluxwarp.creativetab.CreativeTabTestProject;
 import com.empiricist.fluxwarp.reference.Reference;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import com.empiricist.fluxwarp.utility.LogHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+//import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockBase extends Block{
 
@@ -28,12 +29,13 @@ public class BlockBase extends Block{
         return String.format("tile.%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
-        //this assumes file name is same as name
-        blockIcon = iconRegister.registerIcon( getUnwrappedUnlocalizedName( this.getUnlocalizedName() ) );
-    }
+//    @Override
+//    @SideOnly(Side.CLIENT)
+//    public void registerBlockIcons(IIconRegister iconRegister){
+//        //this assumes file name is same as name
+//        blockIcon = iconRegister.registerIcon( getUnwrappedUnlocalizedName( this.getUnlocalizedName() ) );
+//        LogHelper.warn("Registered icon for " + blockIcon.getIconName());
+//    }
 
     protected String getUnwrappedUnlocalizedName( String unlocalizedName ){
         return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);

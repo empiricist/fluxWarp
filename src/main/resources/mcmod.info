@@ -1,18 +1,16 @@
 [
 {
-  "modid": "fluxWarp",
+  "modid": "fluxwarp",
   "name": "Flux Warp",
   "description": "For when you want to be over there, RIGHT NOW",
-  "version": "0.4",
-  "mcversion": "1.7.10",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["empiricist"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "parent": "",
-  "dependencies": ["ComputerCraft","CoFHAPI|energy","CoFHCore"],
-  "useDependencyInformation": "true"
+  "dependencies": ["ComputerCraft","CoFHAPI|energy","CoFHCore"]
 }
 ]

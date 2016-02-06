@@ -2,7 +2,7 @@ package com.empiricist.fluxwarp.item;
 
 import com.empiricist.fluxwarp.FluxWarp;
 import com.empiricist.fluxwarp.reference.Reference;
-import cpw.mods.fml.common.Optional;
+import net.minecraftforge.fml.common.Optional;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.filesystem.IMount;
 import dan200.computercraft.api.media.IMedia;

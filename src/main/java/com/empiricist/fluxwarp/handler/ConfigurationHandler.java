@@ -2,8 +2,8 @@ package com.empiricist.fluxwarp.handler;
 
 import com.empiricist.fluxwarp.reference.Reference;
 import com.google.common.collect.Lists;
-import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.commons.lang3.ArrayUtils;
 

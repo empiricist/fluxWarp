@@ -1,15 +1,16 @@
 package com.empiricist.fluxwarp.tileentity;
 
 import com.empiricist.fluxwarp.utility.LogHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
+//import net.minecraftforge.common.util.ForgeDirection;
 
 
 public class ContainerWarpCore extends Container{
@@ -72,6 +73,7 @@ public class ContainerWarpCore extends Container{
                 break;
             case (4):
                 contents.setDoWarp(true);
+                contents.getWorld().scheduleUpdate(contents.getPos(), contents.getBlockType(), 1);
                 break;
             case (5):
                 contents.setXPlus(value);
@@ -101,14 +103,14 @@ public class ContainerWarpCore extends Container{
         super.onContainerClosed(player);
         //contents.markDirty();
         //contents.onDataPacket(Minecraft.getMinecraft().getNetHandler().getNetworkManager(), (S35PacketUpdateTileEntity)contents.getDescriptionPacket());
-        contents.getWorldObj().markBlockForUpdate(contents.xCoord, contents.yCoord, contents.zCoord);
+        contents.getWorld().markBlockForUpdate(contents.getPos());
     }
 
     @Override
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        int rf = this.contents.getEnergyStored(ForgeDirection.DOWN);
+        int rf = 1000000;//this.contents.getEnergyStored(ForgeDirection.DOWN);//ForgeDirection.DOWN);
 
         for (int i = 0; i < this.crafters.size(); ++i)
         {

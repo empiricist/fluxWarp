@@ -2,7 +2,7 @@ package com.empiricist.fluxwarp.client.gui;
 
 import com.empiricist.fluxwarp.handler.ConfigurationHandler;
 import com.empiricist.fluxwarp.reference.Reference;
-import cpw.mods.fml.client.config.GuiConfig;
+import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
