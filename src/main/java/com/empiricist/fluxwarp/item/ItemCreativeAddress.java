@@ -10,7 +10,8 @@ public class ItemCreativeAddress extends ItemBase implements IDimensionPermissio
 
     public ItemCreativeAddress(){
         super();
-        this.setUnlocalizedName("creativeAddress");
+        name = "creativeAddress";
+        this.setUnlocalizedName(name);
     }
 
     @Override

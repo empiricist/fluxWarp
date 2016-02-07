@@ -19,7 +19,8 @@ public class ItemDebugger extends ItemBase{
 
     public ItemDebugger(){
         super();
-        this.setUnlocalizedName("debugger");
+        name = "debugger";
+        this.setUnlocalizedName(name);
         //this.setCreativeTab(CreativeTabTestProject.TEST_PROJECT_TAB);
     }
 
@@ -29,7 +30,7 @@ public class ItemDebugger extends ItemBase{
         if( !world.isRemote ){
             ChatHelper.sendText(player, "-----Block-----");
             Block block = world.getBlockState(pos).getBlock();
-            ChatHelper.sendText(player, pos + "; Name: " + block.getLocalizedName() + ", ID: " + block.getUnlocalizedName() + ", Meta: " + world.getBlockState(pos));
+            ChatHelper.sendText(player, pos.toString().substring(8) + "; Name: " + block.getLocalizedName() + ", ID: " + block.getUnlocalizedName() + ", Meta: " + world.getBlockState(pos));
             ChatHelper.sendText(player, "Hardness: " + block.getBlockHardness(world,pos) + ", Resistance: " + block.getExplosionResistance(player)*5.0f + ", Mining Level: " + block.getHarvestLevel(world.getBlockState(pos)));
             TileEntity te = world.getTileEntity(pos);
             if( te != null ){

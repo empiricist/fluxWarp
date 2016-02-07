@@ -14,14 +14,14 @@ import net.minecraft.block.Block;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks {
     public static final BlockBase test = new BlockTest();
-    public static final Block warpcore = new BlockWarpCore();
+    public static final BlockWarpCore warpcore = new BlockWarpCore();
     public static final Block dimensionDatabase = new BlockDimensionDatabase();
 
     public static void init(){
-        GameRegistry.registerBlock( test, "test");
+        GameRegistry.registerBlock( test, test.getName());
 
-        GameRegistry.registerBlock( warpcore, "warpcore");
-        GameRegistry.registerTileEntity(TileEntityWarpCore.class, "warpcore");
+        GameRegistry.registerBlock( warpcore, warpcore.getName());
+        GameRegistry.registerTileEntity(TileEntityWarpCore.class, warpcore.getName());
 
 //        GameRegistry.registerBlock( dimensionDatabase, "dimensionDatabase");
 //        GameRegistry.registerTileEntity(TileEntityDimensionDatabase.class, "dimensionDatabase");

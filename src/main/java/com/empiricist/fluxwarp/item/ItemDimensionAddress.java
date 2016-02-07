@@ -19,7 +19,8 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
 
     public ItemDimensionAddress(){
         super();
-        this.setUnlocalizedName("dimensionAddress");
+        name = "dimensionAddress";
+        this.setUnlocalizedName(name);
     }
 
 //    @Override

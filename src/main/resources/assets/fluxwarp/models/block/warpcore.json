@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down":  "fluxwarp:blocks/warpCoreTop",
+    "up":    "fluxwarp:blocks/warpCoreTop",
+    "north": "fluxwarp:blocks/warpcore",
+    "south": "fluxwarp:blocks/warpcore",
+    "east":  "fluxwarp:blocks/warpcore",
+    "west":  "fluxwarp:blocks/warpcore"
+  }
+}

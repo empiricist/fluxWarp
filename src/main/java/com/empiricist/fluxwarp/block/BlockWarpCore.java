@@ -39,11 +39,13 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
     //private IIcon sideIcon;
 //    @SideOnly(Side.CLIENT)
 //    private IIcon topIcon;
+    private String name;
 
     public BlockWarpCore(){
         super(Material.iron);
         this.setHardness(50f);
-        this.setUnlocalizedName("warpcore");
+        name = "warpcore";
+        this.setUnlocalizedName(name);
         this.setCreativeTab(CreativeTabTestProject.TEST_PROJECT_TAB);//need these for tab to work because this is not a subclass of blockbase
         //this.setBlockTextureName(Reference.MOD_ID + ":warpcore");
     }
@@ -73,7 +75,8 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
         if (tile != null && tile instanceof TileEntityWarpCore) {
             TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
             warpCore.signal = world.isBlockIndirectlyGettingPowered(pos) > 0;
-            world.scheduleUpdate(pos, state.getBlock(), 2);
+            //world.scheduleUpdate(pos, state.getBlock(), 2);
+            //warpCore.updateEntity();
         }
     }
 
@@ -138,14 +141,18 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
         }
     }
 
-    @Override
-    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
-        TileEntity t = world.getTileEntity(pos);
-        if (t != null && t instanceof TileEntityWarpCore) {
-            TileEntityWarpCore warpCore = (TileEntityWarpCore) t;
-            warpCore.updateEntity();
-        }
+    public String getName(){
+        return name;
     }
+
+//    @Override
+//    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
+//        TileEntity t = world.getTileEntity(pos);
+//        if (t != null && t instanceof TileEntityWarpCore) {
+//            TileEntityWarpCore warpCore = (TileEntityWarpCore) t;
+//            //warpCore.updateEntity();
+//        }
+//    }
 
     /*--
     @Override

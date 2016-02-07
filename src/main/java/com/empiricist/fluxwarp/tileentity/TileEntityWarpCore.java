@@ -9,9 +9,8 @@ import com.empiricist.fluxwarp.utility.FluxWarpEnergyStorage;
 import com.empiricist.fluxwarp.utility.LogHelper;
 import com.empiricist.fluxwarp.utility.ParseHelper;
 import com.empiricist.fluxwarp.utility.TeleportHelper;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.*;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
@@ -30,7 +29,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.*;
 import net.minecraftforge.common.DimensionManager;
 
@@ -41,7 +39,7 @@ import java.util.List;
         @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheral", modid = "ComputerCraft", striprefs = true),
         @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true)
 })
-public class TileEntityWarpCore extends TileEntity implements IInventory, IPeripheral{//}, IEnergyReceiver{
+public class TileEntityWarpCore extends TileEntity implements ITickable, IInventory, IPeripheral{//}, IEnergyReceiver{
 
     private int xPlus;
     private int yPlus;
@@ -87,7 +85,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
 
 
     //@Override
-    public void updateEntity() {
+    public void update() {
 
         if (!worldObj.isRemote) {
 
@@ -263,6 +261,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                     }
                 }
 
+                /*-
                 //schedule block updates around the outside of the bounding box
                 //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus-1) + " and " + (zCoord+zPlus+1));
                 for(int i = -xMinus; i <= +xPlus; i++){
@@ -306,6 +305,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                         world2.notifyBlockOfStateChange( newPos.add( xPlus+1, i, j), world2.getBlockState( newPos.add( xPlus+1, i, j) ).getBlock());
                     }
                 }
+                --*/
 
                 LogHelper.info("Was warp successful for all blocks: " + isWarpSuccessful);
                 if( !isWarpSuccessful ){

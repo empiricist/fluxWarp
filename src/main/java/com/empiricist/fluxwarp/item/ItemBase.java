@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 
 //if you do this you can make making new items easier by leaving common stuff here
 public class ItemBase extends Item {
+    protected String name;
 
     public ItemBase(){
         super();
@@ -41,6 +42,10 @@ public class ItemBase extends Item {
 
     protected String getUnwrappedUnlocalizedName( String unlocalizedName ){
         return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);
+    }
+
+    public String getName(){
+        return name;
     }
 
 

@@ -73,7 +73,7 @@ public class ContainerWarpCore extends Container{
                 break;
             case (4):
                 contents.setDoWarp(true);
-                contents.getWorld().scheduleUpdate(contents.getPos(), contents.getBlockType(), 1);
+                //contents.getWorld().scheduleUpdate(contents.getPos(), contents.getBlockType(), 1);
                 break;
             case (5):
                 contents.setXPlus(value);

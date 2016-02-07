@@ -24,8 +24,8 @@ public class Recipes {
     //register recipes
     public static void init(){
         //to add vanilla shaped crafting recipe (can also use addShapedRecipe?)
-        GameRegistry.addRecipe(new ItemStack(ModItems.itemBearingCompass), "ggg", "gcg", "ggg", 'g', new ItemStack(Blocks.glass_pane), 'c', new ItemStack(Items.compass));
-        GameRegistry.addRecipe(new ItemStack(ModItems.itemInfoDisk), "r", "p", "e", 'r', new ItemStack(Items.redstone), 'p', new ItemStack(Items.paper), 'e', new ItemStack(Items.ender_pearl));
+        GameRegistry.addRecipe(new ItemStack(ModItems.bearingCompass), "ggg", "gcg", "ggg", 'g', new ItemStack(Blocks.glass_pane), 'c', new ItemStack(Items.compass));
+        GameRegistry.addRecipe(new ItemStack(ModItems.infoDisk), "r", "p", "e", 'r', new ItemStack(Items.redstone), 'p', new ItemStack(Items.paper), 'e', new ItemStack(Items.ender_pearl));
 
         //to add vanilla shapeless crafting recipe
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.test), new ItemStack(Items.redstone), new ItemStack(Blocks.wool));

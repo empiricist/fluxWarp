@@ -15,7 +15,8 @@ public class ItemBearingCompass extends ItemBase {
 
     public ItemBearingCompass() {
         super();
-        this.setUnlocalizedName("bearingCompass");
+        name = "bearingCompass";
+        this.setUnlocalizedName(name);
     }
 
 
@@ -60,7 +61,7 @@ public class ItemBearingCompass extends ItemBase {
 //                        break;
 //                }
 //            }
-            ChatHelper.sendText(player, String.format("%-8s %-5s  %-10s %-5s", "Facing:", face.name(), "Axis:", face.getAxisDirection() + " " + face.getAxis()));
+            ChatHelper.sendText(player, String.format("%-8s %-5s  %-12s %-5s", "Facing:", face.name(), "Axis:", (face.getAxisDirection().toString().contains("positive")? "+":"-") + face.getAxis()));
         }
         return stack;
     }

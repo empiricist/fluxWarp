@@ -1,5 +1,5 @@
 {
-  "parent": "fluxwarp:block/test",
+  "parent": "fluxwarp:block/warpcore",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

@@ -101,7 +101,7 @@ public class TeleportHelper {
 
                 dest.markBlockForUpdate(pos2);//so client actually gets message that block changed
                 //dest.notifyBlockChange(x2, x2, x2, newBlock);//I have no idea what this does (NOT block update dest end)
-                dest.scheduleUpdate(pos2, oldBlock, 1);
+                //dest.scheduleUpdate(pos2, oldBlock, 1);
 //                oldBlock.getCollisionBoundingBoxFromPool(origin, x1, y1, z1);
 //                oldBlock.getCollisionBoundingBoxFromPool(dest, x2, y2, z2);//not the problem, I think?
 
@@ -167,7 +167,7 @@ public class TeleportHelper {
 
                 oChunk.setChunkModified();
                 //origin.func_147451_t(x1,y1,z1);//maybe recalculate light? doesn't seem to help
-                origin.scheduleUpdate(pos1, Blocks.air, 1);
+                //origin.scheduleUpdate(pos1, Blocks.air, 1);
 
                 //Blocks.air.setBlockBoundsBasedOnState(origin, x1, y1, z1);
                 //oldBlock.setBlockBoundsBasedOnState(dest, x2, y2, z2);//doesn't seem to be the problem

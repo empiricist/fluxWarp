@@ -53,6 +53,8 @@ public class FluxWarp {
         //register other classes to listen for events from event bus
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
 
+        proxy.registerRenders();
+
         //register recipes
         Recipes.init();
 

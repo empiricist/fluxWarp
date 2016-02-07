@@ -17,7 +17,8 @@ public class ItemInfoDisk extends ItemBase implements IMedia{
 
     public ItemInfoDisk(){
         super();
-        this.setUnlocalizedName("infoDisk");
+        name = "infoDisk";
+        this.setUnlocalizedName(name);
     }
 
     @Override

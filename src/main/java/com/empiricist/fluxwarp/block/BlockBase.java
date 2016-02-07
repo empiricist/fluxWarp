@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 //import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockBase extends Block{
+    protected String name;
 
     public BlockBase(Material material) {
         //material determines sound, map color, tool?, flammability, etc
@@ -39,6 +40,10 @@ public class BlockBase extends Block{
 
     protected String getUnwrappedUnlocalizedName( String unlocalizedName ){
         return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);
+    }
+
+    public String getName(){
+        return name;
     }
 
 }
