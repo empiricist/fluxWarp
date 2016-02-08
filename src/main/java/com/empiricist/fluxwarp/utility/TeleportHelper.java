@@ -113,13 +113,13 @@ public class TeleportHelper {
                 //move tileentity type and data
                 TileEntity tileOrig = origin.getTileEntity(pos1);//check for tileentity
                 if (tileOrig != null) {
-                    //LogHelper.info("Found Tile Entity " + tileOrig.toString() + " at x:" + x1 + " y:" + y1 + " z:" + z1);
+                    LogHelper.info("Found Tile Entity " + tileOrig.toString() + " at x:" + x1 + " y:" + y1 + " z:" + z1);
 
                     NBTTagCompound nbtData = new NBTTagCompound();
                     tileOrig.writeToNBT(nbtData);
 
-//                    LogHelper.info("  reading NBT");
-//                    LogHelper.info("    " + nbtData.toString());
+                    LogHelper.info("  reading NBT");
+                    LogHelper.info("    " + nbtData.toString());
 
 
                     nbtData.setInteger("x", x2);
@@ -141,6 +141,12 @@ public class TeleportHelper {
 //                    tileNew.readFromNBT(nbtData);
 
                     dest.setTileEntity(pos2, tileNew);
+
+                    TileEntity teNew = dest.getTileEntity(pos2);
+                    NBTTagCompound nbtNew = new NBTTagCompound();
+                    teNew.writeToNBT(nbtNew);
+                    LogHelper.info("  written NBT");
+                    LogHelper.info("    " + nbtNew.toString());
 
 
                     //it really SHOULDN'T be necessary to do this again...
@@ -220,7 +226,7 @@ public class TeleportHelper {
                 //manager.syncPlayerInventory(player);
 
                 //MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(player, destDim, MinecraftServer.getServer().worldServerForDimension(destDim).getDefaultTeleporter());
-                if (origin.provider.getDimensionId() == 1) {
+                if (origin.provider.getDimensionId() == 1 ) {
                     // For some reason teleporting out of the end does weird things.
                     //player.setPositionAndUpdate(player.posX + dx, player.posY + dy, player.posZ + dz);
                     s2.spawnEntityInWorld(player);
@@ -229,6 +235,7 @@ public class TeleportHelper {
             }
 
             player.setPositionAndUpdate(x, y, z);
+
 
             dest.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);//entity, sound, volume, pitch
         }else{

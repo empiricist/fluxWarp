@@ -35,8 +35,9 @@ public class ClientProxy extends CommonProxy{
         renderItem.getItemModelMesher().register(ModItems.creativeAddress, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.creativeAddress.getName(), "inventory"));
         renderItem.getItemModelMesher().register(ModItems.debugger, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.debugger.getName(), "inventory"));
         renderItem.getItemModelMesher().register(ModItems.dimensionAddress, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName(), "inventory"));
+        renderItem.getItemModelMesher().register(ModItems.dimensionAddress, 1, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory"));
         renderItem.getItemModelMesher().register(ModItems.infoDisk, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.infoDisk.getName(), "inventory"));
 
-        ModelBakery.addVariantName(ModItems.dimensionAddress, new String[]{"fluxwarp:dimensionAddress", "fluxwarp:dimensionAddressSaved"});
+        ModelBakery.registerItemVariants(ModItems.dimensionAddress, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName(), "inventory"), new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory"));
     }
 }

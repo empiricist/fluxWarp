@@ -34,7 +34,7 @@ import java.util.Random;
 //import net.minecraftforge.common.util.ForgeDirection;
 
 @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheralProvider", modid = "ComputerCraft", striprefs = true)
-public class BlockWarpCore extends BlockContainer implements IPeripheralProvider{
+public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
     //@SideOnly(Side.CLIENT)
     //private IIcon sideIcon;
 //    @SideOnly(Side.CLIENT)
@@ -51,22 +51,27 @@ public class BlockWarpCore extends BlockContainer implements IPeripheralProvider
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int metadata) {
+    public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityWarpCore();
     }
 
-    //need these for name to work because this is not a subclass of blockbase
     @Override
-    @SideOnly(Side.CLIENT)
-    public String getUnlocalizedName(){
-        //easy storage format: blockName
-        //convert to proper format: tile.[modID]:[blockName].name
-        return String.format("tile.%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    public boolean hasTileEntity(IBlockState state){
+        return true;
     }
 
-    protected String getUnwrappedUnlocalizedName( String unlocalizedName ){
-        return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);
-    }
+//    //need these for name to work because this is not a subclass of blockbase
+//    @Override
+//    @SideOnly(Side.CLIENT)
+//    public String getUnlocalizedName(){
+//        //easy storage format: blockName
+//        //convert to proper format: tile.[modID]:[blockName].name
+//        return String.format("tile.%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+//    }
+//
+//    protected String getUnwrappedUnlocalizedName( String unlocalizedName ){
+//        return unlocalizedName.substring(unlocalizedName.indexOf(".")+1);
+//    }
 
     //to tell tileentity it is activated
     @Override

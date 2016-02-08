@@ -1,6 +1,10 @@
 package com.empiricist.fluxwarp.item;
 
 import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
+import com.empiricist.fluxwarp.init.ModItems;
+import com.empiricist.fluxwarp.reference.Reference;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraftforge.client.model.ISmartItemModel;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.GuiScreen;
@@ -55,9 +59,11 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
         if(tag.hasKey("DimID")){//sneaking deletes ID, if it exists
             if(player.isSneaking()){
                 tag.removeTag("DimID");
+                stack.setItemDamage(0);
             }
         }else{//clicking with blank address saves ID
             tag.setInteger("DimID", world.provider.getDimensionId());
+            stack.setItemDamage(1);
             //tag.setInteger("DimID", new Random().nextInt());
         }
 
@@ -85,14 +91,14 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
     }
 
 //    @Override
-//    public IIcon getIcon(ItemStack stack, int pass) { //icon in players hand
+//    public ModelResourceLocation getModel(ItemStack stack, EntityPlayer player, int uses) {
 //        if(stack.hasTagCompound()){
 //            NBTTagCompound tag = stack.getTagCompound();
 //            if( tag.hasKey("DimID")) {
-//                return savedAddressIcon;
+//                return new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory");
 //            }
 //        }
-//        return super.getIcon(stack, pass);
+//        return super.getModel(stack, player, uses);
 //    }
 //
 //    @Override

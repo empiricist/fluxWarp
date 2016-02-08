@@ -10,14 +10,19 @@ public class WarpCoreTeleporter extends Teleporter {
         super(server);
     }
 
-    public boolean makePortal(Entity entity) { return true; }
-
-    public void placeInPortal(Entity p_77185_1_, double p_77185_2_, double p_77185_4_, double p_77185_6_, float p_77185_8_){
-        this.placeInExistingPortal(p_77185_1_, p_77185_2_, p_77185_4_, p_77185_6_, p_77185_8_);
+    @Override
+    public boolean makePortal(Entity entity) {
+        return true;
     }
 
-    public boolean placeInExistingPortal(Entity entity, double what1, double what2, double what3, float p_77184_8_){
-        entity.setLocationAndAngles(what1, what2, what3, entity.rotationYaw, entity.rotationPitch);
+    @Override
+    public void placeInPortal(Entity entity, float rotationYaw){
+        this.placeInExistingPortal(entity, rotationYaw);
+    }
+
+    @Override
+    public boolean placeInExistingPortal(Entity entity, float rotationYaw){
+        entity.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, entity.rotationYaw, entity.rotationPitch);
         return true;
     }
 }
