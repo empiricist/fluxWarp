@@ -2,6 +2,8 @@ package com.empiricist.fluxwarp.tileentity;
 
 
 
+import cofh.api.energy.EnergyStorage;
+import cofh.api.energy.IEnergyReceiver;
 import com.empiricist.fluxwarp.api.IDimensionPermissionBlock;
 import com.empiricist.fluxwarp.handler.ConfigurationHandler;
 import com.empiricist.fluxwarp.api.IDimensionPermissionItem;
@@ -33,13 +35,15 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.DimensionManager;
 
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Optional.InterfaceList({
         @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheral", modid = "ComputerCraft", striprefs = true),
         @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true)
 })
-public class TileEntityWarpCore extends TileEntity implements ITickable, IInventory, IPeripheral{//}, IEnergyReceiver{
+public class TileEntityWarpCore extends TileEntity implements ITickable, IInventory, IPeripheral, IEnergyReceiver {
 
     private int xPlus;
     private int yPlus;
@@ -56,7 +60,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
     private int dz;
     private int destDim;
 
-    public FluxWarpEnergyStorage energyStorage;
+    public EnergyStorage energyStorage;
 
     public TileEntityWarpCore() {
         super();
@@ -74,7 +78,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
         dy = 0;
         dz = 0;
         //destDim = worldObj.provider.dimensionId; //causes NPE
-        energyStorage = new FluxWarpEnergyStorage(ConfigurationHandler.coreEnergyStorage, 1000, ConfigurationHandler.coreEnergyStorage);//capacity, receive, extract
+        energyStorage = new EnergyStorage(ConfigurationHandler.coreEnergyStorage, 1000, ConfigurationHandler.coreEnergyStorage);//capacity, receive, extract
     }
 
     //what is this method for?
@@ -261,7 +265,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                     }
                 }
 
-                /*-
+
                 //schedule block updates around the outside of the bounding box
                 //LogHelper.info("Scheduling block updates at x " + (xCoord-xMinus) + "to" + (xCoord+xPlus) + " y " + (yCoord-yMinus) + "to" + (yCoord+yPlus) + " z " + (zCoord-zMinus-1) + " and " + (zCoord+zPlus+1));
                 for(int i = -xMinus; i <= +xPlus; i++){
@@ -305,7 +309,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                         world2.notifyBlockOfStateChange( newPos.add( xPlus+1, i, j), world2.getBlockState( newPos.add( xPlus+1, i, j) ).getBlock());
                     }
                 }
-                --*/
+
 
                 LogHelper.info("Was warp successful for all blocks: " + isWarpSuccessful);
                 if( !isWarpSuccessful ){
@@ -315,8 +319,14 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                 //move entities within volume too (but only if ship also moved, or does not exist)
                 if(isWarpSuccessful){
                     List<Entity> entitiesInVolume = worldObj.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.getX() - xMinus, pos.getY() - yMinus, pos.getZ() - zMinus, pos.getX() + xPlus+1, pos.getY() + yPlus+1, pos.getZ() + zPlus+1));
+
+                    //Set<Entity> entitySet = new HashSet<Entity>();
+                    //entitySet.addAll(entitiesInVolume);
+                    LogHelper.info("    Found Entities: " + entitiesInVolume.toString());
+                    //LogHelper.info("    Deduplicated???: " + entitySet.toString());
+
                     for (Entity entity : entitiesInVolume){
-                        //LogHelper.info("Found Entity: " + entity.toString());
+                        LogHelper.info("Found Entity: " + entity.toString());
 
                         if( tryToUseEnergy(ConfigurationHandler.entityCost) ){
 
@@ -575,34 +585,34 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
     }
 
     //RF methods
-//    @Override
-//    public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-//        return energyStorage.receiveEnergy(maxReceive, simulate);
-//    }
-//
-//    @Override
-//    public int getEnergyStored(ForgeDirection from) {
-//        return energyStorage.getEnergyStored();
-//    }
-//
-//    @Override
-//    public int getMaxEnergyStored(ForgeDirection from) {
-//        return energyStorage.getMaxEnergyStored();
-//    }
-//
-//    @Override
-//    public boolean canConnectEnergy(ForgeDirection from) {
-//        return true;
-//    }
+    @Override
+    public int receiveEnergy(EnumFacing from, int maxReceive, boolean simulate) {
+        return energyStorage.receiveEnergy(maxReceive, simulate);
+    }
+
+    @Override
+    public int getEnergyStored(EnumFacing from) {
+        return energyStorage.getEnergyStored();
+    }
+
+    @Override
+    public int getMaxEnergyStored(EnumFacing from) {
+        return energyStorage.getMaxEnergyStored();
+    }
+
+    @Override
+    public boolean canConnectEnergy(EnumFacing from) {
+        return true;
+    }
 
     public boolean tryToUseEnergy(int energy){
-        if( !Loader.isModLoaded("CoFHAPI|energy") && !Loader.isModLoaded("CoFHCore") ){//to disable energy use if rf not installed
-            //LogHelper.info("Not trying to use energy");
-            return true;
-        }else{
+//        if( !Loader.isModLoaded("CoFHAPI|energy") && !Loader.isModLoaded("CoFHCore") ){//to disable energy use if rf not installed
+//            //LogHelper.info("Not trying to use energy");
+//            return true;
+//        }else{
             //LogHelper.info("Trying to use: " + energy + " RF");
             return (energy == energyStorage.extractEnergy(energy, false));
-        }
+//        }
     }
 
 

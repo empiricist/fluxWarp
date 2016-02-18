@@ -31,7 +31,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
-//import net.minecraftforge.common.util.ForgeDirection;
 
 @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheralProvider", modid = "ComputerCraft", striprefs = true)
 public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
@@ -102,7 +101,7 @@ public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
                 TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
                 //Minecraft.getMinecraft().getNetHandler().addToSendQueue(warpCore.getDescriptionPacket());
                 //world.markBlockForUpdate(x, y, z);
-                //ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(ForgeDirection.NORTH) + " / " + warpCore.getMaxEnergyStored(ForgeDirection.NORTH));
+                //ChatHelper.sendText(player, "Energy: " + warpCore.getEnergyStored(EnumFacing.NORTH) + " / " + warpCore.getMaxEnergyStored(EnumFacing.NORTH));
 
 
                 player.openGui(FluxWarp.instance, 0, world, pos.getX(), pos.getY(), pos.getZ());

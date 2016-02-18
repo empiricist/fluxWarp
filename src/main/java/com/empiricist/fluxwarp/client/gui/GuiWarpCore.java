@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
@@ -64,8 +65,8 @@ public class GuiWarpCore extends GuiContainer{
             drawTexturedModalRect(guiLeft+124, guiTop+71, 0, 136, 25, 11);
         }
         //energy bar
-        //LogHelper.info("RF : " + te.getEnergyStored(ForgeDirection.NORTH) +  " / " + te.getMaxEnergyStored(ForgeDirection.NORTH));
-        double energyRatio = 1;//(double)te.getEnergyStored(ForgeDirection.NORTH)/(te.getMaxEnergyStored(ForgeDirection.NORTH));
+        //LogHelper.info("RF : " + te.getEnergyStored(EnumFacing.NORTH) +  " / " + te.getMaxEnergyStored(EnumFacing.NORTH));
+        double energyRatio = (double)te.getEnergyStored(EnumFacing.NORTH)/(te.getMaxEnergyStored(EnumFacing.NORTH));
         int barHeight = (int)(energyRatio * 112);
         if (barHeight > 0) {
             int srcX = xSize;

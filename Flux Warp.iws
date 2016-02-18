@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="200a28e7-320a-46f9-9f34-5b923160e601" name="Default" comment="????????">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/gradle.log" afterPath="$PROJECT_DIR$/.gradle/gradle.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Flux Warp.iml" afterPath="$PROJECT_DIR$/Flux Warp.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Flux Warp.iws" afterPath="$PROJECT_DIR$/Flux Warp.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/CoFHAPIProps.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/CoFHAPIProps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/EnergyStorage.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/EnergyStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyConnection.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyContainerItem.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyContainerItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyProvider.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyReceiver.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyStorage.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/IEnergyStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/ItemEnergyContainer.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/ItemEnergyContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/TileEnergyHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/TileEnergyHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/energy/package-info.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/energy/package-info.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cofh/api/package-info.java" afterPath="$PROJECT_DIR$/src/main/java/cofh/api/package-info.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java" />
     </list>
     <ignored path="Flux Warp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,21 +94,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientProxy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java">
+      <file leaf-file-name="EntityPlayerMP.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/player/EntityPlayerMP.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemDimensionAddress.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java">
+      <file leaf-file-name="TeleportHelper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3954984">
+              <caret line="292" column="57" selection-start-line="292" selection-start-column="57" selection-end-line="292" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileEntityWarpCore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+              <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+              <folding>
+                <element signature="e#27232#27233#0" expanded="true" />
+                <element signature="e#27286#27287#0" expanded="true" />
+                <element signature="e#27354#27355#0" expanded="true" />
+                <element signature="e#27411#27412#0" expanded="true" />
+                <element signature="e#27481#27482#0" expanded="true" />
+                <element signature="e#27508#27509#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockWarpCore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1847" column="33" selection-start-line="1847" selection-start-column="23" selection-end-line="1847" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,49 +153,310 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeleportHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+      <file leaf-file-name="BlockEndPortal.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockEndPortal.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="233" column="17" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerConfigurationManager.java" pinned="false" current-in-tab="true">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/management/ServerConfigurationManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3181818">
-              <caret line="561" column="123" selection-start-line="561" selection-start-column="113" selection-end-line="561" selection-end-column="123" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WarpCoreTeleporter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java">
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <caret line="924" column="0" selection-start-line="924" selection-start-column="0" selection-end-line="924" selection-end-column="0" />
               <folding>
-                <element signature="e#262#263#0" expanded="true" />
-                <element signature="e#291#292#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#380#381#0" expanded="true" />
-                <element signature="e#460#461#0" expanded="true" />
-                <element signature="e#523#524#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#8156#8157#0" expanded="false" />
+                <element signature="e#8192#8193#0" expanded="false" />
+                <element signature="e#8235#8236#0" expanded="false" />
+                <element signature="e#8269#8270#0" expanded="false" />
+                <element signature="e#8360#8361#0" expanded="false" />
+                <element signature="e#8390#8391#0" expanded="false" />
+                <element signature="e#9883#9884#0" expanded="false" />
+                <element signature="e#9922#9923#0" expanded="false" />
+                <element signature="e#10118#10119#0" expanded="false" />
+                <element signature="e#10154#10155#0" expanded="false" />
+                <element signature="e#11036#11037#0" expanded="false" />
+                <element signature="e#11070#11071#0" expanded="false" />
+                <element signature="e#13420#13421#0" expanded="false" />
+                <element signature="e#13457#13458#0" expanded="false" />
+                <element signature="e#16789#16790#0" expanded="false" />
+                <element signature="e#16813#16814#0" expanded="false" />
+                <element signature="e#17497#17498#0" expanded="false" />
+                <element signature="e#17526#17527#0" expanded="false" />
+                <element signature="e#17650#17651#0" expanded="false" />
+                <element signature="e#17680#17681#0" expanded="false" />
+                <element signature="e#31002#31003#0" expanded="false" />
+                <element signature="e#31044#31045#0" expanded="false" />
+                <element signature="e#33683#33684#0" expanded="false" />
+                <element signature="e#33753#33754#0" expanded="false" />
+                <element signature="e#34191#34192#0" expanded="false" />
+                <element signature="e#34218#34219#0" expanded="false" />
+                <element signature="e#35006#35007#0" expanded="false" />
+                <element signature="e#35033#35034#0" expanded="false" />
+                <element signature="e#35413#35414#0" expanded="false" />
+                <element signature="e#35455#35456#0" expanded="false" />
+                <element signature="e#36212#36213#0" expanded="false" />
+                <element signature="e#36247#36248#0" expanded="false" />
+                <element signature="e#39577#39578#0" expanded="false" />
+                <element signature="e#39626#39627#0" expanded="false" />
+                <element signature="e#42005#42006#0" expanded="false" />
+                <element signature="e#42044#42045#0" expanded="false" />
+                <element signature="e#44251#44252#0" expanded="false" />
+                <element signature="e#44321#44322#0" expanded="false" />
+                <element signature="e#47191#47192#0" expanded="false" />
+                <element signature="e#47234#47235#0" expanded="false" />
+                <element signature="e#49838#49839#0" expanded="false" />
+                <element signature="e#49866#49867#0" expanded="false" />
+                <element signature="e#50017#50018#0" expanded="false" />
+                <element signature="e#50045#50046#0" expanded="false" />
+                <element signature="e#60123#60124#0" expanded="false" />
+                <element signature="e#60150#60151#0" expanded="false" />
+                <element signature="e#60280#60281#0" expanded="false" />
+                <element signature="e#60335#60336#0" expanded="false" />
+                <element signature="e#61475#61476#0" expanded="false" />
+                <element signature="e#61541#61542#0" expanded="false" />
+                <element signature="e#62492#62493#0" expanded="false" />
+                <element signature="e#62527#62528#0" expanded="false" />
+                <element signature="e#63943#63944#0" expanded="false" />
+                <element signature="e#63971#63972#0" expanded="false" />
+                <element signature="e#64223#64224#0" expanded="false" />
+                <element signature="e#64250#64251#0" expanded="false" />
+                <element signature="e#66655#66656#0" expanded="false" />
+                <element signature="e#66682#66683#0" expanded="false" />
+                <element signature="e#66830#66831#0" expanded="false" />
+                <element signature="e#66880#66881#0" expanded="false" />
+                <element signature="e#69099#69100#0" expanded="false" />
+                <element signature="e#69126#69127#0" expanded="false" />
+                <element signature="e#69247#69248#0" expanded="false" />
+                <element signature="e#69274#69275#0" expanded="false" />
+                <element signature="e#71073#71074#0" expanded="false" />
+                <element signature="e#71099#71100#0" expanded="false" />
+                <element signature="e#71754#71755#0" expanded="false" />
+                <element signature="e#71781#71782#0" expanded="false" />
+                <element signature="e#72485#72486#0" expanded="false" />
+                <element signature="e#72566#72567#0" expanded="false" />
+                <element signature="e#72664#72665#0" expanded="false" />
+                <element signature="e#72702#72703#0" expanded="false" />
+                <element signature="e#72802#72803#0" expanded="false" />
+                <element signature="e#72843#72844#0" expanded="false" />
+                <element signature="e#72938#72939#0" expanded="false" />
+                <element signature="e#72976#72977#0" expanded="false" />
+                <element signature="e#73087#73088#0" expanded="false" />
+                <element signature="e#73129#73130#0" expanded="false" />
+                <element signature="e#73169#73170#0" expanded="false" />
+                <element signature="e#73207#73208#0" expanded="false" />
+                <element signature="e#73723#73724#0" expanded="false" />
+                <element signature="e#73765#73766#0" expanded="false" />
+                <element signature="e#73829#73830#0" expanded="false" />
+                <element signature="e#73867#73868#0" expanded="false" />
+                <element signature="e#73916#73917#0" expanded="false" />
+                <element signature="e#73955#73956#0" expanded="false" />
+                <element signature="e#74181#74182#0" expanded="false" />
+                <element signature="e#74265#74266#0" expanded="false" />
+                <element signature="e#74761#74762#0" expanded="false" />
+                <element signature="e#74827#74828#0" expanded="false" />
+                <element signature="e#74866#74867#0" expanded="false" />
+                <element signature="e#74941#74942#0" expanded="false" />
+                <element signature="e#78152#78153#0" expanded="false" />
+                <element signature="e#78179#78180#0" expanded="false" />
+                <element signature="e#78315#78316#0" expanded="false" />
+                <element signature="e#78354#78355#0" expanded="false" />
+                <element signature="e#78399#78400#0" expanded="false" />
+                <element signature="e#78426#78427#0" expanded="false" />
+                <element signature="e#78761#78762#0" expanded="false" />
+                <element signature="e#78788#78789#0" expanded="false" />
+                <element signature="e#78955#78956#0" expanded="false" />
+                <element signature="e#78983#78984#0" expanded="false" />
+                <element signature="e#83077#83078#0" expanded="false" />
+                <element signature="e#83101#83102#0" expanded="false" />
+                <element signature="e#83141#83142#0" expanded="false" />
+                <element signature="e#83184#83185#0" expanded="false" />
+                <element signature="e#83230#83231#0" expanded="false" />
+                <element signature="e#83273#83274#0" expanded="false" />
+                <element signature="e#83436#83437#0" expanded="false" />
+                <element signature="e#83464#83465#0" expanded="false" />
+                <element signature="e#85410#85411#0" expanded="false" />
+                <element signature="e#85449#85450#0" expanded="false" />
+                <element signature="e#85486#85487#0" expanded="false" />
+                <element signature="e#85528#85529#0" expanded="false" />
+                <element signature="e#85572#85573#0" expanded="false" />
+                <element signature="e#85599#85600#0" expanded="false" />
+                <element signature="e#86166#86167#0" expanded="false" />
+                <element signature="e#86220#86221#0" expanded="false" />
+                <element signature="e#86264#86265#0" expanded="false" />
+                <element signature="e#86331#86332#0" expanded="false" />
+                <element signature="e#86432#86433#0" expanded="false" />
+                <element signature="e#86512#86513#0" expanded="false" />
+                <element signature="e#86737#86738#0" expanded="false" />
+                <element signature="e#86807#86808#0" expanded="false" />
+                <element signature="e#87144#87145#0" expanded="false" />
+                <element signature="e#87196#87197#0" expanded="false" />
+                <element signature="e#88008#88009#0" expanded="false" />
+                <element signature="e#88035#88036#0" expanded="false" />
+                <element signature="e#88090#88091#0" expanded="false" />
+                <element signature="e#88129#88130#0" expanded="false" />
+                <element signature="e#88191#88192#0" expanded="false" />
+                <element signature="e#88228#88229#0" expanded="false" />
+                <element signature="e#88267#88268#0" expanded="false" />
+                <element signature="e#88309#88310#0" expanded="false" />
+                <element signature="e#88353#88354#0" expanded="false" />
+                <element signature="e#88396#88397#0" expanded="false" />
+                <element signature="e#88459#88460#0" expanded="false" />
+                <element signature="e#88511#88512#0" expanded="false" />
+                <element signature="e#88602#88603#0" expanded="false" />
+                <element signature="e#88630#88631#0" expanded="false" />
+                <element signature="e#88973#88974#0" expanded="false" />
+                <element signature="e#89000#89001#0" expanded="false" />
+                <element signature="e#89208#89209#0" expanded="false" />
+                <element signature="e#89283#89284#0" expanded="false" />
+                <element signature="e#89480#89481#0" expanded="false" />
+                <element signature="e#89544#89545#0" expanded="false" />
+                <element signature="e#89740#89741#0" expanded="false" />
+                <element signature="e#89776#89777#0" expanded="false" />
+                <element signature="e#89917#89918#0" expanded="false" />
+                <element signature="e#89944#89945#0" expanded="false" />
+                <element signature="e#90098#90099#0" expanded="false" />
+                <element signature="e#90126#90127#0" expanded="false" />
+                <element signature="e#90330#90331#0" expanded="false" />
+                <element signature="e#90372#90373#0" expanded="false" />
+                <element signature="e#90426#90427#0" expanded="false" />
+                <element signature="e#90503#90504#0" expanded="false" />
+                <element signature="e#90556#90557#0" expanded="false" />
+                <element signature="e#90583#90584#0" expanded="false" />
+                <element signature="e#90973#90974#0" expanded="false" />
+                <element signature="e#91001#91002#0" expanded="false" />
+                <element signature="e#91050#91051#0" expanded="false" />
+                <element signature="e#91078#91079#0" expanded="false" />
+                <element signature="e#92234#92235#0" expanded="false" />
+                <element signature="e#92261#92262#0" expanded="false" />
+                <element signature="e#94532#94533#0" expanded="false" />
+                <element signature="e#94569#94570#0" expanded="false" />
+                <element signature="e#94702#94703#0" expanded="false" />
+                <element signature="e#94748#94749#0" expanded="false" />
+                <element signature="e#94803#94804#0" expanded="false" />
+                <element signature="e#94835#94836#0" expanded="false" />
+                <element signature="e#97863#97864#0" expanded="false" />
+                <element signature="e#97891#97892#0" expanded="false" />
+                <element signature="e#98179#98180#0" expanded="false" />
+                <element signature="e#98234#98235#0" expanded="false" />
+                <element signature="e#98855#98856#0" expanded="false" />
+                <element signature="e#98892#98893#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Teleporter.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/Teleporter.java">
+      <file leaf-file-name="EntityPlayer.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/player/EntityPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="56" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="56" />
-              <folding />
+              <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#8192#8193#0" expanded="false" />
+                <element signature="e#8229#8230#0" expanded="false" />
+                <element signature="e#8351#8352#0" expanded="false" />
+                <element signature="e#8393#8394#0" expanded="false" />
+                <element signature="e#8563#8564#0" expanded="false" />
+                <element signature="e#8608#8609#0" expanded="false" />
+                <element signature="e#14254#14255#0" expanded="false" />
+                <element signature="e#14317#14318#0" expanded="false" />
+                <element signature="e#14360#14361#0" expanded="false" />
+                <element signature="e#14401#14402#0" expanded="false" />
+                <element signature="e#14446#14447#0" expanded="false" />
+                <element signature="e#14494#14495#0" expanded="false" />
+                <element signature="e#14632#14633#0" expanded="false" />
+                <element signature="e#14657#14658#0" expanded="false" />
+                <element signature="e#18281#18282#0" expanded="false" />
+                <element signature="e#18355#18356#0" expanded="false" />
+                <element signature="e#18469#18470#0" expanded="false" />
+                <element signature="e#18529#18530#0" expanded="false" />
+                <element signature="e#23152#23153#0" expanded="false" />
+                <element signature="e#23204#23205#0" expanded="false" />
+                <element signature="e#23237#23238#0" expanded="false" />
+                <element signature="e#23302#23303#0" expanded="false" />
+                <element signature="e#23392#23393#0" expanded="false" />
+                <element signature="e#23470#23471#0" expanded="false" />
+                <element signature="e#25163#25164#0" expanded="false" />
+                <element signature="e#25204#25205#0" expanded="false" />
+                <element signature="e#25314#25315#0" expanded="false" />
+                <element signature="e#25354#25355#0" expanded="false" />
+                <element signature="e#40331#40332#0" expanded="false" />
+                <element signature="e#40385#40386#0" expanded="false" />
+                <element signature="e#40545#40546#0" expanded="false" />
+                <element signature="e#40603#40604#0" expanded="false" />
+                <element signature="e#45514#45515#0" expanded="false" />
+                <element signature="e#45568#45569#0" expanded="false" />
+                <element signature="e#46042#46043#0" expanded="false" />
+                <element signature="e#46071#46072#0" expanded="false" />
+                <element signature="e#52649#52650#0" expanded="false" />
+                <element signature="e#52723#52724#0" expanded="false" />
+                <element signature="e#52876#52877#0" expanded="false" />
+                <element signature="e#52904#52905#0" expanded="false" />
+                <element signature="e#53014#53015#0" expanded="false" />
+                <element signature="e#53053#53054#0" expanded="false" />
+                <element signature="e#59884#59885#0" expanded="false" />
+                <element signature="e#59920#59921#0" expanded="false" />
+                <element signature="e#60067#60068#0" expanded="false" />
+                <element signature="e#60129#60130#0" expanded="false" />
+                <element signature="e#60194#60195#0" expanded="false" />
+                <element signature="e#60232#60233#0" expanded="false" />
+                <element signature="e#60359#60360#0" expanded="false" />
+                <element signature="e#60412#60413#0" expanded="false" />
+                <element signature="e#60506#60507#0" expanded="false" />
+                <element signature="e#60558#60559#0" expanded="false" />
+                <element signature="e#61211#61212#0" expanded="false" />
+                <element signature="e#61257#61258#0" expanded="false" />
+                <element signature="e#68946#68947#0" expanded="false" />
+                <element signature="e#69007#69008#0" expanded="false" />
+                <element signature="e#69633#69634#0" expanded="false" />
+                <element signature="e#69667#69668#0" expanded="false" />
+                <element signature="e#71536#71537#0" expanded="false" />
+                <element signature="e#71573#71574#0" expanded="false" />
+                <element signature="e#71848#71849#0" expanded="false" />
+                <element signature="e#71936#71937#0" expanded="false" />
+                <element signature="e#72557#72558#0" expanded="false" />
+                <element signature="e#72607#72608#0" expanded="false" />
+                <element signature="e#73682#73683#0" expanded="false" />
+                <element signature="e#73709#73710#0" expanded="false" />
+                <element signature="e#73796#73797#0" expanded="false" />
+                <element signature="e#73823#73824#0" expanded="false" />
+                <element signature="e#76390#76391#0" expanded="false" />
+                <element signature="e#76440#76441#0" expanded="false" />
+                <element signature="e#76850#76851#0" expanded="false" />
+                <element signature="e#76899#76900#0" expanded="false" />
+                <element signature="e#77033#77034#0" expanded="false" />
+                <element signature="e#77083#77084#0" expanded="false" />
+                <element signature="e#77430#77431#0" expanded="false" />
+                <element signature="e#77484#77485#0" expanded="false" />
+                <element signature="e#78994#78995#0" expanded="false" />
+                <element signature="e#79046#79047#0" expanded="false" />
+                <element signature="e#79090#79091#0" expanded="false" />
+                <element signature="e#79140#79141#0" expanded="false" />
+                <element signature="e#79190#79191#0" expanded="false" />
+                <element signature="e#79242#79243#0" expanded="false" />
+                <element signature="e#79275#79276#0" expanded="false" />
+                <element signature="e#79354#79355#0" expanded="false" />
+                <element signature="e#80804#80805#0" expanded="false" />
+                <element signature="e#80876#80877#0" expanded="false" />
+                <element signature="e#84120#84121#0" expanded="false" />
+                <element signature="e#84163#84164#0" expanded="false" />
+                <element signature="e#84251#84252#0" expanded="false" />
+                <element signature="e#84302#84303#0" expanded="false" />
+                <element signature="e#85408#85409#0" expanded="false" />
+                <element signature="e#85489#85490#0" expanded="false" />
+                <element signature="e#87490#87491#0" expanded="false" />
+                <element signature="e#87518#87519#0" expanded="false" />
+                <element signature="e#89768#89769#0" expanded="false" />
+                <element signature="e#89818#89819#0" expanded="false" />
+                <element signature="e#90057#90058#0" expanded="false" />
+                <element signature="e#90104#90105#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -773,11 +1085,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityDimensionDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/handler/KeyInputEventHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/FluxWarpEnergyStorage.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/debugger.json" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/test.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/FluxWarp.java" />
@@ -800,11 +1109,14 @@
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/warpcore.json" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/blockstates/warpcore.json" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
       </list>
     </option>
   </component>
@@ -858,7 +1170,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -924,10 +1235,6 @@
               <option name="myItemId" value="minecraft" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="world" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -948,6 +1255,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="minecraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1230,6 +1541,14 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fluxwarp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1245,14 +1564,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fluxwarp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flux Warp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flux Warp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flux Warp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flux Warp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1269,7 +1645,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -1637,7 +2013,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1646,11 +2022,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32522798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272543" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32572615" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.209375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19616205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272543" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1662,9 +2038,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272543" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -1686,7 +2062,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1695,457 +2071,734 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/ITickable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0354536">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/EnumFacing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3207547">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/Vec3i.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9402516">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/BlockPos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10691824">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36320755">
-          <caret line="454" column="48" selection-start-line="454" selection-start-column="48" selection-end-line="454" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/FluxWarpEnergyStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02672956">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6147799">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38385502">
-          <caret line="467" column="20" selection-start-line="467" selection-start-column="16" selection-end-line="467" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/reference/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10691824">
-          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/renderer/ItemMeshDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1336478">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/FluxWarp.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-          <folding />
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_65/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6132075">
-          <caret line="257" column="56" selection-start-line="257" selection-start-column="56" selection-end-line="257" selection-end-column="56" />
-          <folding>
-            <element signature="e#20539#20540#0" expanded="true" />
-            <element signature="e#20571#20572#0" expanded="true" />
-            <element signature="e#22483#22484#0" expanded="true" />
-            <element signature="e#22532#22533#0" expanded="true" />
-            <element signature="e#22617#22618#0" expanded="true" />
-            <element signature="e#22654#22655#0" expanded="true" />
-            <element signature="e#27677#27678#0" expanded="true" />
-            <element signature="e#27701#27702#0" expanded="true" />
-            <element signature="e#27764#27765#0" expanded="true" />
-            <element signature="e#27791#27792#0" expanded="true" />
-            <element signature="e#27875#27876#0" expanded="true" />
-            <element signature="e#27902#27903#0" expanded="true" />
-            <element signature="e#27971#27972#0" expanded="true" />
-            <element signature="e#27998#27999#0" expanded="true" />
-            <element signature="e#28158#28159#0" expanded="true" />
-            <element signature="e#28182#28183#0" expanded="true" />
-            <element signature="e#28257#28258#0" expanded="true" />
-            <element signature="e#28284#28285#0" expanded="true" />
-            <element signature="e#28517#28518#0" expanded="true" />
-            <element signature="e#28545#28546#0" expanded="true" />
-            <element signature="e#28594#28595#0" expanded="true" />
-            <element signature="e#28618#28619#0" expanded="true" />
-            <element signature="e#28734#28735#0" expanded="true" />
-            <element signature="e#28758#28759#0" expanded="true" />
-            <element signature="e#29751#29752#0" expanded="true" />
-            <element signature="e#29785#29786#0" expanded="true" />
-            <element signature="e#29837#29838#0" expanded="true" />
-            <element signature="e#29865#29866#0" expanded="true" />
-            <element signature="e#29925#29926#0" expanded="true" />
-            <element signature="e#29952#29953#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.36363637">
+          <caret line="577" column="13" selection-start-line="577" selection-start-column="7" selection-end-line="577" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/test.json">
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/EntityTracker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/blockstates/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemCreativeAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21383648">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21383648">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/init/ModBlocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/creativeAddress.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13934426">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/dimensionAddress.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.083606556">
-          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemBearingCompass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/bearingCompass.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13934426">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/init/Recipes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/infoDisk.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09461967">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemInfoDisk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27079645">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/warpcore.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031539887">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/item/EnumRarity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0709072">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/init/ModItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24817519">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/resources/model/ModelBakery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="48" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="48" />
-          <folding>
-            <element signature="e#3722#3776#0" expanded="false" />
-            <element signature="e#26001#26274#0" expanded="false" />
-            <element signature="e#26273#26274#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/renderer/entity/RenderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.689655">
-          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#56455#56786#0" expanded="false" />
-            <element signature="e#56785#56786#0" expanded="false" />
-            <element signature="e#57413#57636#0" expanded="false" />
-            <element signature="e#57635#57636#0" expanded="false" />
-            <element signature="e#59656#59876#0" expanded="false" />
-            <element signature="e#59875#59876#0" expanded="false" />
-            <element signature="e#60821#61049#0" expanded="false" />
-            <element signature="e#61048#61049#0" expanded="false" />
-            <element signature="e#61108#61332#0" expanded="false" />
-            <element signature="e#61331#61332#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278418">
-          <caret line="1560" column="34" selection-start-line="1560" selection-start-column="22" selection-end-line="1560" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37421384">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding>
-            <element signature="e#2272#2273#0" expanded="false" />
-            <element signature="e#2319#2320#0" expanded="false" />
-            <element signature="e#2387#2388#0" expanded="false" />
-            <element signature="e#2414#2415#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/blockstates/warpcore.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027868852">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22295082">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/renderer/ItemModelMesher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38679245">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/client/model/ISmartItemModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18652038">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/item/ItemStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36206895">
-          <caret line="288" column="25" selection-start-line="288" selection-start-column="16" selection-end-line="288" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/item/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44200626">
-          <caret line="641" column="71" selection-start-line="641" selection-start-column="67" selection-end-line="641" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/dimensionAddressSaved.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.083333336">
-          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/debugger.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1388889">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322884">
-          <caret line="711" column="16" selection-start-line="711" selection-start-column="16" selection-end-line="711" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322884">
-          <caret line="319" column="16" selection-start-line="319" selection-start-column="16" selection-end-line="319" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.7319749">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#262#263#0" expanded="false" />
+            <element signature="e#291#292#0" expanded="false" />
+            <element signature="e#353#354#0" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#523#524#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/CommandClone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="217" column="60" selection-start-line="217" selection-start-column="60" selection-end-line="217" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/gen/ChunkProviderServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5204403">
+          <caret line="206" column="24" selection-start-line="206" selection-start-column="24" selection-end-line="206" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityChest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/GuiGameOver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.17726798">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/INetHandlerPlayServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0709072">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/client/C16PacketClientStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/INetHandlerPlayClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="241" column="9" selection-start-line="241" selection-start-column="9" selection-end-line="241" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/server/S2BPacketChangeGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10691824">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/network/NetHandlerPlayClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41666666">
+          <caret line="1375" column="9" selection-start-line="1375" selection-start-column="9" selection-end-line="1375" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/GuiWinGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/Teleporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="56" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="56" />
+          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldProviderEnd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.73722625">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#23415#23416#0" expanded="false" />
+            <element signature="e#23456#23457#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0709072">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/stream/GuiIngestServers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08863399">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/EntityTravelToDimensionEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/ListenerList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/EventBus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/common/ForgeHooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="925" column="0" selection-start-line="925" selection-start-column="0" selection-end-line="925" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/stats/Achievement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/EntityEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/living/LivingEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/player/PlayerEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/player/AchievementEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/common/DimensionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5017#5018#0" expanded="false" />
+            <element signature="e#5067#5068#0" expanded="false" />
+            <element signature="e#5417#5418#0" expanded="false" />
+            <element signature="e#5462#5463#0" expanded="false" />
+            <element signature="e#9358#9359#0" expanded="false" />
+            <element signature="e#9436#9437#0" expanded="false" />
+            <element signature="e#10865#10866#0" expanded="false" />
+            <element signature="e#10900#10901#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/EntityLivingBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1897" column="0" selection-start-line="1897" selection-start-column="0" selection-end-line="1897" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/Vec3i.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0177268">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/MinecraftServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17726798">
+          <caret line="851" column="0" selection-start-line="851" selection-start-column="0" selection-end-line="851" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/NetHandlerPlayServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="17" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.27945778">
+          <caret line="453" column="16" selection-start-line="453" selection-start-column="16" selection-end-line="453" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/management/ServerConfigurationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3181818">
-          <caret line="561" column="123" selection-start-line="561" selection-start-column="113" selection-end-line="561" selection-end-column="123" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="475" column="46" selection-start-line="475" selection-start-column="26" selection-end-line="475" selection-end-column="46" />
+          <folding>
+            <element signature="e#13343#13344#0" expanded="false" />
+            <element signature="e#13428#13429#0" expanded="false" />
+            <element signature="e#34529#34530#0" expanded="false" />
+            <element signature="e#34570#34571#0" expanded="false" />
+            <element signature="e#34611#34612#0" expanded="false" />
+            <element signature="e#34648#34649#0" expanded="false" />
+            <element signature="e#34886#34887#0" expanded="false" />
+            <element signature="e#34931#34932#0" expanded="false" />
+            <element signature="e#37528#37529#0" expanded="false" />
+            <element signature="e#37588#37589#0" expanded="false" />
+            <element signature="e#37648#37649#0" expanded="false" />
+            <element signature="e#37694#37695#0" expanded="false" />
+            <element signature="e#37749#37750#0" expanded="false" />
+            <element signature="e#37805#37806#0" expanded="false" />
+            <element signature="e#37853#37854#0" expanded="false" />
+            <element signature="e#37884#37885#0" expanded="false" />
+            <element signature="e#37933#37934#0" expanded="false" />
+            <element signature="e#37974#37975#0" expanded="false" />
+            <element signature="e#39567#39568#0" expanded="false" />
+            <element signature="e#39618#39619#0" expanded="false" />
+            <element signature="e#39740#39741#0" expanded="false" />
+            <element signature="e#39778#39779#0" expanded="false" />
+            <element signature="e#40099#40100#0" expanded="false" />
+            <element signature="e#40156#40157#0" expanded="false" />
+            <element signature="e#40647#40648#0" expanded="false" />
+            <element signature="e#40687#40688#0" expanded="false" />
+            <element signature="e#40741#40742#0" expanded="false" />
+            <element signature="e#40777#40778#0" expanded="false" />
+            <element signature="e#40935#40936#0" expanded="false" />
+            <element signature="e#40962#40963#0" expanded="false" />
+            <element signature="e#41060#41061#0" expanded="false" />
+            <element signature="e#41103#41104#0" expanded="false" />
+            <element signature="e#41818#41819#0" expanded="false" />
+            <element signature="e#41873#41874#0" expanded="false" />
+            <element signature="e#42584#42585#0" expanded="false" />
+            <element signature="e#42637#42638#0" expanded="false" />
+            <element signature="e#44079#44080#0" expanded="false" />
+            <element signature="e#44123#44124#0" expanded="false" />
+            <element signature="e#44423#44424#0" expanded="false" />
+            <element signature="e#44451#44452#0" expanded="false" />
+            <element signature="e#44525#44526#0" expanded="false" />
+            <element signature="e#44570#44571#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/player/EntityPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#8192#8193#0" expanded="false" />
+            <element signature="e#8229#8230#0" expanded="false" />
+            <element signature="e#8351#8352#0" expanded="false" />
+            <element signature="e#8393#8394#0" expanded="false" />
+            <element signature="e#8563#8564#0" expanded="false" />
+            <element signature="e#8608#8609#0" expanded="false" />
+            <element signature="e#14254#14255#0" expanded="false" />
+            <element signature="e#14317#14318#0" expanded="false" />
+            <element signature="e#14360#14361#0" expanded="false" />
+            <element signature="e#14401#14402#0" expanded="false" />
+            <element signature="e#14446#14447#0" expanded="false" />
+            <element signature="e#14494#14495#0" expanded="false" />
+            <element signature="e#14632#14633#0" expanded="false" />
+            <element signature="e#14657#14658#0" expanded="false" />
+            <element signature="e#18281#18282#0" expanded="false" />
+            <element signature="e#18355#18356#0" expanded="false" />
+            <element signature="e#18469#18470#0" expanded="false" />
+            <element signature="e#18529#18530#0" expanded="false" />
+            <element signature="e#23152#23153#0" expanded="false" />
+            <element signature="e#23204#23205#0" expanded="false" />
+            <element signature="e#23237#23238#0" expanded="false" />
+            <element signature="e#23302#23303#0" expanded="false" />
+            <element signature="e#23392#23393#0" expanded="false" />
+            <element signature="e#23470#23471#0" expanded="false" />
+            <element signature="e#25163#25164#0" expanded="false" />
+            <element signature="e#25204#25205#0" expanded="false" />
+            <element signature="e#25314#25315#0" expanded="false" />
+            <element signature="e#25354#25355#0" expanded="false" />
+            <element signature="e#40331#40332#0" expanded="false" />
+            <element signature="e#40385#40386#0" expanded="false" />
+            <element signature="e#40545#40546#0" expanded="false" />
+            <element signature="e#40603#40604#0" expanded="false" />
+            <element signature="e#45514#45515#0" expanded="false" />
+            <element signature="e#45568#45569#0" expanded="false" />
+            <element signature="e#46042#46043#0" expanded="false" />
+            <element signature="e#46071#46072#0" expanded="false" />
+            <element signature="e#52649#52650#0" expanded="false" />
+            <element signature="e#52723#52724#0" expanded="false" />
+            <element signature="e#52876#52877#0" expanded="false" />
+            <element signature="e#52904#52905#0" expanded="false" />
+            <element signature="e#53014#53015#0" expanded="false" />
+            <element signature="e#53053#53054#0" expanded="false" />
+            <element signature="e#59884#59885#0" expanded="false" />
+            <element signature="e#59920#59921#0" expanded="false" />
+            <element signature="e#60067#60068#0" expanded="false" />
+            <element signature="e#60129#60130#0" expanded="false" />
+            <element signature="e#60194#60195#0" expanded="false" />
+            <element signature="e#60232#60233#0" expanded="false" />
+            <element signature="e#60359#60360#0" expanded="false" />
+            <element signature="e#60412#60413#0" expanded="false" />
+            <element signature="e#60506#60507#0" expanded="false" />
+            <element signature="e#60558#60559#0" expanded="false" />
+            <element signature="e#61211#61212#0" expanded="false" />
+            <element signature="e#61257#61258#0" expanded="false" />
+            <element signature="e#68946#68947#0" expanded="false" />
+            <element signature="e#69007#69008#0" expanded="false" />
+            <element signature="e#69633#69634#0" expanded="false" />
+            <element signature="e#69667#69668#0" expanded="false" />
+            <element signature="e#71536#71537#0" expanded="false" />
+            <element signature="e#71573#71574#0" expanded="false" />
+            <element signature="e#71848#71849#0" expanded="false" />
+            <element signature="e#71936#71937#0" expanded="false" />
+            <element signature="e#72557#72558#0" expanded="false" />
+            <element signature="e#72607#72608#0" expanded="false" />
+            <element signature="e#73682#73683#0" expanded="false" />
+            <element signature="e#73709#73710#0" expanded="false" />
+            <element signature="e#73796#73797#0" expanded="false" />
+            <element signature="e#73823#73824#0" expanded="false" />
+            <element signature="e#76390#76391#0" expanded="false" />
+            <element signature="e#76440#76441#0" expanded="false" />
+            <element signature="e#76850#76851#0" expanded="false" />
+            <element signature="e#76899#76900#0" expanded="false" />
+            <element signature="e#77033#77034#0" expanded="false" />
+            <element signature="e#77083#77084#0" expanded="false" />
+            <element signature="e#77430#77431#0" expanded="false" />
+            <element signature="e#77484#77485#0" expanded="false" />
+            <element signature="e#78994#78995#0" expanded="false" />
+            <element signature="e#79046#79047#0" expanded="false" />
+            <element signature="e#79090#79091#0" expanded="false" />
+            <element signature="e#79140#79141#0" expanded="false" />
+            <element signature="e#79190#79191#0" expanded="false" />
+            <element signature="e#79242#79243#0" expanded="false" />
+            <element signature="e#79275#79276#0" expanded="false" />
+            <element signature="e#79354#79355#0" expanded="false" />
+            <element signature="e#80804#80805#0" expanded="false" />
+            <element signature="e#80876#80877#0" expanded="false" />
+            <element signature="e#84120#84121#0" expanded="false" />
+            <element signature="e#84163#84164#0" expanded="false" />
+            <element signature="e#84251#84252#0" expanded="false" />
+            <element signature="e#84302#84303#0" expanded="false" />
+            <element signature="e#85408#85409#0" expanded="false" />
+            <element signature="e#85489#85490#0" expanded="false" />
+            <element signature="e#87490#87491#0" expanded="false" />
+            <element signature="e#87518#87519#0" expanded="false" />
+            <element signature="e#89768#89769#0" expanded="false" />
+            <element signature="e#89818#89819#0" expanded="false" />
+            <element signature="e#90057#90058#0" expanded="false" />
+            <element signature="e#90104#90105#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="924" column="0" selection-start-line="924" selection-start-column="0" selection-end-line="924" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#8156#8157#0" expanded="false" />
+            <element signature="e#8192#8193#0" expanded="false" />
+            <element signature="e#8235#8236#0" expanded="false" />
+            <element signature="e#8269#8270#0" expanded="false" />
+            <element signature="e#8360#8361#0" expanded="false" />
+            <element signature="e#8390#8391#0" expanded="false" />
+            <element signature="e#9883#9884#0" expanded="false" />
+            <element signature="e#9922#9923#0" expanded="false" />
+            <element signature="e#10118#10119#0" expanded="false" />
+            <element signature="e#10154#10155#0" expanded="false" />
+            <element signature="e#11036#11037#0" expanded="false" />
+            <element signature="e#11070#11071#0" expanded="false" />
+            <element signature="e#13420#13421#0" expanded="false" />
+            <element signature="e#13457#13458#0" expanded="false" />
+            <element signature="e#16789#16790#0" expanded="false" />
+            <element signature="e#16813#16814#0" expanded="false" />
+            <element signature="e#17497#17498#0" expanded="false" />
+            <element signature="e#17526#17527#0" expanded="false" />
+            <element signature="e#17650#17651#0" expanded="false" />
+            <element signature="e#17680#17681#0" expanded="false" />
+            <element signature="e#31002#31003#0" expanded="false" />
+            <element signature="e#31044#31045#0" expanded="false" />
+            <element signature="e#33683#33684#0" expanded="false" />
+            <element signature="e#33753#33754#0" expanded="false" />
+            <element signature="e#34191#34192#0" expanded="false" />
+            <element signature="e#34218#34219#0" expanded="false" />
+            <element signature="e#35006#35007#0" expanded="false" />
+            <element signature="e#35033#35034#0" expanded="false" />
+            <element signature="e#35413#35414#0" expanded="false" />
+            <element signature="e#35455#35456#0" expanded="false" />
+            <element signature="e#36212#36213#0" expanded="false" />
+            <element signature="e#36247#36248#0" expanded="false" />
+            <element signature="e#39577#39578#0" expanded="false" />
+            <element signature="e#39626#39627#0" expanded="false" />
+            <element signature="e#42005#42006#0" expanded="false" />
+            <element signature="e#42044#42045#0" expanded="false" />
+            <element signature="e#44251#44252#0" expanded="false" />
+            <element signature="e#44321#44322#0" expanded="false" />
+            <element signature="e#47191#47192#0" expanded="false" />
+            <element signature="e#47234#47235#0" expanded="false" />
+            <element signature="e#49838#49839#0" expanded="false" />
+            <element signature="e#49866#49867#0" expanded="false" />
+            <element signature="e#50017#50018#0" expanded="false" />
+            <element signature="e#50045#50046#0" expanded="false" />
+            <element signature="e#60123#60124#0" expanded="false" />
+            <element signature="e#60150#60151#0" expanded="false" />
+            <element signature="e#60280#60281#0" expanded="false" />
+            <element signature="e#60335#60336#0" expanded="false" />
+            <element signature="e#61475#61476#0" expanded="false" />
+            <element signature="e#61541#61542#0" expanded="false" />
+            <element signature="e#62492#62493#0" expanded="false" />
+            <element signature="e#62527#62528#0" expanded="false" />
+            <element signature="e#63943#63944#0" expanded="false" />
+            <element signature="e#63971#63972#0" expanded="false" />
+            <element signature="e#64223#64224#0" expanded="false" />
+            <element signature="e#64250#64251#0" expanded="false" />
+            <element signature="e#66655#66656#0" expanded="false" />
+            <element signature="e#66682#66683#0" expanded="false" />
+            <element signature="e#66830#66831#0" expanded="false" />
+            <element signature="e#66880#66881#0" expanded="false" />
+            <element signature="e#69099#69100#0" expanded="false" />
+            <element signature="e#69126#69127#0" expanded="false" />
+            <element signature="e#69247#69248#0" expanded="false" />
+            <element signature="e#69274#69275#0" expanded="false" />
+            <element signature="e#71073#71074#0" expanded="false" />
+            <element signature="e#71099#71100#0" expanded="false" />
+            <element signature="e#71754#71755#0" expanded="false" />
+            <element signature="e#71781#71782#0" expanded="false" />
+            <element signature="e#72485#72486#0" expanded="false" />
+            <element signature="e#72566#72567#0" expanded="false" />
+            <element signature="e#72664#72665#0" expanded="false" />
+            <element signature="e#72702#72703#0" expanded="false" />
+            <element signature="e#72802#72803#0" expanded="false" />
+            <element signature="e#72843#72844#0" expanded="false" />
+            <element signature="e#72938#72939#0" expanded="false" />
+            <element signature="e#72976#72977#0" expanded="false" />
+            <element signature="e#73087#73088#0" expanded="false" />
+            <element signature="e#73129#73130#0" expanded="false" />
+            <element signature="e#73169#73170#0" expanded="false" />
+            <element signature="e#73207#73208#0" expanded="false" />
+            <element signature="e#73723#73724#0" expanded="false" />
+            <element signature="e#73765#73766#0" expanded="false" />
+            <element signature="e#73829#73830#0" expanded="false" />
+            <element signature="e#73867#73868#0" expanded="false" />
+            <element signature="e#73916#73917#0" expanded="false" />
+            <element signature="e#73955#73956#0" expanded="false" />
+            <element signature="e#74181#74182#0" expanded="false" />
+            <element signature="e#74265#74266#0" expanded="false" />
+            <element signature="e#74761#74762#0" expanded="false" />
+            <element signature="e#74827#74828#0" expanded="false" />
+            <element signature="e#74866#74867#0" expanded="false" />
+            <element signature="e#74941#74942#0" expanded="false" />
+            <element signature="e#78152#78153#0" expanded="false" />
+            <element signature="e#78179#78180#0" expanded="false" />
+            <element signature="e#78315#78316#0" expanded="false" />
+            <element signature="e#78354#78355#0" expanded="false" />
+            <element signature="e#78399#78400#0" expanded="false" />
+            <element signature="e#78426#78427#0" expanded="false" />
+            <element signature="e#78761#78762#0" expanded="false" />
+            <element signature="e#78788#78789#0" expanded="false" />
+            <element signature="e#78955#78956#0" expanded="false" />
+            <element signature="e#78983#78984#0" expanded="false" />
+            <element signature="e#83077#83078#0" expanded="false" />
+            <element signature="e#83101#83102#0" expanded="false" />
+            <element signature="e#83141#83142#0" expanded="false" />
+            <element signature="e#83184#83185#0" expanded="false" />
+            <element signature="e#83230#83231#0" expanded="false" />
+            <element signature="e#83273#83274#0" expanded="false" />
+            <element signature="e#83436#83437#0" expanded="false" />
+            <element signature="e#83464#83465#0" expanded="false" />
+            <element signature="e#85410#85411#0" expanded="false" />
+            <element signature="e#85449#85450#0" expanded="false" />
+            <element signature="e#85486#85487#0" expanded="false" />
+            <element signature="e#85528#85529#0" expanded="false" />
+            <element signature="e#85572#85573#0" expanded="false" />
+            <element signature="e#85599#85600#0" expanded="false" />
+            <element signature="e#86166#86167#0" expanded="false" />
+            <element signature="e#86220#86221#0" expanded="false" />
+            <element signature="e#86264#86265#0" expanded="false" />
+            <element signature="e#86331#86332#0" expanded="false" />
+            <element signature="e#86432#86433#0" expanded="false" />
+            <element signature="e#86512#86513#0" expanded="false" />
+            <element signature="e#86737#86738#0" expanded="false" />
+            <element signature="e#86807#86808#0" expanded="false" />
+            <element signature="e#87144#87145#0" expanded="false" />
+            <element signature="e#87196#87197#0" expanded="false" />
+            <element signature="e#88008#88009#0" expanded="false" />
+            <element signature="e#88035#88036#0" expanded="false" />
+            <element signature="e#88090#88091#0" expanded="false" />
+            <element signature="e#88129#88130#0" expanded="false" />
+            <element signature="e#88191#88192#0" expanded="false" />
+            <element signature="e#88228#88229#0" expanded="false" />
+            <element signature="e#88267#88268#0" expanded="false" />
+            <element signature="e#88309#88310#0" expanded="false" />
+            <element signature="e#88353#88354#0" expanded="false" />
+            <element signature="e#88396#88397#0" expanded="false" />
+            <element signature="e#88459#88460#0" expanded="false" />
+            <element signature="e#88511#88512#0" expanded="false" />
+            <element signature="e#88602#88603#0" expanded="false" />
+            <element signature="e#88630#88631#0" expanded="false" />
+            <element signature="e#88973#88974#0" expanded="false" />
+            <element signature="e#89000#89001#0" expanded="false" />
+            <element signature="e#89208#89209#0" expanded="false" />
+            <element signature="e#89283#89284#0" expanded="false" />
+            <element signature="e#89480#89481#0" expanded="false" />
+            <element signature="e#89544#89545#0" expanded="false" />
+            <element signature="e#89740#89741#0" expanded="false" />
+            <element signature="e#89776#89777#0" expanded="false" />
+            <element signature="e#89917#89918#0" expanded="false" />
+            <element signature="e#89944#89945#0" expanded="false" />
+            <element signature="e#90098#90099#0" expanded="false" />
+            <element signature="e#90126#90127#0" expanded="false" />
+            <element signature="e#90330#90331#0" expanded="false" />
+            <element signature="e#90372#90373#0" expanded="false" />
+            <element signature="e#90426#90427#0" expanded="false" />
+            <element signature="e#90503#90504#0" expanded="false" />
+            <element signature="e#90556#90557#0" expanded="false" />
+            <element signature="e#90583#90584#0" expanded="false" />
+            <element signature="e#90973#90974#0" expanded="false" />
+            <element signature="e#91001#91002#0" expanded="false" />
+            <element signature="e#91050#91051#0" expanded="false" />
+            <element signature="e#91078#91079#0" expanded="false" />
+            <element signature="e#92234#92235#0" expanded="false" />
+            <element signature="e#92261#92262#0" expanded="false" />
+            <element signature="e#94532#94533#0" expanded="false" />
+            <element signature="e#94569#94570#0" expanded="false" />
+            <element signature="e#94702#94703#0" expanded="false" />
+            <element signature="e#94748#94749#0" expanded="false" />
+            <element signature="e#94803#94804#0" expanded="false" />
+            <element signature="e#94835#94836#0" expanded="false" />
+            <element signature="e#97863#97864#0" expanded="false" />
+            <element signature="e#97891#97892#0" expanded="false" />
+            <element signature="e#98179#98180#0" expanded="false" />
+            <element signature="e#98234#98235#0" expanded="false" />
+            <element signature="e#98855#98856#0" expanded="false" />
+            <element signature="e#98892#98893#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockCactus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36320755">
+          <caret line="64" column="38" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25314465">
+          <caret line="1095" column="7" selection-start-line="1095" selection-start-column="7" selection-end-line="1095" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/player/EntityPlayerMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/IWorldAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24817519">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_65/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="858" column="0" selection-start-line="858" selection-start-column="0" selection-end-line="858" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="224" column="16" selection-start-line="224" selection-start-column="16" selection-end-line="224" selection-end-column="16" />
+          <folding>
+            <element signature="e#7069#7070#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_65/src.zip!/java/util/Iterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7861635">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockEndPortal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1847" column="33" selection-start-line="1847" selection-start-column="23" selection-end-line="1847" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3006431">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34083602">
+          <caret line="67" column="115" selection-start-line="67" selection-start-column="115" selection-end-line="67" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+          <folding>
+            <element signature="e#27232#27233#0" expanded="true" />
+            <element signature="e#27286#27287#0" expanded="true" />
+            <element signature="e#27354#27355#0" expanded="true" />
+            <element signature="e#27411#27412#0" expanded="true" />
+            <element signature="e#27481#27482#0" expanded="true" />
+            <element signature="e#27508#27509#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3954984">
+          <caret line="292" column="57" selection-start-line="292" selection-start-column="57" selection-end-line="292" selection-end-column="57" />
           <folding />
         </state>
       </provider>

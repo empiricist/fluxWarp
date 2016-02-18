@@ -10,7 +10,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-//import net.minecraftforge.common.util.ForgeDirection;
+
 
 
 public class ContainerWarpCore extends Container{
@@ -110,7 +110,7 @@ public class ContainerWarpCore extends Container{
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        int rf = 1000000;//this.contents.getEnergyStored(ForgeDirection.DOWN);//ForgeDirection.DOWN);
+        int rf = this.contents.getEnergyStored(EnumFacing.DOWN);
 
         for (int i = 0; i < this.crafters.size(); ++i)
         {
