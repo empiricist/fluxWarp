@@ -79,7 +79,10 @@ public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
         if (tile != null && tile instanceof TileEntityWarpCore) {
             TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
             warpCore.signal = world.isBlockIndirectlyGettingPowered(pos) > 0;
-            //world.scheduleUpdate(pos, state.getBlock(), 2);
+            if (warpCore.willWarp()) {
+                //warpCore.warpEntities();
+                world.scheduleUpdate(pos, this, 1);
+            }
             //warpCore.updateEntity();
         }
     }
@@ -149,14 +152,14 @@ public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
         return name;
     }
 
-//    @Override
-//    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
-//        TileEntity t = world.getTileEntity(pos);
-//        if (t != null && t instanceof TileEntityWarpCore) {
-//            TileEntityWarpCore warpCore = (TileEntityWarpCore) t;
-//            //warpCore.updateEntity();
-//        }
-//    }
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
+        TileEntity t = world.getTileEntity(pos);
+        if (t != null && t instanceof TileEntityWarpCore) {
+            TileEntityWarpCore warpCore = (TileEntityWarpCore) t;
+            //warpCore.warpEntities();
+        }
+    }
 
     /*--
     @Override

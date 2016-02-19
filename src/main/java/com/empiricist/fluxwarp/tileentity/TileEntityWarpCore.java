@@ -101,6 +101,8 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                 doWarp = false;
                 getDirections();
 
+                warpEntities();//must be before blocks as it is now
+
                 LogHelper.info("Activating Warp Drive, " + pos);
                 if( dx == 0 && dy == 0 && dz == 0 && destDim == worldObj.provider.getDimensionId()){
                     LogHelper.info("Destination is the same as origin, quitting warp");
@@ -259,7 +261,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                             int y = i*iy + j*jy + k*ky;
                             int z = i*iz + j*jz + k*kz;
                             position.set(x, y, z);
-                            isWarpSuccessful &= TeleportHelper.moveBlockChunk(worldObj, world2, position, position.add( - pos.getX() + newXCen, - pos.getY() + newYCen, - pos.getZ() + newZCen ), energyStorage);//supposedly this works for booleans
+                            isWarpSuccessful &= TeleportHelper.moveBlockWorld(worldObj, world2, position, position.add( - pos.getX() + newXCen, - pos.getY() + newYCen, - pos.getZ() + newZCen ), energyStorage);//supposedly this works for booleans
 
                         }
                     }
@@ -316,31 +318,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                     worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
                 }
 
-                //move entities within volume too (but only if ship also moved, or does not exist)
-                if(isWarpSuccessful){
-                    List<Entity> entitiesInVolume = worldObj.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.getX() - xMinus, pos.getY() - yMinus, pos.getZ() - zMinus, pos.getX() + xPlus+1, pos.getY() + yPlus+1, pos.getZ() + zPlus+1));
-
-                    //Set<Entity> entitySet = new HashSet<Entity>();
-                    //entitySet.addAll(entitiesInVolume);
-                    LogHelper.info("    Found Entities: " + entitiesInVolume.toString());
-                    //LogHelper.info("    Deduplicated???: " + entitySet.toString());
-
-                    for (Entity entity : entitiesInVolume){
-                        LogHelper.info("Found Entity: " + entity.toString());
-
-                        if( tryToUseEnergy(ConfigurationHandler.entityCost) ){
-
-                            //entity should stay at same relative position within ship, even if movement factor is not 1
-                            double newX = entity.posX - pos.getX() + newXCen;
-                            double newY = entity.posY - pos.getY() + newYCen;
-                            double newZ = entity.posZ - pos.getZ() + newZCen;
-
-                            TeleportHelper.moveEntity(worldObj, world2, entity, newX, newY, newZ);
-
-                        }else{
-                            LogHelper.info("Out of energy for entity!");
-                        }
-                    }
+                if(isWarpSuccessful) {
                 }
 
                 worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "random.fizz", 1, 1);
@@ -348,11 +326,66 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 
                 LogHelper.info("Finished warp!");
 
+
+
             }
 
             signalOn = signal;
 
         }
+    }
+
+    public void warpEntities(){
+        LogHelper.warn("Warping Entities " + (worldObj.isRemote?"Client":"Server"));
+        if(!worldObj.isRemote){
+
+
+            if (!DimensionManager.isDimensionRegistered(destDim)) {
+                LogHelper.info("Dimension " + destDim + " is not registered!");
+                worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.bassattack", 1, 1);
+                return;
+            }
+
+            if (!hasPermissionForDimension(destDim)) {
+                LogHelper.info("Dimension " + destDim + " address not found!");
+                worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.harp", 1, 1);
+                return;
+            }
+
+            World world2 = MinecraftServer.getServer().worldServerForDimension(destDim);
+            double posMultiplier = worldObj.provider.getMovementFactor() / world2.provider.getMovementFactor();//for the nether and stuff
+            int newXCen = (int) ((pos.getX()) * posMultiplier) + dx;
+            int newYCen = pos.getY() + dy;
+            int newZCen = (int) ((pos.getZ()) * posMultiplier) + dz;
+
+
+            //move entities within volume too (but only if ship also moved, or does not exist)
+
+            List<Entity> entitiesInVolume = worldObj.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.getX() - xMinus, pos.getY() - yMinus, pos.getZ() - zMinus, pos.getX() + xPlus + 1, pos.getY() + yPlus + 1, pos.getZ() + zPlus + 1));
+
+            //Set<Entity> entitySet = new HashSet<Entity>();
+            //entitySet.addAll(entitiesInVolume);
+            LogHelper.info("    Found Entities: " + entitiesInVolume.toString());
+            //LogHelper.info("    Deduplicated???: " + entitySet.toString());
+
+            for (Entity entity : entitiesInVolume) {
+                //LogHelper.info("Found Entity: " + entity.toString());
+
+                if (tryToUseEnergy(ConfigurationHandler.entityCost)) {
+
+                    //entity should stay at same relative position within ship, even if movement factor is not 1
+                    double newX = entity.posX - pos.getX() + newXCen;
+                    double newY = entity.posY - pos.getY() + newYCen;
+                    double newZ = entity.posZ - pos.getZ() + newZCen;
+
+                    TeleportHelper.moveEntity(worldObj, world2, entity, newX, newY, newZ);
+
+                } else {
+                    LogHelper.info("Out of energy for entity!");
+                }
+            }
+        }
+
     }
 
 
@@ -611,7 +644,7 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 //            return true;
 //        }else{
             //LogHelper.info("Trying to use: " + energy + " RF");
-            return (energy == energyStorage.extractEnergy(energy, false));
+            return true;//(energy == energyStorage.extractEnergy(energy, false));
 //        }
     }
 
@@ -707,6 +740,10 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
     public void setDy(int Dy){ dy = Dy; }
     public void setDz(int Dz){ dz = Dz; }
     public void setDestDim(int dest){ destDim = dest; }
+
+    public boolean willWarp(){
+        return doWarp || (signal && !signalOn);
+    }
 
     @Override
     public String getName() {

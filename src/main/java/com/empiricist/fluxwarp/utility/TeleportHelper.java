@@ -298,7 +298,7 @@ public class TeleportHelper {
                 s2.spawnEntityInWorld(player);
                 s2.updateEntityWithOptionalForce(player, false);
                 player.setWorld(s2);
-                mgr.preparePlayer(player, s2);
+                mgr.preparePlayer(player, s1);//yes, this is old world, because that is where player is removed from
                 player.playerNetServerHandler.setPlayerLocation(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
                 player.theItemInWorldManager.setWorld(s2);
                 mgr.updateTimeAndWeatherForPlayer(player, s2);
@@ -405,7 +405,7 @@ public class TeleportHelper {
 
             //dest.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);//entity, sound, volume, pitch
 
-        }else{
+        }else{ //not player
             if( origin.provider.getDimensionId() != destDim) {
                 //if (!net.minecraftforge.common.ForgeHooks.onTravelToDimension(entity, destDim)) return false;
                 //entity.worldObj.theProfiler.startSection("changeDimension");
@@ -474,7 +474,8 @@ public class TeleportHelper {
 //            return true;
 //        }else{
             //LogHelper.info("Trying to use: " + energy + " RF");
-            return (energy == energyStorage.extractEnergy(energy, false));
+        return true;
+            //return (energy == energyStorage.extractEnergy(energy, false));
 //        }
     }
 
@@ -567,8 +568,8 @@ public class TeleportHelper {
                     NBTTagCompound nbtData = new NBTTagCompound();
                     tileOrig.writeToNBT(nbtData);
 
-                    //LogHelper.info("  reading NBT");
-                    //LogHelper.info("    " + nbtData.toString());
+                    LogHelper.info("  reading NBT");
+                    LogHelper.info("    " + nbtData.toString());
 
                     //LogHelper.info("  changing NBT");
                     nbtData.setInteger("x", x2);
@@ -577,26 +578,30 @@ public class TeleportHelper {
                     //LogHelper.info("    " + nbtData.toString());
 
 
-                    dest.addTileEntity(TileEntity.createAndLoadEntity(nbtData));
+                    //dest.addTileEntity(TileEntity.createAndLoadEntity(nbtData));
 
                     //tileentity is created with blocks
                     TileEntity tileNew = dest.getTileEntity(pos2);
                     if (tileNew != null) {
                         tileNew.readFromNBT(nbtData);//load data from old tileentity
-                        //LogHelper.info("  new NBT");
+                        tileNew.markDirty();//chunk has changed data, so save it
+                        dest.markBlockForUpdate(pos2);
+
+                        LogHelper.info("  new NBT");
                         NBTTagCompound nbtNew = new NBTTagCompound();
                         tileNew.writeToNBT(nbtNew);
-                        //LogHelper.info("    " + nbtNew.toString());
+                        LogHelper.info("    " + nbtNew.toString());
                         //tileNew.readFromNBT(nbtData);
                     }
 
                     //it really SHOULDN'T be necessary to do this again...
-                    dest.setBlockState( pos2, origin.getBlockState(pos1), 2);
+                    //dest.setBlockState( pos2, origin.getBlockState(pos1), 2);
 
                     //remove old tileentity
-//                    tileOrig.invalidate();
-                    origin.removeTileEntity(pos1);
+                    tileOrig.invalidate();
+                    //origin.removeTileEntity(pos1);
                     //tileOrig.markDirty();
+                    //tileOrig.updateContainingBlockInfo();
 //                    if( origin.tickableTileEntities.contains(tileOrig)){
 //                        origin.tickableTileEntities.remove(tileOrig);
 //                    }
