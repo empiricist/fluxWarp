@@ -350,7 +350,16 @@ public class GuiWarpCore extends GuiContainer{
             }else{
                 entries[entry] = "-" + entries[entry];//add leading negative sign
             }
-        }else{
+        }else if(key == 15) { //tab
+            int val = entry+1;
+            saveInput();
+            if( tab == 0 ){
+                entry = (val<5) ? val % 4 : 0;//move through tab 1 boxes (entry 0 to 3)
+            }else{
+                entry = (val<5) ? 5 : (val-5) % 6 + 5;//move through tab 2 boxes (entry 5 to 10)
+            }
+
+        }else { //other characters are typed
             if( (entry < 4 && entries[entry].length() < 13) || (entry > 4 && entries[entry].length() < 3)){
                 entries[entry] += character;
             }

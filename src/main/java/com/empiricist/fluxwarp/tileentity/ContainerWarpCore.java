@@ -71,8 +71,9 @@ public class ContainerWarpCore extends Container{
             case (3):
                 contents.setDestDim(value);
                 break;
-            case (4):
+            case (4): //warp button
                 contents.setDoWarp(true);
+                contents.tryWarp();
                 //contents.getWorld().scheduleUpdate(contents.getPos(), contents.getBlockType(), 1);
                 break;
             case (5):

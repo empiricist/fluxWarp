@@ -1,7 +1,5 @@
 package com.empiricist.fluxwarp.tileentity;
 
-
-
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
 import com.empiricist.fluxwarp.api.IDimensionPermissionBlock;
@@ -43,7 +41,7 @@ import java.util.Set;
         @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheral", modid = "ComputerCraft", striprefs = true),
         @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true)
 })
-public class TileEntityWarpCore extends TileEntity implements ITickable, IInventory, IPeripheral, IEnergyReceiver {
+public class TileEntityWarpCore extends TileEntity implements IInventory, IPeripheral, IEnergyReceiver {
 
     private int xPlus;
     private int yPlus;
@@ -81,27 +79,19 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
         energyStorage = new EnergyStorage(ConfigurationHandler.coreEnergyStorage, 1000, ConfigurationHandler.coreEnergyStorage);//capacity, receive, extract
     }
 
-    //what is this method for?
-    public boolean isIdle() {
-        return !signalOn;
-    }
 
-
-
-    //@Override
-    public void update() {
+    public void tryWarp(){
 
         if (!worldObj.isRemote) {
 
             //LogHelper.info("Did it work?: " + (this instanceof IPeripheral));
-            if (doWarp || (signal && !signalOn)) {
+            if ( willWarp() ) {
                 LogHelper.info("doWarp is " + doWarp + ", Signal stuff is " + (signal && !signalOn));
 
                 signalOn = signal;
                 doWarp = false;
                 getDirections();
 
-                warpEntities();//must be before blocks as it is now
 
                 LogHelper.info("Activating Warp Drive, " + pos);
                 if( dx == 0 && dy == 0 && dz == 0 && destDim == worldObj.provider.getDimensionId()){
@@ -175,11 +165,13 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 
 
 
-                LogHelper.info("Destination World: " + world2.toString() + ", " + world2.provider.getDimensionId());//make sure it worked
+                LogHelper.info("Destination World: " + world2.provider.getDimensionName() + ", " + world2.provider.getDimensionId());//make sure it worked
                 double posMultiplier = worldObj.provider.getMovementFactor() / world2.provider.getMovementFactor();//for the nether and stuff
                 int newXCen = (int)((pos.getX()) * posMultiplier) + dx;
                 int newYCen = pos.getY() + dy;
                 int newZCen = (int)((pos.getZ()) * posMultiplier) + dz;
+                World world1 = worldObj;
+                BlockPos oldPos = pos;//so its ok if pos changes when it moves
                 BlockPos newPos = new BlockPos(newXCen, newYCen, newZCen);
 
                 //mathemagic to make sure region does not overwrite itself if source and destination regions overlap
@@ -261,8 +253,8 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                             int y = i*iy + j*jy + k*ky;
                             int z = i*iz + j*jz + k*kz;
                             position.set(x, y, z);
-                            isWarpSuccessful &= TeleportHelper.moveBlockWorld(worldObj, world2, position, position.add( - pos.getX() + newXCen, - pos.getY() + newYCen, - pos.getZ() + newZCen ), energyStorage);//supposedly this works for booleans
-
+                            isWarpSuccessful &= TeleportHelper.moveBlockChunk(world1, world2, position, position.subtract(oldPos).add(newPos), energyStorage);//supposedly this works for booleans
+                            //LogHelper.info("    From " + position + " to " + position.add( - pos.getX() + newXCen, - pos.getY() + newYCen, - pos.getZ() + newZCen ));
                         }
                     }
                 }
@@ -277,8 +269,8 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 //                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen-zMinus-1, world2.getBlock(newXCen+i, newYCen+j, newZCen-zMinus-1), 1);
 //                        world2.scheduleBlockUpdate(newXCen+i, newYCen+j, newZCen+zPlus+1, world2.getBlock(newXCen+i, newYCen+j, newZCen+zPlus+1), 1);
 
-                        worldObj.notifyBlockOfStateChange( pos.add( i, j, -zMinus-1), worldObj.getBlockState(pos.add( i, j, -zMinus-1)).getBlock() );
-                        worldObj.notifyBlockOfStateChange( pos.add( i, j, zPlus+1),   worldObj.getBlockState(pos.add( i, j, zPlus+1)).getBlock() );
+                        world1.notifyBlockOfStateChange( pos.add( i, j, -zMinus-1), world1.getBlockState(pos.add( i, j, -zMinus-1)).getBlock() );
+                        world1.notifyBlockOfStateChange( pos.add( i, j, zPlus+1),   world1.getBlockState(pos.add( i, j, zPlus+1)).getBlock() );
                         world2.notifyBlockOfStateChange( newPos.add(i, j, -zMinus-1), world2.getBlockState(newPos.add(i, j, -zMinus-1)).getBlock());
                         world2.notifyBlockOfStateChange( newPos.add(i, j, zPlus+1), world2.getBlockState(newPos.add(i, j, zPlus+1)).getBlock());
                     }
@@ -291,8 +283,8 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 //                        world2.scheduleBlockUpdate(newXCen+i, newYCen-yMinus-1, newZCen+i, world2.getBlock(newXCen+i, newYCen-yMinus-1, newZCen+i), 1);
 //                        world2.scheduleBlockUpdate(newXCen+i, newYCen+yPlus+1, newZCen+i, world2.getBlock(newXCen+i, newYCen+yPlus+1, newZCen+i), 1);
 
-                        worldObj.notifyBlockOfStateChange( pos.add( i, -yMinus-1, j), worldObj.getBlockState( pos.add( i, -yMinus-1, j) ).getBlock());
-                        worldObj.notifyBlockOfStateChange( pos.add( i, yPlus+1, j), worldObj.getBlockState( pos.add( i, yPlus+1, j) ).getBlock());
+                        world1.notifyBlockOfStateChange( pos.add( i, -yMinus-1, j), world1.getBlockState( pos.add( i, -yMinus-1, j) ).getBlock());
+                        world1.notifyBlockOfStateChange( pos.add( i, yPlus+1, j), world1.getBlockState( pos.add( i, yPlus+1, j) ).getBlock());
                         world2.notifyBlockOfStateChange( newPos.add( i, -yMinus-1, i), world2.getBlockState(newPos.add( i, -yMinus-1, i)).getBlock());
                         world2.notifyBlockOfStateChange( newPos.add(i, yPlus+1, i), world2.getBlockState( newPos.add(i, yPlus+1, i) ).getBlock());
                     }
@@ -305,8 +297,8 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 //                        world2.scheduleBlockUpdate(newXCen-xMinus-1, newYCen+i, newZCen+j, world2.getBlock(newXCen-xMinus-1, newYCen+i, newZCen+j), 1);
 //                        world2.scheduleBlockUpdate(newXCen+xPlus+1, newYCen+i, newZCen+j, world2.getBlock(newXCen+xPlus+1, newYCen+i, newZCen+j), 1);
 
-                        worldObj.notifyBlockOfStateChange( pos.add( -xMinus-1, i, j), worldObj.getBlockState( pos.add( -xMinus-1, i, j) ).getBlock());
-                        worldObj.notifyBlockOfStateChange( pos.add( xPlus+1, i, j), worldObj.getBlockState( pos.add( xPlus+1, i, j) ).getBlock());
+                        world1.notifyBlockOfStateChange( pos.add( -xMinus-1, i, j), world1.getBlockState( pos.add( -xMinus-1, i, j) ).getBlock());
+                        world1.notifyBlockOfStateChange( pos.add( xPlus+1, i, j), world1.getBlockState( pos.add( xPlus+1, i, j) ).getBlock());
                         world2.notifyBlockOfStateChange( newPos.add( -xMinus-1, i, j), world2.getBlockState( newPos.add( -xMinus-1, i, j) ).getBlock());
                         world2.notifyBlockOfStateChange( newPos.add( xPlus+1, i, j), world2.getBlockState( newPos.add( xPlus+1, i, j) ).getBlock());
                     }
@@ -315,13 +307,14 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
 
                 LogHelper.info("Was warp successful for all blocks: " + isWarpSuccessful);
                 if( !isWarpSuccessful ){
-                    worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
+                    world1.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
                 }
 
                 if(isWarpSuccessful) {
+                    warpEntities(world1, world2, oldPos);
                 }
 
-                worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "random.fizz", 1, 1);
+                world1.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "random.fizz", 1, 1);
                 world2.playSoundEffect(newXCen, newYCen, newZCen, "ambient.weather.thunder", 1, 1);
 
                 LogHelper.info("Finished warp!");
@@ -335,33 +328,19 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
         }
     }
 
-    public void warpEntities(){
-        LogHelper.warn("Warping Entities " + (worldObj.isRemote?"Client":"Server"));
+    public void warpEntities(World origin, World dest, BlockPos center){
+        LogHelper.warn("Warping Entities from " + origin.provider.getDimensionName() + " to " + dest.provider.getDimensionName() + " on " + (worldObj.isRemote?"Client":"Server"));
         if(!worldObj.isRemote){
 
-
-            if (!DimensionManager.isDimensionRegistered(destDim)) {
-                LogHelper.info("Dimension " + destDim + " is not registered!");
-                worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.bassattack", 1, 1);
-                return;
-            }
-
-            if (!hasPermissionForDimension(destDim)) {
-                LogHelper.info("Dimension " + destDim + " address not found!");
-                worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.harp", 1, 1);
-                return;
-            }
-
-            World world2 = MinecraftServer.getServer().worldServerForDimension(destDim);
-            double posMultiplier = worldObj.provider.getMovementFactor() / world2.provider.getMovementFactor();//for the nether and stuff
-            int newXCen = (int) ((pos.getX()) * posMultiplier) + dx;
-            int newYCen = pos.getY() + dy;
-            int newZCen = (int) ((pos.getZ()) * posMultiplier) + dz;
+            double posMultiplier = origin.provider.getMovementFactor() / dest.provider.getMovementFactor();//for the nether and stuff
+            int newXCen = (int) ((center.getX()) * posMultiplier) + dx;
+            int newYCen = center.getY() + dy;
+            int newZCen = (int) ((center.getZ()) * posMultiplier) + dz;
 
 
             //move entities within volume too (but only if ship also moved, or does not exist)
 
-            List<Entity> entitiesInVolume = worldObj.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.getX() - xMinus, pos.getY() - yMinus, pos.getZ() - zMinus, pos.getX() + xPlus + 1, pos.getY() + yPlus + 1, pos.getZ() + zPlus + 1));
+            List<Entity> entitiesInVolume = origin.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(center.getX() - xMinus, center.getY() - yMinus, center.getZ() - zMinus, center.getX() + xPlus + 1, center.getY() + yPlus + 1, center.getZ() + zPlus + 1));
 
             //Set<Entity> entitySet = new HashSet<Entity>();
             //entitySet.addAll(entitiesInVolume);
@@ -374,11 +353,11 @@ public class TileEntityWarpCore extends TileEntity implements ITickable, IInvent
                 if (tryToUseEnergy(ConfigurationHandler.entityCost)) {
 
                     //entity should stay at same relative position within ship, even if movement factor is not 1
-                    double newX = entity.posX - pos.getX() + newXCen;
-                    double newY = entity.posY - pos.getY() + newYCen;
-                    double newZ = entity.posZ - pos.getZ() + newZCen;
+                    double newX = entity.posX - center.getX() + newXCen;
+                    double newY = entity.posY - center.getY() + newYCen;
+                    double newZ = entity.posZ - center.getZ() + newZCen;
 
-                    TeleportHelper.moveEntity(worldObj, world2, entity, newX, newY, newZ);
+                    TeleportHelper.moveEntity(origin, dest, entity, newX, newY, newZ);
 
                 } else {
                     LogHelper.info("Out of energy for entity!");

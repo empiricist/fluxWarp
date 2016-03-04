@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityList;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.network.play.server.S07PacketRespawn;
 import net.minecraft.network.play.server.S1DPacketEntityEffect;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
@@ -15,6 +16,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.world.MinecraftException;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -34,6 +36,9 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.common.ForgeChunkManager;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 //various utility methods related to teleporting things
@@ -65,9 +70,9 @@ public class TeleportHelper {
                 LogHelper.info("Failed to get chunk loading ticket, quitting");
                 return false;
             }
-            ForgeChunkManager.forceChunk( ticket, dest.getChunkFromBlockCoords(pos2).getChunkCoordIntPair() );
+            //ForgeChunkManager.forceChunk( ticket, dest.getChunkFromBlockCoords(pos2).getChunkCoordIntPair() );
             ImmutableSet<ChunkCoordIntPair> chunks = ticket.getChunkList();        //getMaxChunkListDepth()
-            LogHelper.info("Chunks Loaded:" + chunks.size());
+            //LogHelper.info("Chunks Loaded:" + chunks.size());
         }
 
         if(!origin.isAirBlock(pos1) && dest.isBlockLoaded(pos2) && tryToUseEnergy(ConfigurationHandler.blockCost, energyStorage)){ //don't bother moving air, or trying to move to nonexistent spots, or moving if there is insufficient energy
@@ -78,8 +83,9 @@ public class TeleportHelper {
             Block newBlock = dChunk.getBlock(x2 & 15, y2, z2 & 15);
             IBlockState oldState = origin.getBlockState(pos1);
             IBlockState newState = dest.getBlockState(pos2);
-            float oldHard = oldBlock.getBlockHardness(origin,pos1);
-            float newHard = newBlock.getBlockHardness(dest,pos2);
+            float oldHard = oldBlock.getBlockHardness(origin, pos1);
+            float newHard = newBlock.getBlockHardness(dest, pos2);
+            //LogHelper.info("  Teleporting " + oldBlock.getLocalizedName() + " (" + oldHard + ") to " + newBlock.getLocalizedName() + " (" + newHard + ")");
 
             if( (oldHard != -1) && (newHard != -1) && (oldHard > newHard)){ //do not teleport if either end is indestructible, only overwrite if teleported block is more durable
                 //LogHelper.info("Moving Block at x:" + x1 + " y:" + y1 + " z:" + z1 + " to x:" + x2 + " y:" + y2 + " z:" + z2);
@@ -87,11 +93,12 @@ public class TeleportHelper {
                 portalParticles(dest, x2, y2, z2);
 
 
-                dest.removeTileEntity(pos2);
+                //dest.removeTileEntity(pos2);
                 //break replaced block
                 if(!dest.isAirBlock(pos2)){
                     breakBlock(newBlock, dest, pos2);
                 }
+
 
                 //move block id, metadata
                 ExtendedBlockStorage destBlockStorage = dChunk.getBlockStorageArray()[y2 >> 4];
@@ -109,6 +116,8 @@ public class TeleportHelper {
 
 
                 dest.markBlockForUpdate(pos2);//so client actually gets message that block changed
+
+
                 //dest.addBlockEvent(pos2, oldBlock, 0, 2);
                 //dest.notifyBlockChange(x2, x2, x2, newBlock);//I have no idea what this does (NOT block update dest end)
                 //dest.scheduleUpdate(pos2, oldBlock, 1);
@@ -123,6 +132,80 @@ public class TeleportHelper {
                 //move tileentity type and data
                 TileEntity tileOrig = origin.getTileEntity(pos1);//check for tileentity
                 if (tileOrig != null) {
+                    tileOrig.setPos(pos2);
+                    tileOrig.setWorldObj(dest);
+                    origin.removeTileEntity(pos1);//also invalidates
+                    tileOrig.validate();
+                    dest.setTileEntity(pos2, tileOrig);//only works if valid
+                    //dest.addTileEntity(tileOrig);
+                    LogHelper.info("<<<<< Checking " + pos2 + " after moving tileentity >>>>>");
+                    NBTTagCompound data = new NBTTagCompound();
+                    for(TileEntity te : dest.loadedTileEntityList){
+                        if(te.getPos().equals(pos2)){
+                            LogHelper.info("  *There is a " + te.getBlockType().getLocalizedName() + " here called " + te + " at " + te.getPos());
+                            te.writeToNBT(data);
+                            LogHelper.info( "    -NBTData:" + data.toString());
+                        }
+                    }
+                    dest.setBlockState(pos2, oldState);
+                    /*
+                    NBTTagCompound data = new NBTTagCompound();
+                    tileOrig.writeToNBT(data);
+
+                    TileEntity tileentity = dest.getTileEntity(pos2);
+                    NBTTagCompound nbttagcompound = new NBTTagCompound();
+                    tileentity.writeToNBT(nbttagcompound);
+
+                    for (String s : data.getKeySet())
+                    {
+                        NBTBase nbtbase = data.getTag(s);
+
+                        if (!s.equals("x") && !s.equals("y") && !s.equals("z"))
+                        {
+                            nbttagcompound.setTag(s, nbtbase.copy());
+                        }
+                    }
+
+                    tileentity.readFromNBT(nbttagcompound);
+                    tileentity.markDirty();
+
+                    /*
+                    tileOrig.invalidate();
+                    TileEntity tileNew = TileEntity.createAndLoadEntity(data);
+                    tileNew.setWorldObj(dest);
+                    tileNew.setPos(pos2);
+                    dest.setTileEntity(pos2, tileNew);
+
+//                    TileEntity bork = dest.getChunkFromBlockCoords(pos2).getTileEntity(pos2, Chunk.EnumCreateEntityType.IMMEDIATE);//getTileEntity(pos2);
+//                    bork.readFromNBT(data);
+//                    TileEntity tew = dest.getTileEntity(pos2);
+//                    if( !bork.equals(tew) ) LogHelper.error("WUGFIUEGFUGFSUEGFIEFG");
+//                    dest.loadedTileEntityList.remove(bork);
+//                    dest.getChunkFromBlockCoords(pos2).removeTileEntity(pos2);
+//                    bork.onChunkUnload();
+//                    List justBork = new ArrayList<TileEntity>();
+//                    justBork.add(bork);
+//                    dest.tickableTileEntities.removeAll(justBork);
+//                    dest.loadedTileEntityList.removeAll(justBork);
+
+                    LogHelper.info("<<<<< Checking " + pos2 + " after moving tileentity >>>>>");
+                    for(TileEntity te : dest.loadedTileEntityList){
+                        if(te.getPos().equals(pos2)){
+                            LogHelper.info("  There is a " + te.getBlockType().getLocalizedName() + " here called " + te + " at " + te.getPos());
+                            te.writeToNBT(data);
+                            LogHelper.info( "    NBTData:" + data.toString());
+                            //dest.markTileEntityForRemoval(te);
+                        }
+                    }
+
+//                    dest.getTileEntity(pos2).invalidate();
+
+//                    if( (new BlockPos(1,2,3)).equals(new BlockPos(1,2,3))){
+//                        LogHelper.info("<<<<<BlockPos works like that>>>>>");
+//                    }
+
+
+/*
                     LogHelper.info("Found Tile Entity " + tileOrig.toString() + " at x:" + x1 + " y:" + y1 + " z:" + z1);
 
                     NBTTagCompound nbtData = new NBTTagCompound();
@@ -138,38 +221,52 @@ public class TeleportHelper {
 //                    LogHelper.info("  changing NBT");
 //                    LogHelper.info("    " + nbtData.toString());
 
-                    //if(dest.getTileEntity(pos2)!=null){ LogHelper.info( "There is already a " + dest.getTileEntity(pos2).toString() + " here!" ); }
+                    //if(dest.getTileEntity(pos2)!=null){ LogHelper.info( "    There is already a " + dest.getTileEntity(pos2).toString() + " here!" ); }
 
                     //tileentity is created with blocks
-                    //TileEntity tileNew = TileEntity.createAndLoadEntity(nbtData); //dest.getTileEntity(x2, y2, z2);
+                    TileEntity tileNew = TileEntity.createAndLoadEntity(nbtData); //dest.getTileEntity(x2, y2, z2);
 
-                    //does this cause problems for opencomputers?
+//                    //does this cause problems for opencomputers?
 //                    NBTTagCompound nbtNew = new NBTTagCompound();
 //                    tileNew.writeToNBT(nbtNew);
 //                    LogHelper.info("  new NBT");
 //                    LogHelper.info("    " + nbtNew.toString());
 //                    tileNew.readFromNBT(nbtData);
+//
+//                    dest.removeTileEntity(pos2);
+                    //tileNew.setWorldObj(dest);
+                    //tileNew.setPos(pos2);
+                    //dest.addTileEntity(tileNew);
+                    dest.setTileEntity(pos2, tileNew);
 
-                    //dest.setTileEntity(pos2, tileNew);
-
-                    TileEntity tileNew = dest.getTileEntity(pos2);
-                    tileNew.readFromNBT(nbtData);
-                    tileNew.markDirty();
+                    //TileEntity tileNew = dest.getTileEntity(pos2);
+                    //tileNew.readFromNBT(nbtData);
+                    //tileNew.markDirty();
+                    //dest.markBlockForUpdate(pos2);
 
                     NBTTagCompound nbtNew = new NBTTagCompound();
                     tileNew.writeToNBT(nbtNew);
+                    //dest.getTileEntity(pos2).writeToNBT(nbtNew);
                     LogHelper.info("  written NBT");
                     LogHelper.info("    " + nbtNew.toString());
 
 
                     //it really SHOULDN'T be necessary to do this again...
                     //destBlockStorage.setExtBlockMetadata(x2 & 15, y2 & 15, z2 & 15, origin.getBlockMetadata(x1, y1, z1));
+                    destBlockStorage.set(x2 & 15, y2 & 15, z2 & 15, oldState);
                     tileNew.updateContainingBlockInfo();//do I need this?
 
                     //remove old tileentity
-                    origin.removeTileEntity(pos1);
+                    //origin.removeTileEntity(pos1);
+                    tileOrig.invalidate();
                     //tileOrig.updateContainingBlockInfo();//do I need this?
+                    */
                 }
+
+
+
+
+
 
                 //remove original block if it was moved
                 //origin.setBlock(x1, y1, z1, Blocks.air, 0, 2);
@@ -202,7 +299,7 @@ public class TeleportHelper {
         //why does this break things for later warps????? (wait, never mind, I think that was something else)
         if (ticket != null) {
             ForgeChunkManager.releaseTicket(ticket);
-            LogHelper.info("Releasing Ticket");
+            //LogHelper.info("Releasing Ticket");
         }else{
             LogHelper.info("Ticket is null, not releasing");
         }
@@ -507,7 +604,7 @@ public class TeleportHelper {
         //MinecraftServer.getServer().worldTickTimes.put(dest.provider.dimensionId, new long[100]);
         //LogHelper.info("Max Ticket Length: " + ForgeChunkManager.getMaxTicketLengthFor(Reference.MOD_ID));
         //LogHelper.info("Max Chunks Depth: " + ForgeChunkManager.getMaxChunkDepthFor(Reference.MOD_ID));
-        LogHelper.info("Tickets Available: " + ForgeChunkManager.ticketCountAvailableFor(FluxWarp.instance, dest));
+        //LogHelper.info("Tickets Available: " + ForgeChunkManager.ticketCountAvailableFor(FluxWarp.instance, dest));
         ForgeChunkManager.Ticket ticket = null;
         ticket = ForgeChunkManager.requestTicket(FluxWarp.instance, dest, ForgeChunkManager.Type.NORMAL);
 
@@ -536,7 +633,7 @@ public class TeleportHelper {
             float newHard = newBlock.getBlockHardness(dest, pos2);
 
             if( (oldHard != -1) && (newHard != -1) && (oldHard > newHard)){ //do not teleport if either end is indestructible, only overwrite if teleported block is more durable
-                LogHelper.info("Moving Block at x:" + x1 + " y:" + y1 + " z:" + z1 + " to x:" + x2 + " y:" + y2 + " z:" + z2);
+                //LogHelper.info("Moving Block at x:" + x1 + " y:" + y1 + " z:" + z1 + " to x:" + x2 + " y:" + y2 + " z:" + z2);
                 //break replaced block
                 if(!dest.isAirBlock(pos2)){
                     breakBlock(newBlock, dest, pos2);
@@ -584,8 +681,19 @@ public class TeleportHelper {
                     TileEntity tileNew = dest.getTileEntity(pos2);
                     if (tileNew != null) {
                         tileNew.readFromNBT(nbtData);//load data from old tileentity
-                        tileNew.markDirty();//chunk has changed data, so save it
-                        dest.markBlockForUpdate(pos2);
+                        tileNew.markDirty();//chunk has changed data, so save it next time you save world
+                        dest.markBlockForUpdate(pos2);//tell client
+//                        try{
+//                            Chunk chunk = dest.getChunkFromBlockCoords(pos2);
+//                            MinecraftServer.getServer().worldServerForDimension(dest.provider.getDimensionId()).send
+//                            MinecraftServer.getServer().worldServerForDimension(dest.provider.getDimensionId()).theChunkProviderServer.chunkLoader.saveChunk(dest, chunk);
+//                            MinecraftServer.getServer().worldServerForDimension(dest.provider.getDimensionId()).theChunkProviderServer.chunkLoader.loadChunk(dest, chunk.xPosition, chunk.zPosition );
+//                        }catch( IOException e ){
+//                            LogHelper.warn("IOEXception trying to reload chunks");
+//                        }catch( MinecraftException e){
+//                            LogHelper.warn("MinecraftException trying to reload chunks");
+//                        }
+
 
                         LogHelper.info("  new NBT");
                         NBTTagCompound nbtNew = new NBTTagCompound();

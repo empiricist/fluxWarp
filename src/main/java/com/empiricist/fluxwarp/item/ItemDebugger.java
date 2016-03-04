@@ -37,6 +37,15 @@ public class ItemDebugger extends ItemBase{
                 NBTTagCompound tag = new NBTTagCompound();
                 te.writeToNBT(tag);
                 ChatHelper.sendText(player, "NBTData:" + tag.toString());
+
+                ChatHelper.sendText(player, "---------------");
+                for(TileEntity tile : world.loadedTileEntityList){
+                    if(tile.getPos().equals(pos)){
+                        ChatHelper.sendText(player, "*  There is a " + tile.getBlockType().getLocalizedName() + " here called " + tile);
+                        tile.writeToNBT(tag);
+                        ChatHelper.sendText(player, "-    NBTData:" + tag.toString());
+                    }
+                }
             }
         }
         return true;

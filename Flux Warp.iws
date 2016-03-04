@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="200a28e7-320a-46f9-9f34-5b923160e601" name="Default" comment="????????">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Flux Warp.iws" afterPath="$PROJECT_DIR$/Flux Warp.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json" afterPath="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json" />
     </list>
     <ignored path="Flux Warp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,6 +73,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <PATH>
@@ -78,6 +86,56 @@
               <PATH_ELEMENT>
                 <option name="myItemId" value="Flux Warp" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Flux Warp" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Flux Warp" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="forgegradle" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Flux Warp" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="build" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
               </PATH_ELEMENT>
             </PATH>
           </tree_state>
@@ -94,61 +152,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="303" column="62" selection-start-line="303" selection-start-column="62" selection-end-line="303" selection-end-column="62" />
+              <caret line="143" column="53" selection-start-line="143" selection-start-column="53" selection-end-line="143" selection-end-column="53" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerConfigurationManager.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/management/ServerConfigurationManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="571" column="48" selection-start-line="571" selection-start-column="37" selection-end-line="571" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileEntityCommandBlock.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityCommandBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockCommandBlock.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockCommandBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandBlockLogic.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/server/CommandBlockLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="93" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileEntityWarpCore.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4074074">
-              <caret line="103" column="67" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
-              <folding>
-                <element signature="e#31156#31157#0" expanded="true" />
-                <element signature="e#31210#31211#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -157,7 +162,27 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="65" selection-start-line="158" selection-start-column="65" selection-end-line="158" selection-end-column="65" />
+              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtendedBlockStorage.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/chunk/storage/ExtendedBlockStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemDebugger.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -167,7 +192,7 @@
         <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1878" column="31" selection-start-line="1878" selection-start-column="31" selection-end-line="1878" selection-end-column="31" />
+              <caret line="2488" column="16" selection-start-line="2488" selection-start-column="16" selection-end-line="2488" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,20 +204,30 @@
         <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="218" column="37" selection-start-line="218" selection-start-column="20" selection-end-line="218" selection-end-column="37" />
+              <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileEntityWarpCore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="619" column="19" selection-start-line="619" selection-start-column="19" selection-end-line="619" selection-end-column="19" />
               <folding>
-                <element signature="e#6939#6940#0" expanded="true" />
-                <element signature="e#6984#6985#0" expanded="true" />
+                <element signature="e#30739#30740#0" expanded="true" />
+                <element signature="e#30793#30794#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockEndPortal.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockEndPortal.java">
+      <file leaf-file-name="FluxWarp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/FluxWarp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.16425121">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -833,7 +868,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemBearingCompass.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemCreativeAddress.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemInfoDisk.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemBase.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/bearingCompass.json" />
@@ -843,17 +877,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/init/ModItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/init/Recipes.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/dimensionAddressSaved.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/item/warpcore.json" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/blockstates/warpcore.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDimensionAddress.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/proxy/ClientProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java" />
       </list>
     </option>
   </component>
@@ -908,8 +943,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -998,7 +1031,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="command" />
+              <option name="myItemId" value="tileentity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1095,82 +1128,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="item" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flux Warp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flux Warp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fluxwarp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="block" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flux Warp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Flux Warp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fluxwarp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blockstates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1298,6 +1255,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1682,7 +1641,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1691,11 +1650,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32676348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253886" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19616205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1710,6 +1668,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -1740,132 +1699,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityChest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/GuiGameOver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17726798">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/INetHandlerPlayServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0709072">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/client/C16PacketClientStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/INetHandlerPlayClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="241" column="9" selection-start-line="241" selection-start-column="9" selection-end-line="241" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/server/S2BPacketChangeGameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10691824">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/network/NetHandlerPlayClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41666666">
-          <caret line="1375" column="9" selection-start-line="1375" selection-start-column="9" selection-end-line="1375" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/GuiWinGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/Teleporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldProviderEnd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73722625">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0709072">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/gui/stream/GuiIngestServers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08863399">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/EntityTravelToDimensionEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/ListenerList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/EventBus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/common/ForgeHooks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="925" column="0" selection-start-line="925" selection-start-column="0" selection-end-line="925" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/stats/Achievement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/fml/common/eventhandler/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraftforge/event/entity/EntityEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1898,17 +1731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="258" column="0" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#5017#5018#0" expanded="false" />
-            <element signature="e#5067#5068#0" expanded="false" />
-            <element signature="e#5417#5418#0" expanded="false" />
-            <element signature="e#5462#5463#0" expanded="false" />
-            <element signature="e#9358#9359#0" expanded="false" />
-            <element signature="e#9436#9437#0" expanded="false" />
-            <element signature="e#10865#10866#0" expanded="false" />
-            <element signature="e#10900#10901#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1938,107 +1760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="402" column="0" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#8192#8193#0" expanded="false" />
-            <element signature="e#8229#8230#0" expanded="false" />
-            <element signature="e#8351#8352#0" expanded="false" />
-            <element signature="e#8393#8394#0" expanded="false" />
-            <element signature="e#8563#8564#0" expanded="false" />
-            <element signature="e#8608#8609#0" expanded="false" />
-            <element signature="e#14254#14255#0" expanded="false" />
-            <element signature="e#14317#14318#0" expanded="false" />
-            <element signature="e#14360#14361#0" expanded="false" />
-            <element signature="e#14401#14402#0" expanded="false" />
-            <element signature="e#14446#14447#0" expanded="false" />
-            <element signature="e#14494#14495#0" expanded="false" />
-            <element signature="e#14632#14633#0" expanded="false" />
-            <element signature="e#14657#14658#0" expanded="false" />
-            <element signature="e#18281#18282#0" expanded="false" />
-            <element signature="e#18355#18356#0" expanded="false" />
-            <element signature="e#18469#18470#0" expanded="false" />
-            <element signature="e#18529#18530#0" expanded="false" />
-            <element signature="e#23152#23153#0" expanded="false" />
-            <element signature="e#23204#23205#0" expanded="false" />
-            <element signature="e#23237#23238#0" expanded="false" />
-            <element signature="e#23302#23303#0" expanded="false" />
-            <element signature="e#23392#23393#0" expanded="false" />
-            <element signature="e#23470#23471#0" expanded="false" />
-            <element signature="e#25163#25164#0" expanded="false" />
-            <element signature="e#25204#25205#0" expanded="false" />
-            <element signature="e#25314#25315#0" expanded="false" />
-            <element signature="e#25354#25355#0" expanded="false" />
-            <element signature="e#40331#40332#0" expanded="false" />
-            <element signature="e#40385#40386#0" expanded="false" />
-            <element signature="e#40545#40546#0" expanded="false" />
-            <element signature="e#40603#40604#0" expanded="false" />
-            <element signature="e#45514#45515#0" expanded="false" />
-            <element signature="e#45568#45569#0" expanded="false" />
-            <element signature="e#46042#46043#0" expanded="false" />
-            <element signature="e#46071#46072#0" expanded="false" />
-            <element signature="e#52649#52650#0" expanded="false" />
-            <element signature="e#52723#52724#0" expanded="false" />
-            <element signature="e#52876#52877#0" expanded="false" />
-            <element signature="e#52904#52905#0" expanded="false" />
-            <element signature="e#53014#53015#0" expanded="false" />
-            <element signature="e#53053#53054#0" expanded="false" />
-            <element signature="e#59884#59885#0" expanded="false" />
-            <element signature="e#59920#59921#0" expanded="false" />
-            <element signature="e#60067#60068#0" expanded="false" />
-            <element signature="e#60129#60130#0" expanded="false" />
-            <element signature="e#60194#60195#0" expanded="false" />
-            <element signature="e#60232#60233#0" expanded="false" />
-            <element signature="e#60359#60360#0" expanded="false" />
-            <element signature="e#60412#60413#0" expanded="false" />
-            <element signature="e#60506#60507#0" expanded="false" />
-            <element signature="e#60558#60559#0" expanded="false" />
-            <element signature="e#61211#61212#0" expanded="false" />
-            <element signature="e#61257#61258#0" expanded="false" />
-            <element signature="e#68946#68947#0" expanded="false" />
-            <element signature="e#69007#69008#0" expanded="false" />
-            <element signature="e#69633#69634#0" expanded="false" />
-            <element signature="e#69667#69668#0" expanded="false" />
-            <element signature="e#71536#71537#0" expanded="false" />
-            <element signature="e#71573#71574#0" expanded="false" />
-            <element signature="e#71848#71849#0" expanded="false" />
-            <element signature="e#71936#71937#0" expanded="false" />
-            <element signature="e#72557#72558#0" expanded="false" />
-            <element signature="e#72607#72608#0" expanded="false" />
-            <element signature="e#73682#73683#0" expanded="false" />
-            <element signature="e#73709#73710#0" expanded="false" />
-            <element signature="e#73796#73797#0" expanded="false" />
-            <element signature="e#73823#73824#0" expanded="false" />
-            <element signature="e#76390#76391#0" expanded="false" />
-            <element signature="e#76440#76441#0" expanded="false" />
-            <element signature="e#76850#76851#0" expanded="false" />
-            <element signature="e#76899#76900#0" expanded="false" />
-            <element signature="e#77033#77034#0" expanded="false" />
-            <element signature="e#77083#77084#0" expanded="false" />
-            <element signature="e#77430#77431#0" expanded="false" />
-            <element signature="e#77484#77485#0" expanded="false" />
-            <element signature="e#78994#78995#0" expanded="false" />
-            <element signature="e#79046#79047#0" expanded="false" />
-            <element signature="e#79090#79091#0" expanded="false" />
-            <element signature="e#79140#79141#0" expanded="false" />
-            <element signature="e#79190#79191#0" expanded="false" />
-            <element signature="e#79242#79243#0" expanded="false" />
-            <element signature="e#79275#79276#0" expanded="false" />
-            <element signature="e#79354#79355#0" expanded="false" />
-            <element signature="e#80804#80805#0" expanded="false" />
-            <element signature="e#80876#80877#0" expanded="false" />
-            <element signature="e#84120#84121#0" expanded="false" />
-            <element signature="e#84163#84164#0" expanded="false" />
-            <element signature="e#84251#84252#0" expanded="false" />
-            <element signature="e#84302#84303#0" expanded="false" />
-            <element signature="e#85408#85409#0" expanded="false" />
-            <element signature="e#85489#85490#0" expanded="false" />
-            <element signature="e#87490#87491#0" expanded="false" />
-            <element signature="e#87518#87519#0" expanded="false" />
-            <element signature="e#89768#89769#0" expanded="false" />
-            <element signature="e#89818#89819#0" expanded="false" />
-            <element signature="e#90057#90058#0" expanded="false" />
-            <element signature="e#90104#90105#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2046,14 +1767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36320755">
           <caret line="64" column="38" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25314465">
-          <caret line="1095" column="7" selection-start-line="1095" selection-start-column="7" selection-end-line="1095" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2089,34 +1802,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/IWorldAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24817519">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_65/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="858" column="0" selection-start-line="858" selection-start-column="0" selection-end-line="858" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3006431">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34083602">
-          <caret line="67" column="115" selection-start-line="67" selection-start-column="115" selection-end-line="67" selection-end-column="115" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2124,7 +1813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20611916">
           <caret line="172" column="21" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2132,60 +1820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7809984">
           <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49758455">
-          <caret line="558" column="0" selection-start-line="558" selection-start-column="0" selection-end-line="558" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/MinecraftServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66183573">
-          <caret line="782" column="0" selection-start-line="782" selection-start-column="0" selection-end-line="782" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1878" column="31" selection-start-line="1878" selection-start-column="31" selection-end-line="1878" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="218" column="37" selection-start-line="218" selection-start-column="20" selection-end-line="218" selection-end-column="37" />
-          <folding>
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6984#6985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/CommandBlockData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68438005">
-          <caret line="97" column="59" selection-start-line="97" selection-start-column="59" selection-end-line="97" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/server/CommandBlockLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="93" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2193,7 +1827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2205,22 +1838,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockCommandBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/WarpCoreTeleporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49275362">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#523#524#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityCommandBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0273752">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/chunk/IChunkProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/chunk/storage/IChunkLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24637681">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/CommandClone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1095008">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/gen/ChunkProviderServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="249" column="17" selection-start-line="249" selection-start-column="17" selection-end-line="249" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -2232,18 +1892,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityCommandBlock.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockCommandBlock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/server/CommandBlockLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="93" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20611916">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/client/Minecraft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4380032">
+          <caret line="1048" column="9" selection-start-line="1048" selection-start-column="9" selection-end-line="1048" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/server/MinecraftServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="62" selection-start-line="303" selection-start-column="62" selection-end-line="303" selection-end-column="62" />
+          <caret line="843" column="20" selection-start-line="843" selection-start-column="20" selection-end-line="843" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_65/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.90821254">
+          <caret line="271" column="29" selection-start-line="271" selection-start-column="29" selection-end-line="271" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityFurnace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3448277">
+          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntityLockable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06587838">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/IWorldAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.34138486">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/network/play/server/S35PacketUpdateTileEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5346216">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/chunk/Chunk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="892" column="88" selection-start-line="892" selection-start-column="77" selection-end-line="892" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5784#5785#0" expanded="false" />
+            <element signature="e#5849#5850#0" expanded="false" />
+            <element signature="e#5895#5896#0" expanded="false" />
+            <element signature="e#5971#5972#0" expanded="false" />
+            <element signature="e#6118#6119#0" expanded="false" />
+            <element signature="e#6167#6168#0" expanded="false" />
+            <element signature="e#6719#6720#0" expanded="false" />
+            <element signature="e#6760#6761#0" expanded="false" />
+            <element signature="e#16299#16300#0" expanded="false" />
+            <element signature="e#16371#16372#0" expanded="false" />
+            <element signature="e#29020#29021#0" expanded="false" />
+            <element signature="e#29092#29093#0" expanded="false" />
+            <element signature="e#33268#33269#0" expanded="false" />
+            <element signature="e#33306#33307#0" expanded="false" />
+            <element signature="e#36803#36804#0" expanded="false" />
+            <element signature="e#36831#36832#0" expanded="false" />
+            <element signature="e#41326#41327#0" expanded="false" />
+            <element signature="e#41420#41421#0" expanded="false" />
+            <element signature="e#41562#41563#0" expanded="false" />
+            <element signature="e#41638#41639#0" expanded="false" />
+            <element signature="e#46863#46864#0" expanded="false" />
+            <element signature="e#46906#46907#0" expanded="false" />
+            <element signature="e#47649#47650#0" expanded="false" />
+            <element signature="e#47691#47692#0" expanded="false" />
+            <element signature="e#53461#53462#0" expanded="false" />
+            <element signature="e#53502#53503#0" expanded="false" />
+            <element signature="e#53583#53584#0" expanded="false" />
+            <element signature="e#53626#53627#0" expanded="false" />
+            <element signature="e#53661#53662#0" expanded="false" />
+            <element signature="e#53697#53698#0" expanded="false" />
+            <element signature="e#53736#53737#0" expanded="false" />
+            <element signature="e#53773#53774#0" expanded="false" />
+            <element signature="e#54295#54296#0" expanded="false" />
+            <element signature="e#54341#54342#0" expanded="false" />
+            <element signature="e#54411#54412#0" expanded="false" />
+            <element signature="e#54450#54451#0" expanded="false" />
+            <element signature="e#54497#54498#0" expanded="false" />
+            <element signature="e#54543#54544#0" expanded="false" />
+            <element signature="e#54612#54613#0" expanded="false" />
+            <element signature="e#54670#54671#0" expanded="false" />
+            <element signature="e#54715#54716#0" expanded="false" />
+            <element signature="e#54759#54760#0" expanded="false" />
+            <element signature="e#54824#54825#0" expanded="false" />
+            <element signature="e#54878#54879#0" expanded="false" />
+            <element signature="e#54931#54932#0" expanded="false" />
+            <element signature="e#54973#54974#0" expanded="false" />
+            <element signature="e#55034#55035#0" expanded="false" />
+            <element signature="e#55082#55083#0" expanded="false" />
+            <element signature="e#55136#55137#0" expanded="false" />
+            <element signature="e#55180#55181#0" expanded="false" />
+            <element signature="e#55220#55221#0" expanded="false" />
+            <element signature="e#55264#55265#0" expanded="false" />
+            <element signature="e#55306#55307#0" expanded="false" />
+            <element signature="e#55347#55348#0" expanded="false" />
+            <element signature="e#55410#55411#0" expanded="false" />
+            <element signature="e#55463#55464#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/BlockFalling.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83653843">
+          <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/entity/item/EntityFallingBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13848631">
+          <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/command/CommandBlockData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7520128">
+          <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fluxwarp/models/block/warpcore.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08571429">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1082" column="18" selection-start-line="1082" selection-start-column="18" selection-end-line="1082" selection-end-column="18" />
+          <folding>
+            <element signature="e#33300#33301#0" expanded="false" />
+            <element signature="e#33390#33391#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2488" column="16" selection-start-line="2488" selection-start-column="16" selection-end-line="2488" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/chunk/storage/ExtendedBlockStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/item/ItemDebugger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/tileentity/TileEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -2251,19 +2119,62 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/block/BlockWarpCore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="65" selection-start-line="158" selection-start-column="65" selection-end-line="158" selection-end-column="65" />
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/ContainerWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4508857">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.1722/stable/20/forgeSrc-1.8.9-11.15.1.1722-sources.jar!/net/minecraft/world/WorldServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="746" column="21" selection-start-line="746" selection-start-column="16" selection-end-line="746" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#30434#30446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/utility/TeleportHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="53" selection-start-line="143" selection-start-column="53" selection-end-line="143" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/client/gui/GuiWarpCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6747182">
+          <caret line="283" column="14" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/tileentity/TileEntityWarpCore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4074074">
-          <caret line="103" column="67" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="619" column="19" selection-start-line="619" selection-start-column="19" selection-end-line="619" selection-end-column="19" />
           <folding>
-            <element signature="e#31156#31157#0" expanded="true" />
-            <element signature="e#31210#31211#0" expanded="true" />
+            <element signature="e#30739#30740#0" expanded="true" />
+            <element signature="e#30793#30794#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/empiricist/fluxwarp/FluxWarp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16425121">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

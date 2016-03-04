@@ -75,14 +75,19 @@ public class BlockWarpCore extends BlockBase implements IPeripheralProvider{
     //to tell tileentity it is activated
     @Override
     public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighbor){
+        //LogHelper.info("Warp Core Neighbor Block Change");
         TileEntity tile = world.getTileEntity(pos);
         if (tile != null && tile instanceof TileEntityWarpCore) {
+            //LogHelper.info("Found TileEntityWarpCore");
             TileEntityWarpCore warpCore = (TileEntityWarpCore)tile;
             warpCore.signal = world.isBlockIndirectlyGettingPowered(pos) > 0;
             if (warpCore.willWarp()) {
+                //LogHelper.info("Ready to warp!");
                 //warpCore.warpEntities();
                 world.scheduleUpdate(pos, this, 1);
+                //warpCore.update2();
             }
+            warpCore.tryWarp();
             //warpCore.updateEntity();
         }
     }
