@@ -1,0 +1,16 @@
+args = {...}
+
+--teleport within the same dimension
+print("This program lets you teleport within the same dimension")
+print("Arguments are dx, dy, dz")
+
+--find warp core
+local component = require('component')
+local wd = component.getPrimary('teleflux_warpcore')
+local w = component.proxy(wd.address)
+
+w.setDimension() --make sure dimension is same as current dimension
+w.setWarpVector(args[1], args[2], args[3]) --set relative warp coordinates
+os.sleep(1)
+
+w.warp() --activate warp drive

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "teleflux:blocks/warpCoreTop",
+    "down":  "teleflux:blocks/warpCoreTop",
+    "up":    "teleflux:blocks/warpCoreTop",
+    "north": "teleflux:blocks/warpcore",
+    "south": "teleflux:blocks/warpcore",
+    "east":  "teleflux:blocks/warpcore",
+    "west":  "teleflux:blocks/warpcore"
+  }
+}

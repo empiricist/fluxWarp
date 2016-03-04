@@ -1,0 +1,305 @@
+print("loading...")
+
+--This is an integrated control program for a warp core.
+--It works best as a startup program.
+--It has been adjusted and adapted over quite some time.
+
+-- set alarm side if you need this
+Alarm = "top"
+
+Style = {
+ CDeflt = colors.white,
+ BGDeflt = colors.purple,
+ CTitle = colors.black,
+ BGTitle = colors.lightGray,
+ CWarn = colors.black,
+ BGWarn = colors.yellow
+}
+
+function SetColorDeflt()
+ term.setBackgroundColor(Style.BGDeflt)
+ term.setTextColor(Style.CDeflt)
+end
+
+function SetColorTitle()
+ term.setBackgroundColor(Style.BGTitle)
+ term.setTextColor(Style.CTitle)
+end
+
+function SetColorWarn()
+ term.setBackgroundColor(Style.BGWarn)
+ term.setTextColor(Style.CWarn)
+end
+
+function Clear()
+ term.clear()
+ term.setCursorPos(1,1)
+end
+
+function Show(Text)
+ term.write(Text)
+ local xt,yt = term.getCursorPos()
+ term.setCursorPos(1, yt+1)
+end
+
+function ShowTitle(Text)
+ SetColorTitle()
+ term.setCursorPos(12, 1)
+ Show(Text)
+ SetColorDeflt()
+end
+
+function ShowMenu(Text)
+ term.write(Text)
+ local xt, yt = term.getCursorPos()
+ for i = xt, 51 do
+  term.write(" ")
+ end
+ term.setCursorPos(1, yt+1)
+end
+
+function ShowWarning(Text)
+  SetColorWarn()
+  term.setCursorPos(10, 19)
+  term.write(" "..Text.." ")
+  SetColorDeflt()
+end
+
+function SaveData()
+ local file = fs.open("shipdata.txt", "w")
+ file.writeLine(textutils.serialize(SData))
+ file.close()
+end
+
+function ReadData()
+ local file = fs.open("shipdata.txt", "r")
+ SData = textutils.unserialize(file.readAll())
+ file.close()
+end
+
+function Explode(d, p)
+ local t, ll
+ t = {}
+ ll = 0
+ if(#p == 1) then return {p} end
+ while true do
+  l = string.find(p ,d, ll, true)
+  if l ~= nil then 
+   table.insert(t, string.sub(p, ll, l-1))
+   ll = l+1
+  else
+   table.insert(t, string.sub(p, ll))
+   break
+  end
+ end
+ return t
+end
+
+function ShowVector()
+ Show(" Warp Vector      = X: " .. SData.dx .. ", Y: " .. SData.dy .. ", Z: " .. SData.dz)
+end
+
+function ShowDimension()
+ if SData.dim == nil then
+	Show(" Dimension        = " .. warp.getDimension())
+ else
+  Show(" Dimension        = " .. SData.dim)
+ end
+ 
+end
+
+function ShowVolume()
+  Show(" Volume           = " .. (BXPlus+BXMinus+1)*(BZPlus+BZMinus+1)*(BYPlus+BYMinus+1))
+end
+
+function ShowInfo()
+ ShowTitle(Title)
+ Show("Core:")
+ local energy = warp.getEnergy()
+ Show(" Energy           = "..math.floor(100 * energy / warp.getMaxEnergy()).." % ("..energy.."RF)")
+ Show("Dimensions:")
+ Show(" X+, Y+, Z+       = "..BXPlus..", "..BYPlus..", "..BZPlus)
+ Show(" X-, Y-, Z-       = "..BXMinus..", "..BYMinus..", "..BZMinus)
+ ShowVolume()
+ Show("Warp data:")
+ ShowVector()
+ ShowDimension()
+ Show(" Distance         = " .. math.sqrt(SData.dx * SData.dx + SData.dy * SData.dy + SData.dz * SData.dz))
+end
+
+function Confirm()
+ ShowWarning("Are you sure? (y/n)")
+ local event, keycode = os.pullEvent("key")
+ if keycode == 21 then
+  return true
+ else
+  return false
+ end
+end
+
+function doDimension(dim)
+  if dim == nil then
+	warp.setDimension()
+  else
+    warp.setDimension(dim)
+  end
+end
+
+function doVector(dx, dy, dz)
+  warp.setWarpVector(dx, dy, dz)
+end
+
+function Warp()
+ rs.setOutput(Alarm, false)
+ sleep(1)
+ doVector(SData.dx, SData.dy, SData.dz)
+ doDimension(SData.dim)
+ warp.warp()
+end
+
+function SetVector()
+ Clear()
+ ShowTitle("<====  Set warp vector  ====>")
+ SData.dx = 0
+ SData.dy = 0
+ SData.dz = 0
+ 
+ term.write("X distance: ")
+ sleep(0.3)
+ SData.dx = tonumber(read())
+ term.write("Y distance: ")
+ sleep(0.3)
+ SData.dy = tonumber(read())
+ term.write("Z distance: ")
+ sleep(0.3)
+ SData.dz = tonumber(read())
+ 
+ --term.clear()
+ --print(SData.Distance)
+ --os.pullEvent('key')
+ if SData.dx == nil then SData.dx = 0 end
+ if SData.dy == nil then SData.dy = 0 end
+ if SData.dz == nil then SData.dz = 0 end
+end
+
+function SetDimension()
+  Clear()
+  SData.dim = nil
+  
+  ShowTitle("<==== Set dimension ====>")
+  term.setCursorPos(1, 4)
+  SetColorTitle()
+  SetColorDeflt()
+  term.write("Enter dimension ID: ")
+  sleep(0.3)
+  SData.dim = tonumber(read())
+end
+
+function SetBounds()
+ Clear()
+ sleep(0.3)
+ ShowTitle("<==== Set bounds ====>")
+ term.write(" X Plus  ("..BXPlus..") : ")
+ BXPlus = tonumber(read())
+ term.write(" Z Minus ("..BZMinus..") : ")
+ BZMinus = tonumber(read())
+ term.write(" Y Plus  ("..BYPlus..") : ")
+ BYPlus = tonumber(read())
+ term.write(" X Minus ("..BXMinus..") : ")
+ BXMinus = tonumber(read())
+ term.write(" Z Plus  ("..BZPlus..") : ")
+ BZPlus = tonumber(read())
+ term.write(" Y Minus ("..BYMinus..") : ")
+ BYMinus = tonumber(read())
+ term.write("Setting dimensions...")
+ warp.setBounds(BXPlus, BXMinus, BYPlus, BYMinus, BZPlus, BZMinus )
+end
+
+function SetShipName()
+ Clear()
+ ShowTitle("<==== Set ship name ====>")
+ sleep(0.3)
+ term.write("Enter ship name: ")
+ SData.Shipname = tostring(read())
+ os.setComputerLabel(SData.Shipname)
+ SaveData()
+ os.reboot()
+end
+
+if fs.exists("shipdata.txt") then
+ ReadData()
+else
+ SData = {
+  dx = 0,
+  dy = 0,
+  dz = 0,
+  dim = nil,
+  Shipname = ""
+ }
+end
+
+SetColorDeflt()
+
+Side = { "bottom", "top", "back", "left", "right" }
+for i = 1,5 do
+ if (peripheral.getType(Side[i]) == "telefluxwarpcore") then
+  warp = peripheral.wrap(Side[i])
+  break
+ end
+end
+
+if type(warp) ~= "table" then
+ ShowWarning("No warpcore controller detected")
+ os.pullEvent("key")
+ os.shutdown()
+end
+
+if SData.Shipname == "" then
+ SetShipName()
+end
+
+Title = "<Jump-FW 0.1 \""..SData.Shipname.."\">"
+
+BXPlus, BXMinus, BYPlus, BYMinus, BZPlus, BZMinus = warp.getBounds()
+SData.dx = 0
+SData.dy = 0
+SData.dz = 0
+
+
+mainloop = true
+while(mainloop) do
+ Clear()
+ ShowInfo()
+ term.setCursorPos(1, 15)
+ SetColorTitle()
+ ShowMenu("B - Bounds, N - Ship name")
+ ShowMenu("S - Set Warp Vector, D - Set Dimension, J - Jump")
+ ShowMenu("X - Shutdown WarpCore and Exit")
+ SetColorDeflt()
+ local event, keycode = os.pullEvent("key")
+ if keycode == 31 then
+  SetVector()
+  SaveData()
+ elseif keycode == 48 then
+  SetBounds()
+  SaveData()
+ elseif keycode == 32 then
+  SetDimension()
+  SaveData()
+ elseif keycode == 36 then
+  rs.setOutput(Alarm, true)
+  if Confirm() then
+   Warp()
+  end
+  rs.setOutput(Alarm, false)
+ elseif keycode == 45 then
+  mainloop = false
+ elseif keycode == 49 then
+  SetShipName()
+ end
+end
+
+Clear()
+print("good bye")
+sleep(0.5)
+os.shutdown()

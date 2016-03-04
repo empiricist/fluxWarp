@@ -21,8 +21,8 @@ plugins {
 }
 */
 version = "1.8.9-0.5"//mod version (whatever scheme), end of final jar file name
-group= "com.empiricist.fluxwarp" // prefix.yourname.modid, http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "fluxwarp" //modid, start of jar file name
+group= "com.empiricist.teleflux" // prefix.yourname.modid, http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "teleflux" //modid, start of jar file name
 
 minecraft {
     //forge version (MC-MCF)

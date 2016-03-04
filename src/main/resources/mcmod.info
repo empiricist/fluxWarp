@@ -1,7 +1,7 @@
 [
 {
-  "modid": "fluxwarp",
-  "name": "Flux Warp",
+  "modid": "teleflux",
+  "name": "TeleFlux",
   "description": "For when you want to be over there, RIGHT NOW",
   "version": "${version}",
   "mcversion": "${mcversion}",

@@ -1,0 +1,21 @@
+#Comment format, make sure no spaces by the =
+
+#Items
+item.teleflux:debugger.name=Debugger
+item.teleflux:dimensionAddress.name=Dimension Address
+item.teleflux:creativeAddress.name=Creative Dimension Address
+item.teleflux:bearingCompass.name=Bearing Compass
+item.teleflux:infoDisk.name=Warp Info Disk
+
+#Blocks
+tile.teleflux:test.name=Test Block
+tile.teleflux:warpcore.name=Warp Core
+tile.teleflux:dimensionDatabase.name=Dimension Database
+
+#Keybinds
+keys.teleflux.category=TeleFlux
+keys.teleflux.charge=Charge
+keys.teleflux.release=Release
+
+#CreativeTab
+itemGroup.teleflux=TeleFlux

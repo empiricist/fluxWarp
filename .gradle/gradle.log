@@ -1,7 +1,7 @@
-This set of MCP mappings was designed for MC 1.8.8. Use at your own peril.This set of MCP mappings was designed for MC 1.8.8. Use at your own peril.
+This mapping 'stable_20' was designed for MC 1.8.8! Use at your own peril.This mapping 'stable_20' was designed for MC 1.8.8! Use at your own peril.
 
 #################################################
-         ForgeGradle 2.1-SNAPSHOT-75bb646        
+         ForgeGradle 2.1-SNAPSHOT-836d960        
   https://github.com/MinecraftForge/ForgeGradle  
 #################################################
                Powered by MCP unknown               
@@ -21,7 +21,7 @@ Note: Recompile with -Xlint:unchecked for details.
 :apiClasses
 :sourceMainJava
 :compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
-Note: C:\Users\Ken\Documents\Mod Stuff\Flux Warp\build\sources\main\java\com\empiricist\fluxwarp\FluxWarp.java uses or overrides a deprecated API.
+Note: C:\Users\Ken\Documents\Mod Stuff\Flux Warp\build\sources\main\java\com\empiricist\teleflux\TeleFlux.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
@@ -52,4 +52,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 19.621 secs
+Total time: 23.475 secs
