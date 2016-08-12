@@ -5,6 +5,9 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
@@ -45,7 +48,7 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
         NBTTagCompound tag = new NBTTagCompound();
         if (stack.hasTagCompound()) {
             tag = stack.getTagCompound();
@@ -56,13 +59,13 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
                 stack.setItemDamage(0);
             }
         }else{//clicking with blank address saves ID
-            tag.setInteger("DimID", world.provider.getDimensionId());
+            tag.setInteger("DimID", world.provider.getDimension());
             stack.setItemDamage(1);
             //tag.setInteger("DimID", new Random().nextInt());
         }
 
         stack.setTagCompound(tag);
-        return stack;
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 
     @Override
@@ -71,7 +74,8 @@ public class ItemDimensionAddress extends ItemBase implements IDimensionPermissi
             NBTTagCompound tag = stack.getTagCompound();
             if( tag.hasKey("DimID")){
                 int id = tag.getInteger("DimID");
-                list.add("DIM: " + (DimensionManager.isDimensionRegistered(id) ? WorldProvider.getProviderForDimension(id).getDimensionName() : "ERROR! Dimension does not exist") );
+                //list.add("DIM: " + (DimensionManager.isDimensionRegistered(id) ? WorldProvider.getProviderForDimension(id).getDimensionName() : "ERROR! Dimension does not exist") );
+                list.add("DIM: " + (DimensionManager.isDimensionRegistered(id) ? DimensionManager.getProvider(id).getDimensionType().getName() : "ERROR! Dimension does not exist") );
                 list.add("ID : " + id );
             }
         }

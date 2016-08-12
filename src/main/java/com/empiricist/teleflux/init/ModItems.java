@@ -1,7 +1,15 @@
 package com.empiricist.teleflux.init;
 
-import com.empiricist.teleflux.item.*;
+
+import com.empiricist.teleflux.item.ItemBase;
+import com.empiricist.teleflux.item.ItemCreativeAddress;
+import com.empiricist.teleflux.item.ItemDebugger;
+import com.empiricist.teleflux.item.ItemDimensionAddress;
+import com.empiricist.teleflux.item.ItemBearingCompass;
+import com.empiricist.teleflux.item.ItemInfoDisk;
 import com.empiricist.teleflux.reference.Reference;
+import com.empiricist.teleflux.utility.ParseHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 //this annotation tells forge to preserve this as reference w/o modification (unnecessary, good practice)
@@ -15,10 +23,10 @@ public class ModItems {
 
     //register items from mod
     public static void init(){
-        GameRegistry.registerItem(debugger, debugger.getName());
-        GameRegistry.registerItem(dimensionAddress, dimensionAddress.getName());
-        GameRegistry.registerItem(creativeAddress, creativeAddress.getName());
-        GameRegistry.registerItem(bearingCompass, bearingCompass.getName());
-        GameRegistry.registerItem(infoDisk, infoDisk.getName());
+        GameRegistry.register(debugger,         new ResourceLocation(Reference.MOD_ID + ":" + debugger.getName()));
+        GameRegistry.register(dimensionAddress, new ResourceLocation(Reference.MOD_ID + ":" + dimensionAddress.getName()));
+        GameRegistry.register(creativeAddress,  new ResourceLocation(Reference.MOD_ID + ":" + creativeAddress.getName()));
+        GameRegistry.register(bearingCompass,   new ResourceLocation(Reference.MOD_ID + ":" + bearingCompass.getName()));
+        GameRegistry.register(infoDisk,         new ResourceLocation(Reference.MOD_ID + ":" + infoDisk.getName()));
     }
 }

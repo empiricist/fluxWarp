@@ -4,7 +4,8 @@ import com.empiricist.teleflux.client.Settings.Keybindings;
 import com.empiricist.teleflux.reference.Key;
 import com.empiricist.teleflux.utility.LogHelper;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -37,7 +38,7 @@ public class KeyInputEventHandler {
             //LogHelper.info("Release Key");
             Minecraft mc = Minecraft.getMinecraft();
             EntityPlayerSP player = mc.thePlayer;
-            ItemStack stack = player.getHeldItem();
+            ItemStack stack = player.getHeldItem(EnumHand.MAIN_HAND);
             LogHelper.info( (stack != null) ? "Display Name: " + stack.getDisplayName() + ", Unlocalized Name:" + stack.getItem().getUnlocalizedName() : "Stack is null");
 
         }

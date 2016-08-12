@@ -1,32 +1,34 @@
 package com.empiricist.teleflux.utility;
 
-
 import cofh.api.energy.EnergyStorage;
 import com.empiricist.teleflux.TeleFlux;
 import com.empiricist.teleflux.handler.ConfigurationHandler;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityList;
-import net.minecraft.network.play.server.S07PacketRespawn;
-import net.minecraft.network.play.server.S1DPacketEntityEffect;
+import net.minecraft.network.play.server.SPacketEntityEffect;
+import net.minecraft.network.play.server.SPacketPlayerAbilities;
+import net.minecraft.network.play.server.SPacketRespawn;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.BlockPos;
+import net.minecraft.server.management.PlayerList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.ForgeChunkManager;
-import net.minecraftforge.fml.common.Loader;
 
 import java.util.Random;
 
@@ -51,7 +53,7 @@ public class TeleportHelper {
 
         if( origin.isAirBlock(pos1) ){
             //LogHelper.info("Air Block at x:" + x1 + " y:" + y1 + " z:" + z1 + " , not moving");
-            return true;
+            return true;                            //don't bother moving air
         }else if( !dest.isBlockLoaded(pos2) ){
             //LogHelper.info("Destination block at x:" + x2 + " y:" + y2 + " z:" + z2 + " does not exist, trying to load it");
 
@@ -60,20 +62,22 @@ public class TeleportHelper {
                 return false;
             }
             //ForgeChunkManager.forceChunk( ticket, dest.getChunkFromBlockCoords(pos2).getChunkCoordIntPair() );
-            ImmutableSet<ChunkCoordIntPair> chunks = ticket.getChunkList();        //getMaxChunkListDepth()
+            ImmutableSet<ChunkPos> chunks = ticket.getChunkList();        //getMaxChunkListDepth()
             //LogHelper.info("Chunks Loaded:" + chunks.size());
         }
 
-        if(!origin.isAirBlock(pos1) && dest.isBlockLoaded(pos2) && tryToUseEnergy(ConfigurationHandler.blockCost, energyStorage)){ //don't bother moving air, or trying to move to nonexistent spots, or moving if there is insufficient energy
+        if( dest.isBlockLoaded(pos2) && tryToUseEnergy(ConfigurationHandler.blockCost, energyStorage) ){ //don't warp if destination spot is still nonexistent, or if there is insufficient energy
 
             //LogHelper.info("Origin Chunk coords: " + (x1 & 15) + " " + y1 + " " + (z1 & 15));
             //LogHelper.info("Origin Chunk coords: " + (x2 & 15) + " " + y2 + " " + (z2 & 15));
-            Block oldBlock = oChunk.getBlock(x1 & 15, y1 ,z1 & 15);
-            Block newBlock = dChunk.getBlock(x2 & 15, y2, z2 & 15);
+            //Block oldBlock = oChunk.getBlock(x1 & 15, y1 ,z1 & 15);
+            //Block newBlock = dChunk.getBlock(x2 & 15, y2, z2 & 15);
             IBlockState oldState = origin.getBlockState(pos1);
             IBlockState newState = dest.getBlockState(pos2);
-            float oldHard = oldBlock.getBlockHardness(origin, pos1);
-            float newHard = newBlock.getBlockHardness(dest, pos2);
+            Block oldBlock = oldState.getBlock();
+            Block newBlock = newState.getBlock();
+            float oldHard = oldState.getBlockHardness(origin, pos1);
+            float newHard = newState.getBlockHardness( dest, pos2);
             //LogHelper.info("  Teleporting " + oldBlock.getLocalizedName() + " (" + oldHard + ") to " + newBlock.getLocalizedName() + " (" + newHard + ")");
 
             if( (oldHard != -1) && (newHard != -1) && (oldHard > newHard)){ //do not teleport if either end is indestructible, only overwrite if teleported block is more durable
@@ -104,7 +108,7 @@ public class TeleportHelper {
                 dest.markBlocksDirtyVertical(x2, z2, 0, 256);
 
 
-                dest.markBlockForUpdate(pos2);//so client actually gets message that block changed
+                dest.notifyBlockUpdate(pos2, newState, oldState, 3);//markBlockForUpdate(pos2);//so client actually gets message that block changed
 
 
                 //dest.addBlockEvent(pos2, oldBlock, 0, 2);
@@ -266,23 +270,24 @@ public class TeleportHelper {
                 }
 
 
-                originBlockStorage.set(x1 & 15, y1 & 15, z1 & 15, Blocks.air.getDefaultState() );
+                originBlockStorage.set(x1 & 15, y1 & 15, z1 & 15, Blocks.AIR.getDefaultState() );
                 origin.removeTileEntity(pos1);
 
                 oChunk.setChunkModified();
+
                 //origin.func_147451_t(x1,y1,z1);//maybe recalculate light? doesn't seem to help
                 //origin.scheduleUpdate(pos1, Blocks.air, 1);
 
                 //Blocks.air.setBlockBoundsBasedOnState(origin, x1, y1, z1);
                 //oldBlock.setBlockBoundsBasedOnState(dest, x2, y2, z2);//doesn't seem to be the problem
 
-                origin.markBlockForUpdate(pos1);//so client actually gets message that block changed
+                origin.notifyBlockUpdate(pos1, oldState, Blocks.AIR.getDefaultState(), 3);//markBlockForUpdate(pos1);//so client actually gets message that block changed
 
             }else if((oldHard != -1)  && (oldHard <= newHard || newHard == -1)){
                 breakBlock(oldBlock, origin, pos1);
             }
 
-        }else if( !dest.isBlockLoaded(pos2 )){return false;}//out of world bounds
+        }else{return false;}//out of world bounds or out of energy
 
         ForgeChunkManager.unforceChunk(ticket, dest.getChunkFromBlockCoords(pos2).getChunkCoordIntPair());
         //why does this break things for later warps????? (wait, never mind, I think that was something else)
@@ -290,7 +295,7 @@ public class TeleportHelper {
             ForgeChunkManager.releaseTicket(ticket);
             //LogHelper.info("Releasing Ticket");
         }else{
-            LogHelper.info("Ticket is null, not releasing");
+            //LogHelper.info("Ticket is null, not releasing");
         }
         //seems to work ok without it though, old tickets are probably auto-recycled
 
@@ -299,7 +304,7 @@ public class TeleportHelper {
     }
 
     public static boolean moveEntity(World origin, World dest, Entity entity, double x, double y, double z){
-        int destDim = dest.provider.getDimensionId();
+        int destDim = dest.provider.getDimension();
         LogHelper.info("Moving entity " + entity.getName() +  " to x:" + x + ", y:" + y + ", z:" + z + " and dimension:" + destDim);
         portalParticles(origin, entity.posX, entity.posY, entity.posZ);
         portalParticles(dest, x, y, z);
@@ -367,16 +372,17 @@ public class TeleportHelper {
 */
 
 
-            if( origin.provider.getDimensionId() != destDim) {
-                WorldServer s1 = MinecraftServer.getServer().worldServerForDimension(player.dimension);
-                WorldServer s2 = MinecraftServer.getServer().worldServerForDimension(destDim);
-                ServerConfigurationManager mgr = s2.getMinecraftServer().getConfigurationManager();
+            if( origin.provider.getDimension() != destDim) {    //if the player is teleporting to a different dimension
+                WorldServer s1 = DimensionManager.getWorld(player.dimension);//MinecraftServer.getServer().worldServerForDimension(player.dimension);
+                WorldServer s2 = DimensionManager.getWorld(destDim);//MinecraftServer.getServer().worldServerForDimension(destDim);
+                PlayerList list = s2.getMinecraftServer().getPlayerList();//getConfigurationManager();
 
                 //yes, this is just all the stuff that normally gets called by travelToDimension()
                 //because the end is dumb
                 player.dimension = destDim;
-                player.playerNetServerHandler.sendPacket(new S07PacketRespawn(player.dimension, s2.getDifficulty(), s2.getWorldInfo().getTerrainType(), player.theItemInWorldManager.getGameType()));
-                s1.removePlayerEntityDangerously(player);
+                player.connection.sendPacket(new SPacketRespawn(player.dimension, s2.getDifficulty(), s2.getWorldInfo().getTerrainType(), player.interactionManager.getGameType()));
+                list.updatePermissionLevel(player);
+                s1.removeEntityDangerously(player);
                 player.isDead = false;
                 player.setLocationAndAngles(x, y, z, player.rotationYaw, player.rotationPitch);
                 WarpCoreTeleporter tele = new WarpCoreTeleporter(s2);
@@ -384,17 +390,18 @@ public class TeleportHelper {
                 s2.spawnEntityInWorld(player);
                 s2.updateEntityWithOptionalForce(player, false);
                 player.setWorld(s2);
-                mgr.preparePlayer(player, s1);//yes, this is old world, because that is where player is removed from
-                player.playerNetServerHandler.setPlayerLocation(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
-                player.theItemInWorldManager.setWorld(s2);
-                mgr.updateTimeAndWeatherForPlayer(player, s2);
-                mgr.syncPlayerInventory(player);
+                list.preparePlayer(player, s1);//yes, this is old world, because that is where player is removed from
+                player.connection.setPlayerLocation(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
+                player.interactionManager.setWorld(s2);
+                player.connection.sendPacket(new SPacketPlayerAbilities(player.capabilities));
+                list.updateTimeAndWeatherForPlayer(player, s2);
+                list.syncPlayerInventory(player);
                 for (PotionEffect potioneffect : player.getActivePotionEffects()) {
-                    player.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(player.getEntityId(), potioneffect));
+                    player.connection.sendPacket(new SPacketEntityEffect(player.getEntityId(), potioneffect));
                 }
-                net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerChangedDimensionEvent(player, origin.provider.getDimensionId(), destDim);
+                net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerChangedDimensionEvent(player, origin.provider.getDimension(), destDim);
 
-            }else{
+            }else{  //player is teleporting within the same dimension (much simpler)
                 player.setPositionAndUpdate(x,y,z);
             }
 
@@ -489,35 +496,35 @@ public class TeleportHelper {
 
 
 
-            dest.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);//entity, sound, volume, pitch
+            dest.playSound(player, player.posX, player.posY, player.posZ, SoundEvent.REGISTRY.getObject(new ResourceLocation("mob.endermen.portal")), SoundCategory.BLOCKS, 1, 1);//entity, sound, volume, pitch
 
         }else{ //not player
-            if( origin.provider.getDimensionId() != destDim) {
-                WorldServer s1 = MinecraftServer.getServer().worldServerForDimension(origin.provider.getDimensionId());
-                WorldServer s2 = MinecraftServer.getServer().worldServerForDimension(destDim);
-                ServerConfigurationManager mgr = s2.getMinecraftServer().getConfigurationManager();
+            if( origin.provider.getDimension() != destDim) {    //entity is teleporting to a different dimension
+                WorldServer originWS = DimensionManager.getWorld(origin.provider.getDimension());//MinecraftServer.getServer().worldServerForDimension(origin.provider.getDimension());
+                WorldServer destWS = DimensionManager.getWorld(destDim);//MinecraftServer.getServer().worldServerForDimension(destDim);
+                //ServerConfigurationManager mgr = s2.getMinecraftServer().getConfigurationManager();
 
                 //yes, this is just all the stuff that normally gets called by travelToDimension()
                 //because the end is dumb
                 entity.dimension = destDim;
-                s1.removeEntity(entity);
+                originWS.removeEntity(entity);
                 entity.isDead = false;
                 entity.setLocationAndAngles(x, y, z, entity.rotationYaw, entity.rotationPitch);
-                WarpCoreTeleporter tele = new WarpCoreTeleporter(s2);
+                WarpCoreTeleporter tele = new WarpCoreTeleporter(destWS);
                 tele.placeInPortal(entity, entity.rotationYaw);
-                s2.spawnEntityInWorld(entity);
-                s2.updateEntityWithOptionalForce(entity, false);
-                entity.setWorld(s2);
-                Entity entityNew = EntityList.createEntityByName(EntityList.getEntityString(entity), s2);
+                //destWS.spawnEntityInWorld(entity);
+                destWS.updateEntityWithOptionalForce(entity, false);
+                entity.setWorld(destWS);
+                Entity entityNew = EntityList.createEntityByName(EntityList.getEntityString(entity), destWS);
                 if (entityNew != null)
                 {
-                    entityNew.copyDataFromOld(entity);
-                    s2.spawnEntityInWorld(entityNew);
+                    copyDataFromEntity(entityNew, entity);
+                    destWS.spawnEntityInWorld(entityNew);
                 }
 
                 entity.isDead = true;
-                s1.resetUpdateEntityTick();
-                s2.resetUpdateEntityTick();
+                originWS.resetUpdateEntityTick();
+                destWS.resetUpdateEntityTick();
 
                 /*
                 //entity.travelToDimension(destDim);//already doing this, but with own teleporter
@@ -533,8 +540,15 @@ public class TeleportHelper {
 
 
 
-        LogHelper.info("    Moved entity to x:" + entity.posX + ", y:" + entity.posY + ", z:" + entity.posZ + " and dimension:" + entity.worldObj.provider.getDimensionId());
+        LogHelper.info("    Moved entity to x:" + entity.posX + ", y:" + entity.posY + ", z:" + entity.posZ + " and dimension:" + entity.worldObj.provider.getDimension());
         return true;
+    }
+
+    public static void copyDataFromEntity(Entity to, Entity from){ //replacement for the old Entity.copyDataFromOld(Entity entityIn)
+        NBTTagCompound nbttagcompound = from.writeToNBT(new NBTTagCompound());
+        nbttagcompound.removeTag("Dimension");
+        to.readFromNBT(nbttagcompound);
+        to.timeUntilPortal = from.timeUntilPortal;
     }
 
     private static void breakBlock(Block block, World world, BlockPos pos){
@@ -598,16 +612,18 @@ public class TeleportHelper {
                 return false;
             }
             ForgeChunkManager.forceChunk( ticket, dest.getChunkFromBlockCoords(pos2).getChunkCoordIntPair() );
-            ImmutableSet<ChunkCoordIntPair> chunks = ticket.getChunkList();        //getMaxChunkListDepth()
+            ImmutableSet<ChunkPos> chunks = ticket.getChunkList();        //getMaxChunkListDepth()
             LogHelper.info("Chunks Loaded:" + chunks.size());
         }
 
         if(!origin.isAirBlock(pos1) && dest.isBlockLoaded(pos2) && tryToUseEnergy(ConfigurationHandler.blockCost, energyStorage)){ //don't bother moving air, or trying to move to nonexistent spots
 
-            Block oldBlock = origin.getBlockState(pos1).getBlock();
-            Block newBlock = dest.getBlockState(pos2).getBlock();
-            float oldHard = oldBlock.getBlockHardness(origin, pos1);
-            float newHard = newBlock.getBlockHardness(dest, pos2);
+            IBlockState oldState = origin.getBlockState(pos1);
+            IBlockState newState = dest.getBlockState(pos2);
+            Block oldBlock = oldState.getBlock();
+            Block newBlock = newState.getBlock();
+            float oldHard = oldState.getBlockHardness( origin, pos1);
+            float newHard = newState.getBlockHardness( dest, pos2);
 
             if( (oldHard != -1) && (newHard != -1) && (oldHard > newHard)){ //do not teleport if either end is indestructible, only overwrite if teleported block is more durable
                 //LogHelper.info("Moving Block at x:" + x1 + " y:" + y1 + " z:" + z1 + " to x:" + x2 + " y:" + y2 + " z:" + z2);
@@ -659,7 +675,7 @@ public class TeleportHelper {
                     if (tileNew != null) {
                         tileNew.readFromNBT(nbtData);//load data from old tileentity
                         tileNew.markDirty();//chunk has changed data, so save it next time you save world
-                        dest.markBlockForUpdate(pos2);//tell client
+                        dest.notifyBlockUpdate(pos2, newState, oldState, 3);//markBlockForUpdate(pos2);//tell client
 //                        try{
 //                            Chunk chunk = dest.getChunkFromBlockCoords(pos2);
 //                            MinecraftServer.getServer().worldServerForDimension(dest.provider.getDimensionId()).send
@@ -694,7 +710,7 @@ public class TeleportHelper {
                 }
 
                 //remove original block if it was moved
-                origin.setBlockState(pos1, Blocks.air.getDefaultState(), 2);
+                origin.setBlockState(pos1, Blocks.AIR.getDefaultState(), 2);
 
             }else if((oldHard != -1)  && (oldHard <= newHard || newHard == -1)){
                 breakBlock(oldBlock, origin, pos1);

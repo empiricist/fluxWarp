@@ -8,37 +8,46 @@ import com.empiricist.teleflux.api.IDimensionPermissionItem;
 import com.empiricist.teleflux.init.ModBlocks;
 import com.empiricist.teleflux.utility.LogHelper;
 import com.empiricist.teleflux.utility.ParseHelper;
+import com.empiricist.teleflux.utility.TeleFluxEnergyStorage;
 import com.empiricist.teleflux.utility.TeleportHelper;
-import net.minecraft.util.*;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Optional;
 import dan200.computercraft.api.lua.ILuaContext;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import li.cil.oc.api.machine.Arguments;
+import li.cil.oc.api.machine.Callback;
+import li.cil.oc.api.machine.Context;
+import li.cil.oc.api.network.SimpleComponent;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.world.*;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraft.util.math.BlockPos;
 
 
 import java.util.List;
 
 @Optional.InterfaceList({
         @Optional.Interface(iface = "dan200.computercraft.api.peripheral.IPeripheral", modid = "ComputerCraft", striprefs = true),
-        @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true)
+        @Optional.Interface(iface = "cofh.api.energy.IEnergyReceiver", modid = "CoFHAPI|energy", striprefs = true),
+        @Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers", striprefs = true)
 })
-public class TileEntityWarpCore extends TileEntity implements IInventory, IPeripheral, IEnergyReceiver {
+public class TileEntityWarpCore extends TileEntity implements IInventory, IPeripheral, IEnergyReceiver, SimpleComponent {
 
     private int xPlus;
     private int yPlus;
@@ -95,31 +104,31 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
 
 
                 LogHelper.info("Activating Warp Drive, " + pos);
-                if( dx == 0 && dy == 0 && dz == 0 && destDim == worldObj.provider.getDimensionId()){
+                if( dx == 0 && dy == 0 && dz == 0 && destDim == worldObj.provider.getDimension() ){
                     LogHelper.info("Destination is the same as origin, quitting warp");
-                    worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.bd", 1, 1);
+                    worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("note.bd")), SoundCategory.BLOCKS, 1, 1, false);
                     return;
                 }
 
                 if( (xPlus+xMinus+1)*(yPlus+yMinus+1)*(zPlus+zMinus+1) > ConfigurationHandler.maxSize ){
                     LogHelper.info("Volume is too large!");
-                    worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.hat", 1, 1);
+                    worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("note.hat")), SoundCategory.BLOCKS, 1, 1, false);
                     return;
                 }
 
                 if( !DimensionManager.isDimensionRegistered(destDim) ){
                     LogHelper.info("Dimension " + destDim + " is not registered!");
-                    worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.bassattack", 1, 1);
+                    worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("note.bassattack")), SoundCategory.BLOCKS, 1, 1, false);
                     return;
                 }
 
                 if( !hasPermissionForDimension(destDim) ){
                     LogHelper.info("Dimension " + destDim + " address not found!");
-                    worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "note.harp", 1, 1);
+                    worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("note.harp")), SoundCategory.BLOCKS, 1, 1, false);
                     return;
                 }
 
-                World world2 = MinecraftServer.getServer().worldServerForDimension(destDim);//seems to not have loading problems like DimensionManager method
+                World world2 = worldObj.getMinecraftServer().worldServerForDimension(destDim);//seems to not have problems getting unloaded dimensions like DimensionManager method
                 /*
                 World world2 = DimensionManager.getWorld(destDim);//sometimes this fails (if destination dimension is unloaded?)
                 while (world2 == null){
@@ -142,14 +151,14 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                     //LogHelper.info("Same dimension");
                     if( !tryToUseEnergy(ConfigurationHandler.baseCost) ){
                         LogHelper.info("Out of energy for warp!");
-                        worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
+                        worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("mob.enderdragon.hit")), SoundCategory.BLOCKS, 1, 1, false);
                         return;
                     }
                 }else{
                     //LogHelper.info("Different dimension");
                     if( !tryToUseEnergy(ConfigurationHandler.dimensionCost) ){
                         LogHelper.info("Out of energy for warp!");
-                        worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
+                        worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("mob.enderdragon.hit")), SoundCategory.BLOCKS, 1, 1, false);
                         return;
                     }
                 }
@@ -159,14 +168,14 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                     //LogHelper.info("Distance is " + distance);
                     if( !tryToUseEnergy(ConfigurationHandler.distanceCost * ((int)distance) ) ){
                         LogHelper.info("Out of energy for warp!");
-                        worldObj.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
+                        worldObj.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("mob.enderdragon.hit")), SoundCategory.AMBIENT, 1, 1, false);
                         return;
                     }
                 }
 
 
 
-                LogHelper.info("Destination World: " + world2.provider.getDimensionName() + ", " + world2.provider.getDimensionId());//make sure it worked
+                LogHelper.info("Destination World: " + world2.provider.getDimensionType() + ", " + world2.provider.getDimension());//make sure it worked
                 double posMultiplier = worldObj.provider.getMovementFactor() / world2.provider.getMovementFactor();//for the nether and stuff
                 int newXCen = (int)((pos.getX()) * posMultiplier) + dx;
                 int newYCen = pos.getY() + dy;
@@ -253,7 +262,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                             int x = i*ix + j*jx + k*kx;
                             int y = i*iy + j*jy + k*ky;
                             int z = i*iz + j*jz + k*kz;
-                            position.set(x, y, z);
+                            position.setPos(x, y, z);
                             isWarpSuccessful &= TeleportHelper.moveBlockChunk(world1, world2, position, position.subtract(oldPos).add(newPos), energyStorage);//supposedly this works for booleans
                             //LogHelper.info("    From " + position + " to " + position.add( - pos.getX() + newXCen, - pos.getY() + newYCen, - pos.getZ() + newZCen ));
                         }
@@ -308,15 +317,15 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
 
                 LogHelper.info("Was warp successful for all blocks: " + isWarpSuccessful);
                 if( !isWarpSuccessful ){
-                    world1.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "mob.enderdragon.hit", 1, 1);
+                    world1.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("mob.enderdragon.hit")), SoundCategory.BLOCKS, 1, 1, false);
                 }
 
                 if(isWarpSuccessful) {
                     warpEntities(world1, world2, oldPos);
                 }
 
-                world1.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), "random.fizz", 1, 1);
-                world2.playSoundEffect(newXCen, newYCen, newZCen, "ambient.weather.thunder", 1, 1);
+                world1.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvent.REGISTRY.getObject(new ResourceLocation("random.fizz")), SoundCategory.BLOCKS, 1, 1, false);
+                world2.playSound(newXCen, newYCen, newZCen, SoundEvent.REGISTRY.getObject(new ResourceLocation("ambient.weather.thunder")), SoundCategory.BLOCKS, 1, 1, false);
 
                 LogHelper.info("Finished warp!");
 
@@ -330,7 +339,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
     }
 
     public void warpEntities(World origin, World dest, BlockPos center){
-        LogHelper.warn("Warping Entities from " + origin.provider.getDimensionName() + " to " + dest.provider.getDimensionName() + " on " + (worldObj.isRemote?"Client":"Server"));
+        LogHelper.warn("Warping Entities from DIM " + origin.provider.getDimension() + " to DIM " + dest.provider.getDimension() + " on " + (worldObj.isRemote?"Client":"Server"));
         if(!worldObj.isRemote){
 
             double posMultiplier = origin.provider.getMovementFactor() / dest.provider.getMovementFactor();//for the nether and stuff
@@ -371,7 +380,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
 
 
     public boolean hasPermissionForDimension( int dimID ){
-        if(dimID == worldObj.provider.getDimensionId()){//don't need permission to move within same dimension
+        if(dimID == worldObj.provider.getDimension()){//don't need permission to move within same dimension
             return true;
         }else if(ConfigurationHandler.AlwaysAllowedDimensions.contains(dimID + "")){
             return true;
@@ -411,7 +420,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
         signalOn = signal;
         signal = redstonePowered;
         doWarp = doWarp || ( signal && !signalOn );
-        LogHelper.info("  Signal Updated: doWarp is " + doWarp + ", Signal stuff is " + (signal && !signalOn));
+        //LogHelper.info("  Signal Updated: doWarp is " + doWarp + ", Signal stuff is " + (signal && !signalOn));
     }
 
     private void getDirections(){
@@ -420,11 +429,11 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
         if (tile != null && tile instanceof TileEntitySign) {
             TileEntitySign sign = (TileEntitySign) tile;
 
-            IChatComponent[] text = sign.signText;
+            ITextComponent[] text = sign.signText;
             dx = ParseHelper.safeReadInt(text[0].getUnformattedText(), 0);
             dy = ParseHelper.safeReadInt(text[1].getUnformattedText(), 0);
             dz = ParseHelper.safeReadInt(text[2].getUnformattedText(), 0);
-            destDim = ParseHelper.safeReadInt(text[3].getUnformattedText(), worldObj.provider.getDimensionId() );
+            destDim = ParseHelper.safeReadInt(text[3].getUnformattedText(), worldObj.provider.getDimension() );
             LogHelper.info("Found coords dx:" + dx + " dy:" + dy + " dz:" + dz + " dim:" + destDim);
         }
     }
@@ -435,7 +444,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound compound) {
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
 
         compound.setInteger("xPlus", (int)xPlus);
@@ -454,6 +463,8 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
         compound.setInteger("destDim", (int)destDim);
 
         energyStorage.writeToNBT(compound);
+
+        return compound;
     }
 
     @Override
@@ -479,15 +490,15 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
     }
 
     @Override
-    public Packet getDescriptionPacket()
+    public SPacketUpdateTileEntity getUpdatePacket()
     {
         NBTTagCompound syncData = new NBTTagCompound();
         this.writeToNBT(syncData);
-        return new S35PacketUpdateTileEntity(this.pos, 1, syncData);
+        return new SPacketUpdateTileEntity(this.pos, 1, syncData);
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
     {
         readFromNBT(pkt.getNbtCompound());
     }
@@ -545,9 +556,9 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
                 return new Object[]{dx, dy, dz};
             case 4: //setDimension
                 if (arguments.length >= 1) {
-                    destDim = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[0]), worldObj.provider.getDimensionId());//try to set to given dimension
+                    destDim = ParseHelper.safeReadInt(ParseHelper.safeReadString(arguments[0]), worldObj.provider.getDimension());//try to set to given dimension
                 } else {
-                    destDim = worldObj.provider.getDimensionId(); //return new Object[]{-1, "Not enough arguments, 1 needed: dimension"};
+                    destDim = worldObj.provider.getDimension(); //return new Object[]{-1, "Not enough arguments, 1 needed: dimension"};
                 }
                 break;
             case 5: //getDimension
@@ -595,23 +606,112 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
         }
     }
 
-    //RF methods
+
+    //opencomputers component methods
     @Override
+    public String getComponentName() {
+        return "teleflux_warpcore";
+    }
+
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] setBounds(Context context, Arguments args){
+        if (args.count() >= 6) {
+            xPlus =  args.optInteger(0, 1);
+            xMinus = args.optInteger(1, 1);
+            yPlus =  args.optInteger(2, 1);
+            yMinus = args.optInteger(3, 1);
+            zPlus =  args.optInteger(4, 1);
+            zMinus = args.optInteger(5, 1);
+        } else {
+            //return new Object[]{-1, "Not enough arguments, 6 needed: x+, x-, y+, y-, z+, z-"};
+            return new Object[] {"Not enough arguments, 6 needed: x+, x-, y+, y-, z+, z-"};
+        }
+        return new Object[0];
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] getBounds(Context context, Arguments args){
+        return new Object[]{xPlus, xMinus, yPlus, yMinus, zPlus, zMinus};
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] setWarpVector(Context context, Arguments args){
+        if (args.count() >= 3) {
+            dx = args.optInteger(0, 0);
+            dy = args.optInteger(1, 0);
+            dz = args.optInteger(2, 0);
+        } else {
+            //return new Object[]{-1, "Not enough arguments, 3 needed: dx, dy, dz"};
+            return new Object[] {"Not enough arguments, 3 needed: dx, dy, dz"};
+        }
+        return new Object[0];
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] getWarpVector(Context context, Arguments args){
+        return new Object[]{dx, dy, dz};
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] setDimension(Context context, Arguments args){
+        if (args.count() >= 1) {
+            destDim = args.optInteger(0, worldObj.provider.getDimension());//try to set to given dimension
+        } else {
+            destDim = worldObj.provider.getDimension(); //return new Object[]{-1, "Not enough arguments, 1 needed: dimension"};
+        }
+        return new Object[0];
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] getDimension(Context context, Arguments args){
+        return new Object[]{destDim};
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] getEnergy(Context context, Arguments args){
+        return new Object[]{ energyStorage.getEnergyStored()};
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] getMaxEnergy(Context context, Arguments args){
+        return new Object[]{ energyStorage.getMaxEnergyStored()};
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] warp(Context context, Arguments args){
+        doWarp = true;
+        //worldObj.notifyNeighborsOfStateChange(pos, this.blockType);
+        if(worldObj!=null){worldObj.scheduleUpdate(pos, this.blockType, 1);}
+        return new Object[0];
+    }
+    @Callback
+    @Optional.Method(modid="OpenComputers")
+    public Object[] listMethods(Context context, Arguments args){
+        String methods = "";
+        for( String s : getMethodNames() ){
+            methods += (s + ", ");
+        }
+        return new Object[]{methods};
+    }
+
+    //RF methods
+    //@Override
     public int receiveEnergy(EnumFacing from, int maxReceive, boolean simulate) {
         return energyStorage.receiveEnergy(maxReceive, simulate);
     }
 
-    @Override
+    //@Override
     public int getEnergyStored(EnumFacing from) {
         return energyStorage.getEnergyStored();
     }
 
-    @Override
+    //@Override
     public int getMaxEnergyStored(EnumFacing from) {
         return energyStorage.getMaxEnergyStored();
     }
 
-    @Override
+    //@Override
     public boolean canConnectEnergy(EnumFacing from) {
         return true;
     }
@@ -734,7 +834,7 @@ public class TileEntityWarpCore extends TileEntity implements IInventory, IPerip
     }
 
     @Override
-    public IChatComponent getDisplayName() {
+    public ITextComponent getDisplayName() {
         return null;
     }
 }

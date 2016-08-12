@@ -15,18 +15,18 @@ public class Recipes {
     //register recipes
     public static void init(){
         //to add vanilla shaped crafting recipe (can also use addShapedRecipe?)
-        GameRegistry.addRecipe(new ItemStack(ModItems.bearingCompass), "ggg", "gcg", "ggg", 'g', new ItemStack(Blocks.glass_pane), 'c', new ItemStack(Items.compass));
-        GameRegistry.addRecipe(new ItemStack(ModItems.infoDisk), "r", "p", "e", 'r', new ItemStack(Items.redstone), 'p', new ItemStack(Items.paper), 'e', new ItemStack(Items.ender_pearl));
+        GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ModItems.bearingCompass), "ggg", "gcg", "ggg", 'g', "paneGlass", 'c', new ItemStack(Items.COMPASS)));
+        GameRegistry.addRecipe( new ShapedOreRecipe(new ItemStack(ModItems.infoDisk), "r", "p", "e", 'r', "dustRedstone", 'p', "paper", 'e', "enderpearl"));
 
         //to add vanilla shapeless crafting recipe
-        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.test), new ItemStack(Items.redstone), new ItemStack(Blocks.wool));
+        GameRegistry.addRecipe( new ShapelessOreRecipe(new ItemStack(ModBlocks.test), "dustRedstone", new ItemStack(Blocks.WOOL)));
 
         //to add forge oredict shaped crafting recipe (can use oredict names or itemStacks)
         if(ConfigurationHandler.vanillaRecipes){
             LogHelper.info("Registered vanilla Minecraft recipe for Dimension Address");
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.dimensionAddress), " r ", "ibi", " g ", 'r', "dustRedstone", 'i', "ingotIron", 'b', new ItemStack(Items.glass_bottle), 'g', "ingotGold"));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.dimensionAddress), " r ", "ibi", " g ", 'r', "dustRedstone", 'i', "ingotIron", 'b', new ItemStack(Items.GLASS_BOTTLE), 'g', "ingotGold"));
             LogHelper.info("Registered vanilla Minecraft recipe for Warp Core");
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.warpcore), "gig", "pep", "iri", 'g', "ingotGold", 'i', "ingotIron", 'p', new ItemStack(Blocks.piston), 'e', new ItemStack(Items.ender_pearl), 'r', "dustRedstone"));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.warpcore), "gig", "pep", "iri", 'g', "ingotGold", 'i', "ingotIron", 'p', new ItemStack(Blocks.PISTON), 'e', "enderpearl", 'r', "dustRedstone"));
         }
 
     }
@@ -146,7 +146,7 @@ public class Recipes {
     }
 
     public static boolean exists(String modid, String name) {
-        if ( GameRegistry.findItem(modid, name) != null) {
+        if ( GameRegistry.findItem(modid, name) != null) {      //switch to Item.REGISTRY.getValue(ResourceLocation)?
             LogHelper.info("Found item " + name + " for recipe");
             return true;
         }else if (GameRegistry.findBlock(modid, name) != null){

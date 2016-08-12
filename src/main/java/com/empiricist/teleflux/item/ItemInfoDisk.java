@@ -2,10 +2,10 @@ package com.empiricist.teleflux.item;
 
 import com.empiricist.teleflux.TeleFlux;
 import com.empiricist.teleflux.reference.Reference;
-import net.minecraftforge.fml.common.Optional;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.filesystem.IMount;
 import dan200.computercraft.api.media.IMedia;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 @Optional.Interface(iface = "dan200.computercraft.api.media.IMedia", modid = "ComputerCraft", striprefs = true)
-public class ItemInfoDisk extends ItemBase implements IMedia{
+public class ItemInfoDisk extends ItemBase implements IMedia {
 
     public ItemInfoDisk(){
         super();

@@ -6,10 +6,10 @@ import com.empiricist.teleflux.init.ModItems;
 import com.empiricist.teleflux.reference.Reference;
 import com.empiricist.teleflux.utility.LogHelper;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 
@@ -38,6 +38,6 @@ public class ClientProxy extends CommonProxy{
         renderItem.getItemModelMesher().register(ModItems.dimensionAddress, 1, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory"));
         renderItem.getItemModelMesher().register(ModItems.infoDisk, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.infoDisk.getName(), "inventory"));
 
-        ModelBakery.registerItemVariants(ModItems.dimensionAddress, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName(), "inventory"), new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory"));
+        ModelLoader.registerItemVariants(ModItems.dimensionAddress, new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName(), "inventory"), new ModelResourceLocation(Reference.MOD_ID + ":" + ModItems.dimensionAddress.getName() + "Saved", "inventory"));
     }
 }

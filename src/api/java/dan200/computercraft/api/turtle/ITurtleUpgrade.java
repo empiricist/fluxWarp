@@ -7,7 +7,7 @@
 package dan200.computercraft.api.turtle;
 
 import dan200.computercraft.api.peripheral.IPeripheral;
-import net.minecraft.client.resources.model.IBakedModel;
+//import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -96,8 +96,8 @@ public interface ITurtleUpgrade
      * @param side Which side of the turtle (left or right) the upgrade resides on.
      * @return The model that you wish to be used to render your upgrade, and a transformation to apply to it. Returning a transformation of null has the same effect as the identify matrix.
      */
-    @SideOnly( Side.CLIENT )
-    public Pair<IBakedModel, Matrix4f> getModel( ITurtleAccess turtle, TurtleSide side );
+//    @SideOnly( Side.CLIENT )
+//    public Pair<IBakedModel, Matrix4f> getModel( ITurtleAccess turtle, TurtleSide side );
 
     /**
      * Called once per tick for each turtle which has the upgrade equipped.

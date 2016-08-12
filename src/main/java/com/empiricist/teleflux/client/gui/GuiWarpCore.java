@@ -364,7 +364,7 @@ public class GuiWarpCore extends GuiContainer{
 
     private void saveInput(){
         if(entry >= 0 && entry < entries.length){
-            int defaultValue = ((entry != 3)? 0 : te.getWorld().provider.getDimensionId());
+            int defaultValue = ((entry != 3)? 0 : te.getWorld().provider.getDimension());
             int number = ParseHelper.safeReadInt(ParseHelper.safeReadString(entries[entry]), defaultValue);
             entries[entry] = "" + number;
             this.mc.playerController.sendEnchantPacket(inventorySlots.windowId, (number<<4) + entry);

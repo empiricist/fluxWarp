@@ -10,7 +10,9 @@ import com.empiricist.teleflux.utility.LogHelper;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -20,15 +22,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 
-public class BlockDimensionDatabase extends BlockContainer implements IDimensionPermissionBlock{
+public class BlockDimensionDatabase extends BlockBase implements IDimensionPermissionBlock{
     public BlockDimensionDatabase(){
-        super(Material.iron);
+        super(Material.IRON);
         this.setHardness(50f);
         this.setUnlocalizedName("dimensionDatabase");
         this.setCreativeTab(CreativeTabTeleFlux.TELEFLUX_TAB);//need these for tab to work because this is not a subclass of blockbase
@@ -36,14 +38,13 @@ public class BlockDimensionDatabase extends BlockContainer implements IDimension
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int metadata) {
+    public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityDimensionDatabase();
     }
 
     //transfer dimension id from item to block
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ){
-        ItemStack stack = player.getHeldItem();
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack stack, EnumFacing side, float hitX, float hitY, float hitZ){
         if( stack != null && stack.getItem() instanceof ItemDimensionAddress ){
             TileEntity tile = world.getTileEntity(pos);
             if (tile != null && tile instanceof TileEntityDimensionDatabase) {
@@ -56,14 +57,14 @@ public class BlockDimensionDatabase extends BlockContainer implements IDimension
                 if(tag.hasKey("DimID")){//sneaking deletes ID, if it exists
                     int id = tag.getInteger("DimID");
                     database.addDimension( id );
-                    if(!world.isRemote){ player.addChatComponentMessage(new ChatComponentText( "Added Dimension " + id )); }
+                    if(!world.isRemote){ player.addChatComponentMessage(new TextComponentString( "Added Dimension " + id )); }
                 }
             }
         }else{
             TileEntity tile = world.getTileEntity(pos);
             if (tile != null && tile instanceof TileEntityDimensionDatabase) {
                 TileEntityDimensionDatabase database = (TileEntityDimensionDatabase) tile;
-                if(!world.isRemote){ player.addChatComponentMessage(new ChatComponentText( "Dimensions: " + database.dimensions.toString() ) ) ; }
+                if(!world.isRemote){ player.addChatComponentMessage(new TextComponentString( "Dimensions: " + database.dimensions.toString() ) ) ; }
             }
         }
 
@@ -89,7 +90,7 @@ public class BlockDimensionDatabase extends BlockContainer implements IDimension
         if (te != null && te instanceof TileEntityDimensionDatabase) {
             //LogHelper.info("Found TEDatabase");
             TileEntityDimensionDatabase database = (TileEntityDimensionDatabase) te;
-            ItemStack stack = new ItemStack(ModBlocks.dimensionDatabase);
+            ItemStack stack = new ItemStack(ModBlocks.test);//dimensionDatabase);
             NBTTagCompound tag = new NBTTagCompound();
             if( stack.hasTagCompound() ){
                 LogHelper.info("Stack has Tag " + tag);

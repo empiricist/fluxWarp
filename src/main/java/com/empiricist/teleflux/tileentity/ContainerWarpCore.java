@@ -1,14 +1,17 @@
 package com.empiricist.teleflux.tileentity;
 
+import net.minecraft.inventory.ClickType;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 
-public class ContainerWarpCore extends Container{
+public class ContainerWarpCore extends Container {
     private TileEntityWarpCore contents;
     private int lastRF;
 
@@ -40,9 +43,9 @@ public class ContainerWarpCore extends Container{
     }
 
     @Override
-    public ItemStack slotClick(int slot, int button, int modifier, EntityPlayer player) {
+    public ItemStack slotClick(int slot, int drag, ClickType type, EntityPlayer player) {
         //LogHelper.info("Clicked slot " + slot + " with button " + button + " modifier " + modifier + " side " + player.worldObj.isRemote);
-        return super.slotClick(slot, button, modifier, player);
+        return super.slotClick(slot, drag, type, player);
     }
 
     //this is a little bit ridiculous
@@ -99,7 +102,7 @@ public class ContainerWarpCore extends Container{
         super.onContainerClosed(player);
         //contents.markDirty();
         //contents.onDataPacket(Minecraft.getMinecraft().getNetHandler().getNetworkManager(), (S35PacketUpdateTileEntity)contents.getDescriptionPacket());
-        contents.getWorld().markBlockForUpdate(contents.getPos());
+        contents.getWorld().notifyBlockUpdate(contents.getPos(), contents.getWorld().getBlockState(contents.getPos()), contents.getWorld().getBlockState(contents.getPos()), 3);//markBlockForUpdate(contents.getPos());
     }
 
     @Override
@@ -108,12 +111,12 @@ public class ContainerWarpCore extends Container{
 
         int rf = this.contents.getEnergyStored(EnumFacing.DOWN);
 
-        for (int i = 0; i < this.crafters.size(); ++i)
+        for (int i = 0; i < this.listeners.size(); ++i)
         {
-            ICrafting icrafting = (ICrafting)this.crafters.get(i);
+            IContainerListener iListener = (IContainerListener)this.listeners.get(i);
 
             if (this.lastRF != rf){
-                icrafting.sendProgressBarUpdate(this, 0, rf);
+                iListener.sendProgressBarUpdate(this, 0, rf);
             }
         }
 

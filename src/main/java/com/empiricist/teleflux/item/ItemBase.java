@@ -2,7 +2,6 @@ package com.empiricist.teleflux.item;
 
 import com.empiricist.teleflux.creativetab.CreativeTabTeleFlux;
 import com.empiricist.teleflux.reference.Reference;
-//import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

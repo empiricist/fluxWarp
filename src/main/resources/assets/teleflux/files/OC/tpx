@@ -4,20 +4,25 @@ args = {...}
 print("This program lets you teleport between dimensions")
 print("Arguments are dimension id, [dx, dy, dz]")
 
+--get API access
+term = require('term')
+computer = require('computer')
+
 --find warp core
 local component = require('component')
 local wd = component.getPrimary('teleflux_warpcore')
 local w = component.proxy(wd.address)
 
-w.setDimension(args[1]) --set dimension
+w.setDimension(tonumber(args[1])) --set dimension
 
 --set relative warp coordinates if they are included
 if #args >= 4 then
-  w.setWarpVector(args[2], args[3], args[4])
+  w.setWarpVector(tonumber(args[2]), tonumber(args[3]), tonumber(args[4]))
 else
   w.setWarpVector(0,0,0) --otherwise set them to 0
 end
-
+term.clear()
 os.sleep(1)
 
 w.warp() --activate warp drive
+computer.shutdown() --shut down computer for safety

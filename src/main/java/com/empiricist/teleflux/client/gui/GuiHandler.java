@@ -3,7 +3,7 @@ package com.empiricist.teleflux.client.gui;
 import com.empiricist.teleflux.TeleFlux;
 import com.empiricist.teleflux.tileentity.ContainerWarpCore;
 import com.empiricist.teleflux.tileentity.TileEntityWarpCore;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraft.entity.player.EntityPlayer;

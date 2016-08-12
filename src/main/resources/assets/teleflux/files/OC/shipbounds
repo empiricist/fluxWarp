@@ -1,6 +1,8 @@
 --Sets the bounding box to teleport
 print("This program sets the bounding box of a warp core's teleport region")
 
+--get API access
+local term = require('term')
 
 --find warp core
 local component = require('component')
@@ -9,17 +11,17 @@ local w = component.proxy(wd.address)
 
 --input bounds for ship
 print("Distance in +X direction:")
-xp = read()
+xp = tonumber(term.read())
 print("Distance in -X direction:")
-xn = read()
+xn = tonumber(term.read())
 print("Distance in +Y direction:")
-yp = read()
+yp = tonumber(term.read())
 print("Distance in -Y direction:")
-yn = read()
+yn = tonumber(term.read())
 print("Distance in +Z direction:")
-zp = read()
+zp = tonumber(term.read())
 print("Distance in -Z direction:")
-zn = read()
+zn = tonumber(term.read())
 
 w.setBounds(xp, xn, yp, yn, zp, zn)
 print("Bounds have been set")

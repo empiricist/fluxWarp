@@ -7,7 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
@@ -39,9 +39,10 @@ public class TileEntityDimensionDatabase extends TileEntity implements IInventor
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound tag) {
+    public NBTTagCompound writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);
         tag.setIntArray("DimIDs", Ints.toArray(dimensions));
+        return tag;
     }
 
 
@@ -126,7 +127,7 @@ public class TileEntityDimensionDatabase extends TileEntity implements IInventor
     }
 
     @Override
-    public IChatComponent getDisplayName() {
+    public ITextComponent getDisplayName() {
         return null;
     }
 

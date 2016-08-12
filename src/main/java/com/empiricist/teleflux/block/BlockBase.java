@@ -4,7 +4,6 @@ import com.empiricist.teleflux.creativetab.CreativeTabTeleFlux;
 import com.empiricist.teleflux.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-//import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockBase extends Block{
     protected String name;
@@ -16,7 +15,7 @@ public class BlockBase extends Block{
     }
 
     public BlockBase(){
-        this(Material.rock);//we'll use rock as default
+        this(Material.ROCK);//we'll use rock as default
     }
 
     //unlocalized name here, localized name comes from lang file

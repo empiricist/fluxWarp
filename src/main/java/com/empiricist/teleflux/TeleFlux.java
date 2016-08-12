@@ -10,6 +10,7 @@ import com.empiricist.teleflux.init.ModItems;
 import com.empiricist.teleflux.init.Recipes;
 import com.empiricist.teleflux.reference.Reference;
 import com.empiricist.teleflux.utility.LogHelper;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -33,43 +34,43 @@ public class TeleFlux {
         //handle config file at default location
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
-        //register our class to listen for config events from FML's event bus
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-
-        //register keybindings
-        //proxy.registerKeyBindings(); //no key bindings needed
+        //register our class to listen for config events from event bus
+        MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
 
         //initialize the mod's items and blocks
         ModItems.init();
         ModBlocks.init();
 
 
-        LogHelper.info("PreInit Complete");
+        LogHelper.info(Reference.MOD_ID + " PreInit Complete");
     }
 
     //init - gui handler, tileentity, renderers, event handlers, recipes
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
         //register other classes to listen for events from event bus
-        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+        //MinecraftForge.EVENT_BUS.register(new KeyInputEventHandler());
 
         proxy.registerRenders();
 
         //register recipes
         Recipes.init();
 
+        Integration.init();
+
+
         new GuiHandler();
 
         ForgeChunkManager.setForcedChunkLoadingCallback(instance, null);
 
-        LogHelper.info("Init Complete");
+        LogHelper.info(Reference.MOD_ID + " Init Complete");
     }
 
     //postinit - wrap up after mods initialize (ie compatibility)
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
         Integration.postInit();
-        LogHelper.info("PostInit Complete");
+        LogHelper.info(Reference.MOD_ID + " PostInit Complete");
 
     }
 }
